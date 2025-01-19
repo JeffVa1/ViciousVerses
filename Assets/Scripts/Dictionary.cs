@@ -9,7 +9,6 @@ public class Dictionary : MonoBehaviour
     private List<Card> Cards;
     private CardCount = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Dictionary(List<Card> c)
     {
         Cards = c;
@@ -31,15 +30,7 @@ public class Dictionary : MonoBehaviour
     {
         foreach (Card c in Cards) 
         {
-            if (full_info)
-            {
-                c.LogCard();
-            }
-            else
-            {
-                Debug.Log(c.GetText());
-            }
-            
+            c.LogCard(full_info);
         }
     }
 

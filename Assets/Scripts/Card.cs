@@ -28,12 +28,17 @@ public class Card : MonoBehaviour
         return pointAddition;
     }
 
-    public void LogCard()
+    public void LogCard(bool full_info)
     {
-        Debug.Log("CARD");
-        Debug.Log("Text: " + Text);
-        Debug.Log("Mult: " + pointMultiplier);
-        Debug.Log("Add : " + pointAddition);
-        Debug.Log("");
+        if (full_info)
+        {
+            Debug.Log("CARD");
+            Debug.Log("Text: " + Text);
+            Debug.Log("Mult: " + pointMultiplier);
+            Debug.Log("Add : " + pointAddition);
+            Debug.Log("");
+        } else {
+            Debug.Log(Text);
+        }
     }
 }
