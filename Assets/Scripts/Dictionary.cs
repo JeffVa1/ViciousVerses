@@ -7,12 +7,12 @@ using static Card;
 public class Dictionary : MonoBehaviour
 {
     private List<Card> Cards;
-    private CardCount = 0;
+    private int CardCount = 0;
 
     public Dictionary(List<Card> c)
     {
         Cards = c;
-        CardCount = Cards.Length;
+        CardCount = Cards.Count;
     }
 
     public void AddCard(Card card)
