@@ -6,7 +6,7 @@ using static Card;
 
 
 
-public class Dictionary : MonoBehaviour
+public class Dictionary
 {
     private List<Card> Cards;
     private int CardCount = 0;
