@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Card : MonoBehaviour
+public class Card
 {
     private string Text = "";
     private int pointMultiplier = 1;
