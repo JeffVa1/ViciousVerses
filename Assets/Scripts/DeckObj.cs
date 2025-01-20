@@ -16,6 +16,11 @@ public class DeckObj : MonoBehaviour
         library = cards;
     }
 
+    public DeckObj()
+    {
+
+    }
+
     // Getters and Setters
 
     public List<Card> GetLibrary()
@@ -45,16 +50,25 @@ public class DeckObj : MonoBehaviour
 
     // Methods
 
-    public void AddCardToDeck(Card card)
+    // These are to modify the library/deck
+    public void AddCardToLibrary(Card card)
     {
         library.Add(card);
     }
 
-    public void AddToPlayerHandFromLibrary(Card card)
+    public void RemoveCardFromLibrary(Card card)
     {
-        playerHand.Add(card);
         library.Remove(card);
     }
+
+    // These are to manage players hand in the game loop
+    public void AddToPlayerHand(Card card)
+    {
+        playerHand.Add(card);
+
+    }
+
+
 
     public void DiscardFromPlayerHand(Card card)
     {
@@ -64,38 +78,24 @@ public class DeckObj : MonoBehaviour
 
     public void DrawPlayerHand()
     {
-        for (int i = 0; i < playerHand.Count; i++) 
-        { 
+        for (int i = 0; i < playerHand.Count; i++)
+        {
             DiscardFromPlayerHand(playerHand[i]);
         }
-        for (int i = 0;i < maxDrawNewHand; i++)
+        for (int i = 0; i < maxDrawNewHand; i++)
         {
-            AddToPlayerHandFromLibrary(library[0]);
+            AddToPlayerHand(library[0]);
             library.Remove(library[0]);
         }
     }
 
     public void GraveyardToLibrary()
     {
-        for (int i = 0; i < graveyard.Count -1; i++)
+        for (int i = 0; i < graveyard.Count - 1; i++)
         {
             library.Add(graveyard[i]);
             graveyard.Remove(graveyard[i]);
         }
     }
 
-
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
