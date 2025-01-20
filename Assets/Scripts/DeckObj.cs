@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeckObj : MonoBehaviour
+public class DeckObj
 {
     public List<Card> library = new List<Card>();
     public List<Card> playerHand = new List<Card>();
@@ -50,7 +50,7 @@ public class DeckObj : MonoBehaviour
 
     // Methods
 
-    // These are to modify the library/deck
+    // Methods to modify the library/deck
     public void AddCardToLibrary(Card card)
     {
         library.Add(card);
@@ -61,34 +61,53 @@ public class DeckObj : MonoBehaviour
         library.Remove(card);
     }
 
-    // These are to manage players hand in the game loop
-    public void AddToPlayerHand(Card card)
+    // Methods to add cards to the player hand
+    public void AddOneCardToPlayerHand(Card card)
     {
         playerHand.Add(card);
-
     }
 
+    public void DrawOneToHandFromLibrary(List<Card> library)
+    {
+        playerHand.Add(library[0]);
+        library.Remove(library[0]);
+    }
 
+    public void DrawMaxPlayerHandFromLibrary(List<Card> library)
+    {
+        for (int i = 0; i < maxDrawNewHand; i++)
+        {
+            DrawOneToHandFromLibrary(library);
+        }
+    }
 
-    public void DiscardFromPlayerHand(Card card)
+    // Methods to remove cards from the player hand
+
+    public void RemoveOneCardFromPlayerHand(Card card)
+    {
+        playerHand.Remove(card);
+    }
+
+    public void DiscardOneFromHandToGraveyard(Card card)
     {
         graveyard.Add(card);
         playerHand.Remove(card);
     }
 
-    public void DrawPlayerHand()
+    public void DiscardAllFromPlayerHand()
     {
         for (int i = 0; i < playerHand.Count; i++)
         {
-            DiscardFromPlayerHand(playerHand[i]);
-        }
-        for (int i = 0; i < maxDrawNewHand; i++)
-        {
-            AddToPlayerHand(library[0]);
-            library.Remove(library[0]);
+            DiscardOneFromHandToGraveyard(playerHand[i]);
         }
     }
 
+    public void PlayCardToPhrase(Card card)
+    {
+
+    }
+
+    // Mehtod to return Graveyard to Library when Library is empty
     public void GraveyardToLibrary()
     {
         for (int i = 0; i < graveyard.Count - 1; i++)
@@ -99,3 +118,4 @@ public class DeckObj : MonoBehaviour
     }
 
 }
+
