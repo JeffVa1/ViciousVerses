@@ -4,20 +4,27 @@ using System.Collections.Generic;
 using System.Linq;
 using static Card;
 
+
+
 public class Dictionary : MonoBehaviour
 {
     private List<Card> Cards;
     private int CardCount = 0;
 
+    public Dictionary()
+    {
+        Debug.Log("Dictionary created");
+        Cards = new List<Card> {};
+    }
     public Dictionary(List<Card> c)
     {
         Cards = c;
         CardCount = Cards.Count;
     }
 
-    public void AddCard(Card card)
+    public void AddCard(Card c)
     {
-        Cards.Add(card);
+        this.Cards.Add(c);
         CardCount += 1;
     }
 
