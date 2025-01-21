@@ -50,6 +50,19 @@ public class Bard
         dict.AddCard(c);
     }
 
+    public int GetMoneyBalance()
+    {
+        return money;
+    }
 
+    public void AddOrRemoveMoney(int delta)
+    {
+        money += delta;
+    }
+
+    public void SetMoney(int m)
+    {
+        money = m;
+    }
 
 }
