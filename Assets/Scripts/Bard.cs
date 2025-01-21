@@ -29,5 +29,23 @@ public class Bard
         ego = 100;
     }
 
+    public int GetEgo() 
+    {
+        return ego;
+    } 
+
+    public void SetEgo(int e) 
+    {
+        ego = e;
+    }
+
+    public void AddEgo(int delta) 
+    {
+        ego += delta;
+    }
+
+    
+
+
 
 }
