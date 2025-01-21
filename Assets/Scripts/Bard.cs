@@ -7,6 +7,7 @@ public class Bard
     private DeckObj deck;
     private Dictionary dict;
     private int ego;
+    private int money = 0;
 
     public Bard(Dictionary d, DeckObj new_deck, int e)
     {
@@ -44,7 +45,10 @@ public class Bard
         ego += delta;
     }
 
-    
+    public void AddCardToDict(Card c) 
+    {
+        dict.AddCard(c);
+    }
 
 
 
