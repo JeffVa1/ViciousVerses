@@ -1,0 +1,202 @@
+{
+    "Fool": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Buffoon": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Simpleton": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2
+        }
+    ],
+    "Dunce": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Imbecile": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2
+        }
+    ],
+    "Nitwit": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Blockhead": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2
+        }
+    ],
+    "Clown": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Idiot": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2
+        }
+    ],
+    "Moron": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2
+        }
+    ],
+    "Knucklehead": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Loser": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 4,
+            "audienceValue": 2
+        }
+    ],
+    "Tool": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Chump": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Scoundrel": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2
+        }
+    ],
+    "Cretin": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Lout": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Jerk": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2
+        }
+    ],
+    "Weasel": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2
+        }
+    ],
+    "Swine": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Cheapskate": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2
+        }
+    ],
+    "Maggot": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Rogue": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2
+        }
+    ],
+    "Parasite": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 4,
+            "audienceValue": 3
+        }
+    ],
+    "Wretch": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ]
+}

@@ -1,0 +1,202 @@
+{
+    "Dances": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Flounders": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Trips": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Mumbles": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Waddles": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Blunders": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2
+        }
+    ],
+    "Snivels": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Squawks": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2
+        }
+    ],
+    "Fumbles": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2
+        }
+    ],
+    "Whines": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Grovels": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 4,
+            "audienceValue": 2
+        }
+    ],
+    "Drools": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Grumbles": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Cowers": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2
+        }
+    ],
+    "Bumbles": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Sprawls": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2
+        }
+    ],
+    "Yelps": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Slurs": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Slouches": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Cackles": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 3,
+            "audienceValue": 2
+        }
+    ],
+    "Hiccups": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Blabbers": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2
+        }
+    ],
+    "Cringes": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ],
+    "Flails": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2
+        }
+    ],
+    "Snorts": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1
+        }
+    ]
+}
