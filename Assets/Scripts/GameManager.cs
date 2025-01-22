@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
         // Displays the welcome message.
     }
 
+    void DisplayShopModal()
+    {
+        // Displays the shop menu.
+    }
     
 
     void DisplayGameOverModal()
