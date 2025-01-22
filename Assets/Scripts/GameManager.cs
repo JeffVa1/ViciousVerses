@@ -1,4 +1,8 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
 using static Bard;
 using static Dictionary;
 using static Card;
@@ -23,6 +27,31 @@ public class GameManager : MonoBehaviour
         // Display welcome message.
     }
 
+    // Method to parse the JSON string into an array of Card objects
+    private Card[] ParseCardsFromJson(string json)
+    {
+        var cardDict = JsonConvert.DeserializeObject<Dictionary<string, List<CardData>>>(json);
+        List<Card> cards = new List<Card>();
+
+        foreach (var entry in cardDict)
+        {
+            foreach (var cardData in entry.Value)
+            {
+                Card card = new Card(
+                    text: entry.Key,
+                    multiplier: (int)cardData.ptMultiplier,
+                    addition: cardData.ptValue,
+                    pos: "N/A", // Placeholder, adjust if necessary
+                    e: cardData.egoDmg,
+                    audience: cardData.audienceValue
+                );
+                cards.Add(card);
+            }
+        }
+
+        return cards.ToArray();
+    }
+
     void StartMatch() 
     {
         // Run code to start a match against an opponent.
@@ -45,4 +74,13 @@ public class GameManager : MonoBehaviour
     }
 
 
+}
+
+// Helper class for deserialization
+public class CardData
+{
+    public int ptValue { get; set; }
+    public float ptMultiplier { get; set; }
+    public int egoDmg { get; set; }
+    public int audienceValue { get; set; }
 }
