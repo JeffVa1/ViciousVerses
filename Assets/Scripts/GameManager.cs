@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using System.IO;
 
 using static Bard;
 using static Dictionary;
@@ -16,7 +17,16 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // Read card json and add starter cards to (Player)Bards dictionary.
+        Debug.Log("LOADING NOUNS");
+        string noun_filename = "defaultNouns.json";
+        List<Card> nouns = ParseCardsFromJson(noun_filename);
+        LogCardArray(nouns);
+
+        Debug.Log("LOADING VERBS");
+        string verb_filename = "defaultVerbs.json";
+        List<Card> verbs = ParseCardsFromJson(verb_filename);
+        LogCardArray(verbs);
+
         // Read journal json and add phrases to (Player)Bards journal.
         // Set (Player)Bards starter deck.
 
@@ -28,8 +38,13 @@ public class GameManager : MonoBehaviour
     }
 
     // Method to parse the JSON string into an array of Card objects
-    private Card[] ParseCardsFromJson(string json)
+    private List<Card> ParseCardsFromJson(string filename)
     {
+        string jsonFilePath = Path.Combine(Application.dataPath, "Data", filename);
+
+        // Read the JSON file content
+        string json = File.ReadAllText(jsonFilePath);
+
         var cardDict = JsonConvert.DeserializeObject<Dictionary<string, List<CardData>>>(json);
         List<Card> cards = new List<Card>();
 
@@ -49,7 +64,15 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        return cards.ToArray();
+        return cards;
+    }
+
+    void LogCardArray(List<Card> cards)
+    {
+        foreach (var card in cards)
+        {
+            Debug.Log("Loaded Card: " + card.GetText());
+        }
     }
 
     void StartMatch() 
