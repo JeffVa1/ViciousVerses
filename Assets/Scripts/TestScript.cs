@@ -6,6 +6,8 @@ using System.Collections.Generic;
 
 public class TestScript : MonoBehaviour
 {
+    // BROKEN - added more fields to the Card object so these tests will just error. Didnt have time to fix
+    // TODO - fix Card instantiation in this script.
     void Start()
     {
         //Dictionary testDict = new Dictionary();
