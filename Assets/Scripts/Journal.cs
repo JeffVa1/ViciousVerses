@@ -1,46 +1,41 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using static JournalPhrase;
 
 public class Journal
 {
-    private string phraseText;
-    private List[string] phraseList;
-    private int numBlanks;
+    private List<JournalPhrase> availablePhrases;
+    private List<JournalPhrase> usedPhrases;
+    private JournalPhrase currentPhrase;
 
-    public Journal(string phrase, int b)
+
+    public Journal(List<JournalPhrase> phrases)
     {
-        phraseText = phrase;
-        numBlanks = b;
-        phraseList = ParsePhrase();
+        availablePhrases = phrases;
+        usedPhrases = new List<JournalPhrase> {};
     }
 
-    private ParsePhrase(string phrase)
+    public List<JournalPhrase> GetAvailablePhrases()
     {
-        List<string> phrases = new List<string>(phrase.Split(' '));
-
-        for (int i = 0; i < phrases.Length; i++)
-        {
-            if (phrases[i] == "BLANK")
-            {
-                phrases[i] = "";
-            }
-        }
-
-        return phrases;
+        return availablePhrases;
     }
 
-    public int GetNumBlanks() 
+    public List<JournalPhrase> GetUsedPhrases()
     {
-        return numBlanks;
+        return usedPhrases;
     }
 
-    public string GetPhraseText() 
+    public JournalPhrase GetCurrentPhrase()
     {
-        return phraseText.Replace("BLANK", "_____");
+        return currentPhrase;
     }
 
-    public List<string> GetPhraseList()
+    public void LogCurrentPhrase()
     {
-        return phraseList;
+        Debug.Log(currentPhrase.GetPhraseText());
+        Debug.Log("Num words: " + currentPhrase.GetPhraseList.Count());
+        Debug.Log("Num blank: " + currentPhrase.GetNumBlanks());
     }
 
 
