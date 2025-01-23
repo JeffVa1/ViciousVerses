@@ -4,6 +4,8 @@ using static Bard;
 public class Enemy : MonoBehaviour
 {
      protected Bard bard;
+     var spriteimage = 
+     [Ser]
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
