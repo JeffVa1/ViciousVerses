@@ -12,14 +12,14 @@ public class JournalPhrase
     {
         phraseText = phrase;
         numBlanks = b;
-        phraseList = ParsePhrase();
+        phraseList = ParsePhrase(phraseText);
     }
 
     private List<string> ParsePhrase(string phrase)
     {
         List<string> phrases = new List<string>(phrase.Split(' '));
 
-        for (int i = 0; i < phrases.Length; i++)
+        for (int i = 0; i < phrases.Count; i++)
         {
             if (phrases[i] == "BLANK")
             {
@@ -52,6 +52,6 @@ public class JournalPhrase
         Debug.Log("Num blank: " + numBlanks);
     }
 
-    
+
 
 }

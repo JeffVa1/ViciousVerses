@@ -34,7 +34,7 @@ public class Journal
     public void LogCurrentPhrase()
     {
         Debug.Log(currentPhrase.GetPhraseText());
-        Debug.Log("Num words: " + currentPhrase.GetPhraseList.Count());
+        Debug.Log("Num words: " + currentPhrase.GetPhraseList().Count);
         Debug.Log("Num blank: " + currentPhrase.GetNumBlanks());
     }
 
