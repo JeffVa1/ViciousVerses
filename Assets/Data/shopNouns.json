@@ -1,0 +1,407 @@
+{
+    "Goblet": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Trinket": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Talisman": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Charm": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Potion": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Elixir": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Amulet": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Artifact": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Token": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Relic": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Badge": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Medallion": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Sigil": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Trophy": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Scroll": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Grimoire": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Crown": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Scepter": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Orb": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Crystal": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Pendant": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Blade": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Dagger": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Ring": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Cloak": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Mask": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Helm": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Gauntlet": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Boot": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Bracer": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Cape": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Shield": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Lantern": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Map": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Compass": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Gem": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Coin": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Candle": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Quill": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Inkwell": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Satchel": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Chest": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Horn": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Pipe": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Pouch": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ]
+}
