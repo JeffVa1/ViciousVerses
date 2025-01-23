@@ -1,0 +1,380 @@
+{
+    "Slice": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Smash": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Crush": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Shatter": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Chop": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Slash": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Punch": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Kick": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Throw": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Catch": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Strike": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Swing": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Leap": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Dodge": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Dash": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Charge": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Blast": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Burn": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Freeze": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Zap": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Tackle": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Tear": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Rip": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Pummel": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Slam": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Twist": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Snatch": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Seize": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Drag": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Lunge": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Snarl": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Glare": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Peer": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Gaze": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Stagger": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Stumble": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Vault": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Crawl": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Bash": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Plunge": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Dive": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ],
+    "Roll": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1
+        }
+    ]
+}
