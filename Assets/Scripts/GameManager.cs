@@ -19,12 +19,15 @@ public class GameManager : MonoBehaviour
         Debug.Log("LOADING NOUNS");
         string noun_filename = "defaultNouns.json";
         List<Card> nouns = ParseCardsFromJson(noun_filename, "noun");
-        LogCardArray(nouns);
         Debug.Log("LOADING VERBS");
         string verb_filename = "defaultVerbs.json";
         List<Card> verbs = ParseCardsFromJson(verb_filename, "verb");
-        LogCardArray(verbs);
-        //TODO - ASSIGN ALL CARDS TO PLAYER DICTIONARY INSTANCE
+        List<Card> playerCardList = new List<Card>();
+        playerCardList.AddRange(nouns);
+        playerCardList.AddRange(verbs);
+        Dictionary player_dictionary = new Dictionary(playerCardList);
+        player_dictionary.LogCards(true);
+        //TODO - ASSIGN DICTIONARY TO PLAYER BARD INSTANCE
 
         Debug.Log("LOADING PLAYER JOURNAL");
         string player_phrase_filename = "playerPhrases.json";
@@ -94,7 +97,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (var card in cards)
         {
-            Debug.Log("Loaded Card: " + card.GetText());
+            card.LogCard(true);
         }
     }
 
