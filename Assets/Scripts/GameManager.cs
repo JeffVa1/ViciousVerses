@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
@@ -11,8 +12,22 @@ using static DeckObj;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+    public enum GameState { MainMenu, DeckBuilding, Battle, Results }
+    public GameState CurrentState { get; private set; }
 
     public int round_number = 1;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
@@ -50,6 +65,33 @@ public class GameManager : MonoBehaviour
         
         // Display welcome message.
     }
+
+    public void ChangeState(GameState newState)
+    {
+        CurrentState = newState;
+
+        switch (newState)
+        {
+            case GameState.MainMenu:
+                LoadScene("MainMenu");
+                break;
+            case GameState.DeckBuilding:
+                LoadScene("DeckBuilding");
+                break;
+            case GameState.Battle:
+                LoadScene("Battle");
+                break;
+            case GameState.Results:
+                LoadScene("Results");
+                break;
+        }
+    }
+
+    private void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
 
     private List<JournalPhrase> ParsePhrasesFromJson(string filename)
     {
