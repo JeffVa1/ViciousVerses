@@ -35,12 +35,6 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
 
-        // Initialize game state
-        CurrentState = GameState.Intro;
-    }
-
-    void Start()
-    {
         Debug.Log("LOADING NOUNS");
         string noun_filename = "defaultNouns.json";
         List<Card> nouns = ParseCardsFromJson(noun_filename, "noun");
@@ -66,14 +60,8 @@ public class GameManager : MonoBehaviour
 
         PlayerBard = new Bard(player_dictionary, player_journal);
 
-
-
-        // Set (Player)Bards starter deck.
-
-        // Read card json and add cards to 3 (Opponent)Bards decks.
-        // Read journal json and add phrases to 3 (Opponent)Bards journals.
-        
-        // Display welcome message.
+        // Initialize game state
+        CurrentState = GameState.Intro;
     }
 
     public void ChangeState(GameState newState)
