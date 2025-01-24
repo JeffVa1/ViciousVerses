@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         playerCardList.AddRange(verbs);
         Dictionary player_dictionary = new Dictionary(playerCardList);
         player_dictionary.LogCards(true);
-        //TODO - ASSIGN DICTIONARY TO PLAYER BARD INSTANCE
+        //TODO - CREATE PLAYER DECK
 
         Debug.Log("LOADING PLAYER JOURNAL");
         string player_phrase_filename = "playerPhrases.json";
@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
         player_journal.ShuffleAvailable();
         player_journal.LogAllPhrases();
         //TODO - ASSIGN JOURNAL TO PLAYER BARD INSTANCE
+
+        Bard player = new Bard(player_dictionary, player_journal);
 
 
 

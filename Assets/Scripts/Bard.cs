@@ -1,26 +1,38 @@
 using UnityEngine;
 using static Dictionary;
 using static DeckObj;
+using static Journal;
 
 public class Bard
 {
     private DeckObj deck;
     private Dictionary dict;
+    private Journal journal;
     private int ego;
     private int money = 0;
 
-    public Bard(Dictionary d, DeckObj new_deck, int e)
+    public Bard(Dictionary d, DeckObj new_deck, int e, Journal j)
     {
         dict = d;
         deck = new_deck;
         ego = e;
+        journal = j;
     }
 
-    public Bard(Dictionary d, DeckObj new_deck)
+    public Bard(Dictionary d, DeckObj new_deck, Journal j)
     {
         dict = d;
         deck = new_deck;
         ego = 100;
+        journal = j;
+    }
+
+    public Bard(Dictionary d, Journal j)
+    {
+        dict = d;
+        deck = new DeckObj();
+        ego = 100;
+        journal = j;
     }
 
     public Bard(Dictionary d)
@@ -28,6 +40,17 @@ public class Bard
         dict = d;
         deck = new DeckObj();
         ego = 100;
+        journal = new Journal();
+    }
+
+    public void SetJournal(Journal j)
+    {
+        journal = j;
+    }
+
+    public Journal GetJournal()
+    {
+        return journal;
     }
 
     public int GetEgo() 

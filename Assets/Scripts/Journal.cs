@@ -15,6 +15,11 @@ public class Journal
         usedPhrases = new List<JournalPhrase> {};
     }
 
+    public Journal()
+    {
+    
+    }
+
     public List<JournalPhrase> GetAvailablePhrases()
     {
         return availablePhrases;
