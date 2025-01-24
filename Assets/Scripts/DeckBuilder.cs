@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using static Dictionary;
@@ -18,9 +19,15 @@ public class DeckBuilder : MonoBehaviour
     private void Start()
     {
         playerBard = GameManager.Instance.PlayerBard;
-        dictionary = playerBard.Dictionary;
-        deck = playerBard.Deck;
+        dictionary = playerBard.GetDictionary();
+        deck = playerBard.GetDeck();
 
+        StartCoroutine(InitializeUI());
+    }
+
+    private System.Collections.IEnumerator InitializeUI()
+    {
+        yield return null; // Wait for one frame
         PopulateDictionaryUI();
         PopulateDeckUI();
     }
@@ -68,9 +75,9 @@ public class DeckBuilder : MonoBehaviour
     private void RefreshDeckUI()
     {
         // Clear existing UI
-        foreach (Transform child in deckContainer)
+        for (int i = deckContainer.childCount - 1; i >= 0; i--)
         {
-            Destroy(child.gameObject);
+            Destroy(deckContainer.GetChild(i).gameObject);
         }
 
         PopulateDeckUI();
@@ -78,7 +85,7 @@ public class DeckBuilder : MonoBehaviour
 
     public void ConfirmDeck()
     {
-        playerBard.Deck.SetLibrary(deck.GetLibrary());
+        playerBard.SetDeck(deck);
         GameManager.Instance.ChangeState(GameManager.GameState.Battle);
     }
 }

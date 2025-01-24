@@ -55,6 +55,16 @@ public class Bard
         return journal;
     }
 
+    public Dictionary GetDictionary()
+    {
+        return dict;
+    }
+
+    public void SetDictionary(Dictionary d)
+    {
+        dict = d;
+    }
+
     public void SetDeck(DeckObj d)
     {
         deck = d;
