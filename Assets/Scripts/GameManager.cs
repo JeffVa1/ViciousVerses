@@ -13,10 +13,18 @@ using static DeckObj;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public enum GameState { MainMenu, DeckBuilding, Battle, Results }
+    public enum GameState { Intro, DeckBuilding, Battle, Results }
     public GameState CurrentState { get; private set; }
+    
+    public Bard PlayerBard { get; private set; }
+    public Bard OpponentBard1 { get; private set; }
+    public Bard OpponentBard2 { get; private set; }
+    public Bard OpponentBard3 { get; private set; }
 
+    public Bard CurrentOpponent { get; private set; }
+    
     public int round_number = 1;
+    
 
     private void Awake()
     {
@@ -26,7 +34,9 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+
+        // Initialize game state
+        CurrentState = GameState.Intro;
     }
 
     void Start()
@@ -54,7 +64,7 @@ public class GameManager : MonoBehaviour
         player_journal.LogAllPhrases();
         //TODO - ASSIGN JOURNAL TO PLAYER BARD INSTANCE
 
-        Bard player = new Bard(player_dictionary, player_journal);
+        PlayerBard = new Bard(player_dictionary, player_journal);
 
 
 
@@ -72,8 +82,8 @@ public class GameManager : MonoBehaviour
 
         switch (newState)
         {
-            case GameState.MainMenu:
-                LoadScene("MainMenu");
+            case GameState.Intro:
+                LoadScene("Intro");
                 break;
             case GameState.DeckBuilding:
                 LoadScene("DeckBuilding");
@@ -90,6 +100,13 @@ public class GameManager : MonoBehaviour
     private void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void InitializeBattle(Bard player, Bard opponent)
+    {
+        PlayerBard = player;
+        CurrentOpponent = opponent;
+        ChangeState(GameState.Battle);
     }
 
 
@@ -146,11 +163,6 @@ public class GameManager : MonoBehaviour
         {
             card.LogCard(true);
         }
-    }
-
-    void StartMatch() 
-    {
-        // Run code to start a match against an opponent.
     }
 
     void DisplayWelcomeModal()
