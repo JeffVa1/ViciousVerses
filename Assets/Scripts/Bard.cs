@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using static Dictionary;
 using static DeckObj;
 using static Journal;
@@ -51,6 +53,21 @@ public class Bard
     public Journal GetJournal()
     {
         return journal;
+    }
+
+    public void SetDeck(DeckObj d)
+    {
+        deck = d;
+    }
+
+    public void SetDeck(List<Card> d)
+    {
+        deck = new DeckObj(d);
+    }
+
+    public DeckObj GetDeck()
+    {
+        return deck;
     }
 
     public int GetEgo() 
