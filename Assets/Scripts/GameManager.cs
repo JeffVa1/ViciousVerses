@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
         List<JournalPhrase> player_phrases = ParsePhrasesFromJson(player_phrase_filename);
         Journal player_journal = new Journal(player_phrases);
         player_journal.LogAllPhrases();
+        Debug.Log("SHUFFLING PHRASES");
+        player_journal.ShuffleAvailable();
+        player_journal.LogAllPhrases();
         //TODO - ASSIGN JOURNAL TO PLAYER BARD INSTANCE
 
 

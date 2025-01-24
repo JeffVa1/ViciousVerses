@@ -30,6 +30,17 @@ public class Journal
         return currentPhrase;
     }
 
+    public void ShuffleAvailable() {
+		var count = availablePhrases.Count;
+		var last = count - 1;
+		for (var i = 0; i < last; ++i) {
+			var r = Random.Range(i, count);
+			var tmp = availablePhrases[i];
+			availablePhrases[i] = availablePhrases[r];
+			availablePhrases[r] = tmp;
+		}
+	}
+
     public void LogAllPhrases()
     {
         foreach (JournalPhrase p in availablePhrases)
