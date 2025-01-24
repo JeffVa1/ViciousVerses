@@ -30,11 +30,32 @@ public class Journal
         return currentPhrase;
     }
 
+    public void LogAllPhrases()
+    {
+        foreach (JournalPhrase p in availablePhrases)
+        {
+            LogPhrase(p);
+        }
+        foreach (JournalPhrase p in usedPhrases)
+        {
+            LogPhrase(p);
+        }
+        LogCurrentPhrase();
+    }
+
+    public void LogPhrase(JournalPhrase phrase)
+    {
+        Debug.Log(phrase.GetPhraseText());
+        Debug.Log("Num words: " + phrase.GetPhraseList().Count);
+        Debug.Log("Num blank: " + phrase.GetNumBlanks());
+    }
+
     public void LogCurrentPhrase()
     {
-        Debug.Log(currentPhrase.GetPhraseText());
-        Debug.Log("Num words: " + currentPhrase.GetPhraseList().Count);
-        Debug.Log("Num blank: " + currentPhrase.GetNumBlanks());
+        if (currentPhrase != null)
+        {
+            LogPhrase(currentPhrase);
+        }
     }
 
     public void AddNewPhrase(JournalPhrase new_phrase)
