@@ -55,6 +55,7 @@ public class Card
         {
             Debug.Log("CARD");
             Debug.Log("Text: " + Text);
+            Debug.Log("POS : " + partOfSpeech);
             Debug.Log("Mult: " + pointMultiplier);
             Debug.Log("Add : " + pointAddition);
             Debug.Log("");
