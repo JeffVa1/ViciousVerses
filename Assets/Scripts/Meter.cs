@@ -4,6 +4,7 @@ public class Meter : MonoBehaviour
 {
     // FIELDS
     private int barValue;
+    private int maxBarValue;
 
     // CONSTRUCTER
     public Meter(int barValue) {
@@ -17,6 +18,14 @@ public class Meter : MonoBehaviour
 
     public void SetBarValue(int value) {
         this.barValue = value;
+    }
+
+    public int GetMaxBarValue() {
+        return maxBarValue;
+    }
+
+    public void SetMaxBarValue(int value) {
+        this.maxBarValue = value;
     }
 
     // METHODS
