@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
@@ -11,40 +12,117 @@ using static DeckObj;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+    public enum GameState { Intro, DeckBuilding, Battle, Results }
+    public GameState CurrentState { get; private set; }
+    
+    public Bard PlayerBard { get; private set; }
+    public Bard OpponentBard1 { get; private set; }
+    public Bard OpponentBard2 { get; private set; }
+    public Bard OpponentBard3 { get; private set; }
 
+    public Bard CurrentOpponent { get; private set; }
+    
     public int round_number = 1;
+    
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
         Debug.Log("LOADING NOUNS");
         string noun_filename = "defaultNouns.json";
-        List<Card> nouns = ParseCardsFromJson(noun_filename);
-        LogCardArray(nouns);
-
+        List<Card> nouns = ParseCardsFromJson(noun_filename, "noun");
         Debug.Log("LOADING VERBS");
         string verb_filename = "defaultVerbs.json";
-        List<Card> verbs = ParseCardsFromJson(verb_filename);
-        LogCardArray(verbs);
+        List<Card> verbs = ParseCardsFromJson(verb_filename, "verb");
+        List<Card> playerCardList = new List<Card>();
+        playerCardList.AddRange(nouns);
+        playerCardList.AddRange(verbs);
+        Dictionary player_dictionary = new Dictionary(playerCardList);
+        player_dictionary.LogCards(true);
+        //TODO - CREATE PLAYER DECK
 
-        // Read journal json and add phrases to (Player)Bards journal.
-        // Set (Player)Bards starter deck.
+        Debug.Log("LOADING PLAYER JOURNAL");
+        string player_phrase_filename = "playerPhrases.json";
+        List<JournalPhrase> player_phrases = ParsePhrasesFromJson(player_phrase_filename);
+        Journal player_journal = new Journal(player_phrases);
+        player_journal.LogAllPhrases();
+        Debug.Log("SHUFFLING PHRASES");
+        player_journal.ShuffleAvailable();
+        player_journal.LogAllPhrases();
+        //TODO - ASSIGN JOURNAL TO PLAYER BARD INSTANCE
 
-        // Read card json and add cards to 3 (Opponent)Bards decks.
-        // Read journal json and add phrases to 3 (Opponent)Bards journals.
-        
+        PlayerBard = new Bard(player_dictionary, player_journal);
 
-        // Display welcome message.
+        // Initialize game state
+        CurrentState = GameState.Intro;
     }
 
-    // Method to parse the JSON string into an array of Card objects
-    private List<Card> ParseCardsFromJson(string filename)
+    public void ChangeState(GameState newState)
     {
-        string jsonFilePath = Path.Combine(Application.dataPath, "Data", filename);
+        CurrentState = newState;
 
-        // Read the JSON file content
+        switch (newState)
+        {
+            case GameState.Intro:
+                LoadScene("Intro");
+                break;
+            case GameState.DeckBuilding:
+                LoadScene("DeckBuilding");
+                break;
+            case GameState.Battle:
+                LoadScene("Battle");
+                break;
+            case GameState.Results:
+                LoadScene("Results");
+                break;
+        }
+    }
+
+    private void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void InitializeBattle(Bard player, Bard opponent)
+    {
+        PlayerBard = player;
+        CurrentOpponent = opponent;
+        ChangeState(GameState.Battle);
+    }
+
+
+    private List<JournalPhrase> ParsePhrasesFromJson(string filename)
+    {
+        List<JournalPhrase> journalPhrases = new List<JournalPhrase>();
+        string jsonFilePath = Path.Combine(Application.dataPath, "Data", filename);
         string json = File.ReadAllText(jsonFilePath);
 
+        Dictionary<string, List<JournalPhraseData>> data = JsonConvert.DeserializeObject<Dictionary<string, List<JournalPhraseData>>>(json);
+
+        foreach (var entry in data)
+        {
+            foreach (var phraseData in entry.Value)
+            {
+                JournalPhrase journalPhrase = new JournalPhrase(phraseData.phrase, phraseData.blanks);
+                journalPhrases.Add(journalPhrase);
+            }
+        }
+
+
+        return journalPhrases;
+    }
+
+    private List<Card> ParseCardsFromJson(string filename, string partOfSpeech)
+    {
+        string jsonFilePath = Path.Combine(Application.dataPath, "Data", filename);
+        string json = File.ReadAllText(jsonFilePath);
         var cardDict = JsonConvert.DeserializeObject<Dictionary<string, List<CardData>>>(json);
         List<Card> cards = new List<Card>();
 
@@ -56,7 +134,7 @@ public class GameManager : MonoBehaviour
                     text: entry.Key,
                     multiplier: (int)cardData.ptMultiplier,
                     addition: cardData.ptValue,
-                    pos: "N/A", // Placeholder, adjust if necessary
+                    pos: partOfSpeech,
                     e: cardData.egoDmg,
                     audience: cardData.audienceValue
                 );
@@ -71,13 +149,8 @@ public class GameManager : MonoBehaviour
     {
         foreach (var card in cards)
         {
-            Debug.Log("Loaded Card: " + card.GetText());
+            card.LogCard(true);
         }
-    }
-
-    void StartMatch() 
-    {
-        // Run code to start a match against an opponent.
     }
 
     void DisplayWelcomeModal()
@@ -99,11 +172,19 @@ public class GameManager : MonoBehaviour
 
 }
 
-// Helper class for deserialization
+// Helper class for Card data deserialization
 public class CardData
 {
     public int ptValue { get; set; }
     public float ptMultiplier { get; set; }
     public int egoDmg { get; set; }
     public int audienceValue { get; set; }
+}
+
+// Helper class for Phrase data deserialization
+[System.Serializable]
+public class JournalPhraseData
+{
+    public string phrase;
+    public int blanks;
 }

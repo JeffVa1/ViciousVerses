@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2aba7b780afd54c48b9d5022caa56da8
+guid: 94d62105b1bb64948b043a312a9932de
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2408710733903994242
-    second: SIB_Bard_2_placeholder_0
+      213: 4969316309764585428
+    second: SIB_Bard_1_placeholder_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SIB_Bard_2_placeholder_0
+      name: SIB_Bard_1_placeholder_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 3
-        width: 27
-        height: 50
+        x: 20
+        y: 2
+        width: 29
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28d940d86a57d6120800000000000000
-      internalID: 2408710733903994242
+      spriteID: 4d7b21ceade86f440800000000000000
+      internalID: 4969316309764585428
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SIB_Bard_1_placeholder_0: 4969316309764585428
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
