@@ -11,6 +11,8 @@ public class CardUI : MonoBehaviour
     private Card card; // Reference to the card this UI represents
     private System.Action<Card> onCardAction; // Callback for the card action (e.g., Add to Deck)
 
+    private bool isPurchased = false;
+
     // Setup the card UI with data
     public void Setup(Card cardData, System.Action<Card> cardAction)
     {
@@ -24,11 +26,25 @@ public class CardUI : MonoBehaviour
         // Attach the action to the button
         actionButton.onClick.RemoveAllListeners();
         actionButton.onClick.AddListener(() => onCardAction?.Invoke(card));
+
+        // Update the opacity based on whether it's purchased
+        SetCardOpacity(isPurchased ? 0.5f : 1f);
     }
 
     public Card GetCard()
     {
         return card;
+    }
+
+    public bool IsPurchased()
+    {
+        return isPurchased;
+    }
+
+    public void SetPurchased(bool purchased)
+    {
+        isPurchased = purchased;
+        SetCardOpacity(isPurchased ? 0.5f : 1f); // Update opacity based on purchase status
     }
 
     public void SetCardOpacity(float opacity)
@@ -43,5 +59,10 @@ public class CardUI : MonoBehaviour
         Color buttonColor = buttonImage.color;
         buttonColor.a = opacity;  // Set the alpha to the desired opacity
         buttonImage.color = buttonColor;
+    }
+
+    public Button GetButton()
+    {
+        return actionButton;
     }
 }

@@ -14,9 +14,9 @@ public class ShopManager : MonoBehaviour
 
     [Header("Item Costs")]
     [SerializeField] private int wordCardCost = 10;       // Cost of a word card
-    [SerializeField] private int scrollCost = 20;          // Cost of a scroll
-    [SerializeField] private int bookCost = 50;            // Cost of a book
-    [SerializeField] private int tripleScrollCost = 60;    // Cost of a triple scroll
+    [SerializeField] private int scrollCost = 20;         // Cost of a scroll
+    [SerializeField] private int bookCost = 50;           // Cost of a book
+    [SerializeField] private int tripleScrollCost = 60;   // Cost of a triple scroll
 
     private Bard bard; // Reference to the Bard class (which manages the player's cards and journal)
     private GameManager gameManager; // Reference to the GameManager (which stores available cards and journal phrases)
@@ -24,6 +24,9 @@ public class ShopManager : MonoBehaviour
     [Header("Item Prefabs")]
     [SerializeField] private CardUI cardUIPrefab;   // Prefab for displaying card UI
     [SerializeField] private PhraseUI phraseUIPrefab; // Prefab for displaying phrase UI
+
+    private bool bookPurchased = false; // Track if the book has been purchased
+    private bool tripleScrollPurchased = false; // Track if the triple scroll has been purchased
 
     void Start()
     {
@@ -47,64 +50,64 @@ public class ShopManager : MonoBehaviour
         playerCurrencyText.text = "Currency: " + bard.GetMoneyBalance();
     }
 
+    // Display available cards and phrases in the shop
     void DisplayAvailableItems()
     {
-        // Clear previous items
-        foreach (Transform child in cardContainer)
-        {
-            Destroy(child.gameObject);
-        }
-
-        foreach (Transform child in phraseContainer)
-        {
-            Destroy(child.gameObject);
-        }
-
-        // Get all available cards and phrases
-        List<Card> availableCards = gameManager.GetAllShopCards();
-        List<JournalPhrase> availablePhrases = gameManager.GetAllShopPhrases();
-
-        // Randomly shuffle the available cards and phrases
-        ShuffleList(availableCards);
-        ShuffleList(availablePhrases);
-
         // Display 3 available cards (if there are enough)
+        List<Card> availableCards = gameManager.GetAllShopCards();
         for (int i = 0; i < 3; i++)
         {
             if (i < availableCards.Count)
             {
-                // Instantiate CardUI for each card
-                Card card = availableCards[i];
-                CardUI cardUI = Instantiate(cardUIPrefab, cardContainer);
-                cardUI.Setup(card, PurchaseWordCard);
+                if (i < cardContainer.childCount)
+                {
+                    CardUI cardUI = cardContainer.GetChild(i).GetComponent<CardUI>();
+                    if (cardUI.GetCard() == availableCards[i] && cardUI.IsPurchased())
+                    {
+                        cardUI.SetCardOpacity(0.5f); // Reduce opacity if purchased
+                    }
+                }
+                else
+                {
+                    Card card = availableCards[i];
+                    CardUI cardUI = Instantiate(cardUIPrefab, cardContainer);
+                    cardUI.Setup(card, PurchaseWordCard);
+                }
             }
         }
 
         // Display 2 available phrases (if there are enough)
+        List<JournalPhrase> availablePhrases = gameManager.GetAllShopPhrases();
         for (int i = 0; i < 2; i++)
         {
             if (i < availablePhrases.Count)
             {
-                // Instantiate PhraseUI for each phrase
-                JournalPhrase phrase = availablePhrases[i];
-                PhraseUI phraseUI = Instantiate(phraseUIPrefab, phraseContainer);
-                phraseUI.Setup(phrase, PurchaseScroll);
+                if (i < phraseContainer.childCount)
+                {
+                    PhraseUI phraseUI = phraseContainer.GetChild(i).GetComponent<PhraseUI>();
+                    if (phraseUI.GetPhrase() == availablePhrases[i] && phraseUI.IsPurchased())
+                    {
+                        phraseUI.SetPhraseOpacity(0.5f); // Reduce opacity if purchased
+                    }
+                }
+                else
+                {
+                    JournalPhrase phrase = availablePhrases[i];
+                    PhraseUI phraseUI = Instantiate(phraseUIPrefab, phraseContainer);
+                    phraseUI.Setup(phrase, PurchaseScroll);
+                }
             }
         }
-    }
 
-    // Helper function to shuffle a list randomly
-    void ShuffleList<T>(List<T> list)
-    {
-        System.Random rng = new System.Random();
-        int n = list.Count;
-        while (n > 1)
+        // Update button opacities if items are purchased
+        if (bookPurchased)
         {
-            n--;
-            int k = rng.Next(n + 1);
-            T value = list[k];
-            list[k] = list[n];
-            list[n] = value;
+            SetButtonOpacity(bookButton, 0.5f);
+        }
+
+        if (tripleScrollPurchased)
+        {
+            SetButtonOpacity(tripleScrollButton, 0.5f);
         }
     }
 
@@ -119,10 +122,19 @@ public class ShopManager : MonoBehaviour
             bard.AddCardToDict(card);
             gameManager.RemoveCardFromShop(card); // Remove the card from the shop's list
 
+            // Mark the card as purchased and disable its button
+            foreach (Transform child in cardContainer)
+            {
+                CardUI cardUI = child.GetComponent<CardUI>();
+                if (cardUI.GetCard() == card)
+                {
+                    cardUI.SetPurchased(true); // Set the card as purchased
+                    DisableButton(cardUI.GetButton()); // Disable the button and reduce opacity
+                }
+            }
+
             Debug.Log("Purchased a word card: " + card.GetText());
             UpdateCurrencyUI(); // Update the currency display
-
-            DisplayAvailableItems(); // Refresh the shop display
         }
         else
         {
@@ -141,10 +153,19 @@ public class ShopManager : MonoBehaviour
             bard.AddPhraseToJournal(phrase);
             gameManager.RemovePhraseFromShop(phrase); // Remove the phrase from the shop's list
 
+            // Mark the phrase as purchased and disable its button
+            foreach (Transform child in phraseContainer)
+            {
+                PhraseUI phraseUI = child.GetComponent<PhraseUI>();
+                if (phraseUI.GetPhrase() == phrase)
+                {
+                    phraseUI.SetPhraseOpacity(0.5f); // Reduce opacity of the purchased phrase
+                    DisableButton(phraseUI.GetButton()); // Disable the button
+                }
+            }
+
             Debug.Log("Purchased a scroll: " + phrase.GetPhraseText());
             UpdateCurrencyUI(); // Update the currency display
-
-            DisplayAvailableItems(); // Refresh the shop display
         }
         else
         {
@@ -152,7 +173,6 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    // Purchase a book and add 5 random word cards to the Bard's dictionary
     void PurchaseBook()
     {
         if (bard.GetMoneyBalance() >= bookCost)
@@ -170,6 +190,9 @@ public class ShopManager : MonoBehaviour
 
             UpdateCurrencyUI();
             DisplayAvailableItems(); // Refresh the shop display
+
+            // Disable and dim the book button
+            DisableButton(bookButton);
         }
         else
         {
@@ -177,7 +200,6 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    // Purchase a triple scroll and add 3 random JournalPhrases to the Bard's journal
     void PurchaseTripleScroll()
     {
         if (bard.GetMoneyBalance() >= tripleScrollCost)
@@ -195,10 +217,37 @@ public class ShopManager : MonoBehaviour
 
             UpdateCurrencyUI();
             DisplayAvailableItems(); // Refresh the shop display
+
+            // Disable and dim the triple scroll button
+            DisableButton(tripleScrollButton);
         }
         else
         {
             Debug.Log("Not enough currency!");
         }
+    }
+
+    // Helper function to disable a button and reduce its opacity
+    void DisableButton(Button button)
+    {
+        button.interactable = false;
+
+        // Set opacity to 50%
+        Image buttonImage = button.GetComponent<Image>();
+        if (buttonImage != null)
+        {
+            Color color = buttonImage.color;
+            color.a = 0.5f; // Set alpha to 50%
+            buttonImage.color = color;
+        }
+    }
+
+
+    // Helper to set button opacity
+    void SetButtonOpacity(Button button, float opacity)
+    {
+        ColorBlock colors = button.colors;
+        colors.normalColor = new Color(colors.normalColor.r, colors.normalColor.g, colors.normalColor.b, opacity);
+        button.colors = colors;
     }
 }
