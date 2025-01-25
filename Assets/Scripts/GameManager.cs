@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
@@ -11,11 +12,29 @@ using static DeckObj;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+    public enum GameState { Intro, DeckBuilding, Battle, Results }
+    public GameState CurrentState { get; private set; }
+    
+    public Bard PlayerBard { get; private set; }
+    public Bard OpponentBard1 { get; private set; }
+    public Bard OpponentBard2 { get; private set; }
+    public Bard OpponentBard3 { get; private set; }
 
+    public Bard CurrentOpponent { get; private set; }
+    
     public int round_number = 1;
+    
 
-    void Start()
+    private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
         Debug.Log("LOADING NOUNS");
         string noun_filename = "defaultNouns.json";
         List<Card> nouns = ParseCardsFromJson(noun_filename, "noun");
@@ -27,7 +46,7 @@ public class GameManager : MonoBehaviour
         playerCardList.AddRange(verbs);
         Dictionary player_dictionary = new Dictionary(playerCardList);
         player_dictionary.LogCards(true);
-        //TODO - ASSIGN DICTIONARY TO PLAYER BARD INSTANCE
+        //TODO - CREATE PLAYER DECK
 
         Debug.Log("LOADING PLAYER JOURNAL");
         string player_phrase_filename = "playerPhrases.json";
@@ -39,15 +58,45 @@ public class GameManager : MonoBehaviour
         player_journal.LogAllPhrases();
         //TODO - ASSIGN JOURNAL TO PLAYER BARD INSTANCE
 
+        PlayerBard = new Bard(player_dictionary, player_journal);
 
-
-        // Set (Player)Bards starter deck.
-
-        // Read card json and add cards to 3 (Opponent)Bards decks.
-        // Read journal json and add phrases to 3 (Opponent)Bards journals.
-        
-        // Display welcome message.
+        // Initialize game state
+        CurrentState = GameState.Intro;
     }
+
+    public void ChangeState(GameState newState)
+    {
+        CurrentState = newState;
+
+        switch (newState)
+        {
+            case GameState.Intro:
+                LoadScene("Intro");
+                break;
+            case GameState.DeckBuilding:
+                LoadScene("DeckBuilding");
+                break;
+            case GameState.Battle:
+                LoadScene("Battle");
+                break;
+            case GameState.Results:
+                LoadScene("Results");
+                break;
+        }
+    }
+
+    private void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void InitializeBattle(Bard player, Bard opponent)
+    {
+        PlayerBard = player;
+        CurrentOpponent = opponent;
+        ChangeState(GameState.Battle);
+    }
+
 
     private List<JournalPhrase> ParsePhrasesFromJson(string filename)
     {
@@ -102,11 +151,6 @@ public class GameManager : MonoBehaviour
         {
             card.LogCard(true);
         }
-    }
-
-    void StartMatch() 
-    {
-        // Run code to start a match against an opponent.
     }
 
     void DisplayWelcomeModal()
