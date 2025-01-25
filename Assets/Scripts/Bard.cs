@@ -55,6 +55,11 @@ public class Bard
         return journal;
     }
 
+    public void AddPhraseToJournal(JournalPhrase j)
+    {
+        journal.AddNewPhrase(j);
+    }
+
     public Dictionary GetDictionary()
     {
         return dict;
