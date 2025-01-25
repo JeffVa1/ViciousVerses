@@ -11,12 +11,17 @@ public class DeckBuilder : MonoBehaviour
     [SerializeField] private Transform dictionaryContainer; // Parent object for dictionary cards
     [SerializeField] private Transform deckContainer;       // Parent object for deck cards
     [SerializeField] private GameObject cardPrefab;         // Prefab for displaying cards
-    [SerializeField] private int maxDeckSize = 24;          // Maximum number of cards in the deck
+    [SerializeField] private int maxDeckSize = 30;          // Maximum number of cards in the deck
+    [SerializeField] private int currentDeckCount = 0;
+
 
     [SerializeField] private TextMeshProUGUI pageNumberText;
+    [SerializeField] private TextMeshProUGUI deckCounterText;
     private int currentPage = 1;
     private int cardsPerPage = 21;
     private int maxPages = 1;
+
+    private Dictionary<Card, float> cardOpacityStates = new Dictionary<Card, float>();
 
     private Bard playerBard;
     private Dictionary dictionary;
@@ -56,6 +61,7 @@ public class DeckBuilder : MonoBehaviour
         PopulateDictionaryUI();
         PopulateDeckUI();
         UpdatePageNumberText();
+        UpdateDeckCounterText();
     }
 
     private void PopulateDictionaryUI()
@@ -76,12 +82,22 @@ public class DeckBuilder : MonoBehaviour
             GameObject cardObj = Instantiate(cardPrefab, dictionaryContainer);
             CardUI cardUI = cardObj.GetComponent<CardUI>();
             cardUI.Setup(allCards[i], AddCardToDeck);
+
+            // Apply stored opacity state (default to 1 if not present in the dictionary)
+            float opacity = cardOpacityStates.ContainsKey(allCards[i]) ? cardOpacityStates[allCards[i]] : 1f;
+            cardUI.SetCardOpacity(opacity);
         }
     }
+
 
     private void UpdatePageNumberText()
     {
         pageNumberText.text = $"{currentPage} / {maxPages}";
+    }
+
+    private void UpdateDeckCounterText()
+    {
+        deckCounterText.text = $"{currentDeckCount} / {maxDeckSize}";
     }
 
     private void CalculateMaxPages()
@@ -123,20 +139,46 @@ public class DeckBuilder : MonoBehaviour
 
     private void AddCardToDeck(Card card)
     {
-        if (deck.GetLibrary().Count >= 30)
+        if (deck.GetLibrary().Contains(card))
+        {
+            Debug.Log("This card is already in the deck!");
+            return;
+        }
+        if (deck.GetLibrary().Count >= maxDeckSize)
         {
             Debug.Log(deck.GetLibrary().Count);
             Debug.Log("Deck is full!");
             return;
         }
-
+        currentDeckCount += 1;
         deck.AddCardToLibrary(card);
         RefreshDeckUI();
+        UpdateDeckCounterText();
+        ChangeCardOpacity(card, 0.5f);
+    }
+
+    private void ChangeCardOpacity(Card card, float opacity)
+    {
+        // Update the opacity state in cardOpacityStates
+        if (cardOpacityStates.ContainsKey(card))
+        {
+            cardOpacityStates[card] = opacity;
+        }
+        else
+        {
+            cardOpacityStates.Add(card, opacity);
+        }
+
+        // Re-render the current page to reflect the changes
+        PopulateDictionaryUI();
     }
 
     private void RemoveCardFromDeck(Card card)
     {
         deck.RemoveCardFromLibrary(card);
+        currentDeckCount -= 1;
+        UpdateDeckCounterText();
+        ChangeCardOpacity(card, 1f);
         RefreshDeckUI();
     }
 
