@@ -25,4 +25,23 @@ public class CardUI : MonoBehaviour
         actionButton.onClick.RemoveAllListeners();
         actionButton.onClick.AddListener(() => onCardAction?.Invoke(card));
     }
+
+    public Card GetCard()
+    {
+        return card;
+    }
+
+    public void SetCardOpacity(float opacity)
+    {
+        // Ensure the opacity value is clamped between 0 (fully transparent) and 1 (fully opaque)
+        opacity = Mathf.Clamp(opacity, 0f, 1f);
+
+        // Get the button's Image component
+        Image buttonImage = actionButton.GetComponent<Image>();
+
+        // Modify the alpha value of the button's Image color
+        Color buttonColor = buttonImage.color;
+        buttonColor.a = opacity;  // Set the alpha to the desired opacity
+        buttonImage.color = buttonColor;
+    }
 }
