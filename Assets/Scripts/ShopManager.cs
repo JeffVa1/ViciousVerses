@@ -10,7 +10,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Transform cardContainer;     // Container for card UI objects
     [SerializeField] private Transform phraseContainer;   // Container for phrase UI objects
     [SerializeField] private Button bookButton;           // Button for purchasing a book
+    [SerializeField] private TMP_Text bookCostText;       // Text to display the cost of the book
     [SerializeField] private Button tripleScrollButton;   // Button for purchasing a triple scroll
+    [SerializeField] private TMP_Text tripleScrollCostText; // Text to display the cost of the triple scroll
 
     [Header("Item Costs")]
     [SerializeField] private int wordCardCost = 10;       // Cost of a word card
@@ -35,6 +37,10 @@ public class ShopManager : MonoBehaviour
 
         // Update the UI initially
         UpdateCurrencyUI();
+
+        // Set initial cost text for the book and triple scroll
+        bookCostText.text = $"Cost: {bookCost}";
+        tripleScrollCostText.text = $"Cost: {tripleScrollCost}";
 
         // Button listeners
         bookButton.onClick.AddListener(PurchaseBook);
@@ -72,6 +78,13 @@ public class ShopManager : MonoBehaviour
                     Card card = availableCards[i];
                     CardUI cardUI = Instantiate(cardUIPrefab, cardContainer);
                     cardUI.Setup(card, PurchaseWordCard);
+
+                    // Add cost text to the card UI
+                    TMP_Text costText = cardUI.GetCostText();
+                    if (costText != null)
+                    {
+                        costText.text = $"Cost: {wordCardCost}";
+                    }
                 }
             }
         }
@@ -95,6 +108,13 @@ public class ShopManager : MonoBehaviour
                     JournalPhrase phrase = availablePhrases[i];
                     PhraseUI phraseUI = Instantiate(phraseUIPrefab, phraseContainer);
                     phraseUI.Setup(phrase, PurchaseScroll);
+
+                    // Add cost text to the phrase UI
+                    TMP_Text costText = phraseUI.GetCostText();
+                    if (costText != null)
+                    {
+                        costText.text = $"Cost: {scrollCost}";
+                    }
                 }
             }
         }

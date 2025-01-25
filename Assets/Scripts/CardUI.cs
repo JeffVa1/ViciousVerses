@@ -6,6 +6,7 @@ public class CardUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text cardText;   // Text to display the card's text
     [SerializeField] private TMP_Text posText;    // Text to display the card's part of speech
+    [SerializeField] private TMP_Text costText;    // Text to display the phrase cost
     [SerializeField] private Button actionButton; // Button to trigger actions (e.g., add/remove card)
 
     private Card card; // Reference to the card this UI represents
@@ -64,5 +65,10 @@ public class CardUI : MonoBehaviour
     public Button GetButton()
     {
         return actionButton;
+    }
+
+    public TMP_Text GetCostText()
+    {
+        return costText;
     }
 }

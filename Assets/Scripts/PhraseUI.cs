@@ -5,6 +5,7 @@ using TMPro;
 public class PhraseUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text phraseText;    // Text to display the phrase
+    [SerializeField] private TMP_Text costText;    // Text to display the phrase cost
     [SerializeField] private Button actionButton;    // Button to trigger actions (e.g., add/remove phrase)
 
     private JournalPhrase phrase; // Reference to the journal phrase this UI represents
@@ -62,5 +63,10 @@ public class PhraseUI : MonoBehaviour
     public Button GetButton()
     {
         return actionButton;
+    }
+
+    public TMP_Text GetCostText()
+    {
+        return costText;
     }
 }
