@@ -14,18 +14,11 @@ public class DeckBuilder : MonoBehaviour
     [SerializeField] private int maxDeckSize = 30;          // Maximum number of cards in the deck
     [SerializeField] private int currentDeckCount = 0;
 
-    [SerializeField] private int maxDeckSize = 30;          // Maximum number of cards in the deck
-    [SerializeField] private int currentDeckCount = 0;
-
-
     [SerializeField] private TextMeshProUGUI pageNumberText;
-    [SerializeField] private TextMeshProUGUI deckCounterText;
     [SerializeField] private TextMeshProUGUI deckCounterText;
     private int currentPage = 1;
     private int cardsPerPage = 21;
     private int maxPages = 1;
-
-    private Dictionary<Card, float> cardOpacityStates = new Dictionary<Card, float>();
 
     private Dictionary<Card, float> cardOpacityStates = new Dictionary<Card, float>();
 
@@ -68,7 +61,6 @@ public class DeckBuilder : MonoBehaviour
         PopulateDeckUI();
         UpdatePageNumberText();
         UpdateDeckCounterText();
-        UpdateDeckCounterText();
     }
 
     private void PopulateDictionaryUI()
@@ -89,19 +81,15 @@ public class DeckBuilder : MonoBehaviour
             GameObject cardObj = Instantiate(cardPrefab, dictionaryContainer);
             CardUI cardUI = cardObj.GetComponent<CardUI>();
             cardUI.Setup(allCards[i], AddCardToDeck);
-
-<<<<<<< HEAD
             // Apply stored opacity state (default to 1 if not present in the dictionary)
             float opacity = cardOpacityStates.ContainsKey(allCards[i]) ? cardOpacityStates[allCards[i]] : 1f;
             cardUI.SetCardOpacity(opacity);
-=======
             // Apply stored opacity state (if it exists)
             if (cardOpacityStates.ContainsKey(allCards[i]))
             {
-                float opacity = cardOpacityStates[allCards[i]];
+                opacity = cardOpacityStates[allCards[i]];
                 cardUI.SetCardOpacity(opacity);
             }
->>>>>>> 957f555 (updated deck builder so player can only add one of each card to the deck)
         }
     }
 
@@ -109,11 +97,6 @@ public class DeckBuilder : MonoBehaviour
     private void UpdatePageNumberText()
     {
         pageNumberText.text = $"{currentPage} / {maxPages}";
-    }
-
-    private void UpdateDeckCounterText()
-    {
-        deckCounterText.text = $"{currentDeckCount} / {maxDeckSize}";
     }
 
     private void UpdateDeckCounterText()
@@ -165,30 +148,21 @@ public class DeckBuilder : MonoBehaviour
             Debug.Log("This card is already in the deck!");
             return;
         }
-<<<<<<< HEAD
         if (deck.GetLibrary().Count >= maxDeckSize)
-=======
-        if (deck.GetLibrary().Count >= 30)
->>>>>>> 957f555 (updated deck builder so player can only add one of each card to the deck)
         {
             Debug.Log(deck.GetLibrary().Count);
             Debug.Log("Deck is full!");
             return;
         }
         currentDeckCount += 1;
-        currentDeckCount += 1;
         deck.AddCardToLibrary(card);
         RefreshDeckUI();
-<<<<<<< HEAD
         UpdateDeckCounterText();
-=======
->>>>>>> 957f555 (updated deck builder so player can only add one of each card to the deck)
         ChangeCardOpacity(card, 0.5f);
     }
 
     private void ChangeCardOpacity(Card card, float opacity)
     {
-<<<<<<< HEAD
         // Update the opacity state in cardOpacityStates
         if (cardOpacityStates.ContainsKey(card))
         {
@@ -201,38 +175,13 @@ public class DeckBuilder : MonoBehaviour
 
         // Re-render the current page to reflect the changes
         PopulateDictionaryUI();
-=======
-        // Iterate through all cards in the dictionary UI and change the opacity
-        foreach (Transform child in dictionaryContainer)
-        {
-            CardUI cardUI = child.GetComponent<CardUI>();
-            if (cardUI != null && cardUI.GetCard() == card)
-            {
-                // Change the opacity and store the state
-                cardUI.SetCardOpacity(opacity);
-                // Save the opacity value for this card
-                if (cardOpacityStates.ContainsKey(card))
-                {
-                    cardOpacityStates[card] = opacity;
-                }
-                else
-                {
-                    cardOpacityStates.Add(card, opacity);
-                }
-                break;
-            }
-        }
->>>>>>> 957f555 (updated deck builder so player can only add one of each card to the deck)
     }
 
     private void RemoveCardFromDeck(Card card)
     {
         deck.RemoveCardFromLibrary(card);
-<<<<<<< HEAD
         currentDeckCount -= 1;
         UpdateDeckCounterText();
-=======
->>>>>>> 957f555 (updated deck builder so player can only add one of each card to the deck)
         ChangeCardOpacity(card, 1f);
         RefreshDeckUI();
     }
