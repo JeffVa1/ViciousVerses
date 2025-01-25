@@ -18,6 +18,8 @@ public class DeckBuilder : MonoBehaviour
     private int cardsPerPage = 21;
     private int maxPages = 1;
 
+    private Dictionary<Card, float> cardOpacityStates = new Dictionary<Card, float>();
+
     private Bard playerBard;
     private Dictionary dictionary;
     private DeckObj deck;
@@ -76,8 +78,16 @@ public class DeckBuilder : MonoBehaviour
             GameObject cardObj = Instantiate(cardPrefab, dictionaryContainer);
             CardUI cardUI = cardObj.GetComponent<CardUI>();
             cardUI.Setup(allCards[i], AddCardToDeck);
+
+            // Apply stored opacity state (if it exists)
+            if (cardOpacityStates.ContainsKey(allCards[i]))
+            {
+                float opacity = cardOpacityStates[allCards[i]];
+                cardUI.SetCardOpacity(opacity);
+            }
         }
     }
+
 
     private void UpdatePageNumberText()
     {
@@ -123,6 +133,11 @@ public class DeckBuilder : MonoBehaviour
 
     private void AddCardToDeck(Card card)
     {
+        if (deck.GetLibrary().Contains(card))
+        {
+            Debug.Log("This card is already in the deck!");
+            return;
+        }
         if (deck.GetLibrary().Count >= 30)
         {
             Debug.Log(deck.GetLibrary().Count);
@@ -132,11 +147,37 @@ public class DeckBuilder : MonoBehaviour
 
         deck.AddCardToLibrary(card);
         RefreshDeckUI();
+        ChangeCardOpacity(card, 0.5f);
+    }
+
+    private void ChangeCardOpacity(Card card, float opacity)
+    {
+        // Iterate through all cards in the dictionary UI and change the opacity
+        foreach (Transform child in dictionaryContainer)
+        {
+            CardUI cardUI = child.GetComponent<CardUI>();
+            if (cardUI != null && cardUI.GetCard() == card)
+            {
+                // Change the opacity and store the state
+                cardUI.SetCardOpacity(opacity);
+                // Save the opacity value for this card
+                if (cardOpacityStates.ContainsKey(card))
+                {
+                    cardOpacityStates[card] = opacity;
+                }
+                else
+                {
+                    cardOpacityStates.Add(card, opacity);
+                }
+                break;
+            }
+        }
     }
 
     private void RemoveCardFromDeck(Card card)
     {
         deck.RemoveCardFromLibrary(card);
+        ChangeCardOpacity(card, 1f);
         RefreshDeckUI();
     }
 
