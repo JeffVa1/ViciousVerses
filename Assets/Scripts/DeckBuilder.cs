@@ -14,12 +14,18 @@ public class DeckBuilder : MonoBehaviour
     [SerializeField] private int maxDeckSize = 30;          // Maximum number of cards in the deck
     [SerializeField] private int currentDeckCount = 0;
 
+    [SerializeField] private int maxDeckSize = 30;          // Maximum number of cards in the deck
+    [SerializeField] private int currentDeckCount = 0;
+
 
     [SerializeField] private TextMeshProUGUI pageNumberText;
+    [SerializeField] private TextMeshProUGUI deckCounterText;
     [SerializeField] private TextMeshProUGUI deckCounterText;
     private int currentPage = 1;
     private int cardsPerPage = 21;
     private int maxPages = 1;
+
+    private Dictionary<Card, float> cardOpacityStates = new Dictionary<Card, float>();
 
     private Dictionary<Card, float> cardOpacityStates = new Dictionary<Card, float>();
 
@@ -62,6 +68,7 @@ public class DeckBuilder : MonoBehaviour
         PopulateDeckUI();
         UpdatePageNumberText();
         UpdateDeckCounterText();
+        UpdateDeckCounterText();
     }
 
     private void PopulateDictionaryUI()
@@ -102,6 +109,11 @@ public class DeckBuilder : MonoBehaviour
     private void UpdatePageNumberText()
     {
         pageNumberText.text = $"{currentPage} / {maxPages}";
+    }
+
+    private void UpdateDeckCounterText()
+    {
+        deckCounterText.text = $"{currentDeckCount} / {maxDeckSize}";
     }
 
     private void UpdateDeckCounterText()
@@ -163,6 +175,7 @@ public class DeckBuilder : MonoBehaviour
             Debug.Log("Deck is full!");
             return;
         }
+        currentDeckCount += 1;
         currentDeckCount += 1;
         deck.AddCardToLibrary(card);
         RefreshDeckUI();
