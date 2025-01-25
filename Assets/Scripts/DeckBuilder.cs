@@ -14,7 +14,6 @@ public class DeckBuilder : MonoBehaviour
     [SerializeField] private int maxDeckSize = 30;          // Maximum number of cards in the deck
     [SerializeField] private int currentDeckCount = 0;
 
-
     [SerializeField] private TextMeshProUGUI pageNumberText;
     [SerializeField] private TextMeshProUGUI deckCounterText;
     private int currentPage = 1;
@@ -82,10 +81,15 @@ public class DeckBuilder : MonoBehaviour
             GameObject cardObj = Instantiate(cardPrefab, dictionaryContainer);
             CardUI cardUI = cardObj.GetComponent<CardUI>();
             cardUI.Setup(allCards[i], AddCardToDeck);
-
             // Apply stored opacity state (default to 1 if not present in the dictionary)
             float opacity = cardOpacityStates.ContainsKey(allCards[i]) ? cardOpacityStates[allCards[i]] : 1f;
             cardUI.SetCardOpacity(opacity);
+            // Apply stored opacity state (if it exists)
+            if (cardOpacityStates.ContainsKey(allCards[i]))
+            {
+                opacity = cardOpacityStates[allCards[i]];
+                cardUI.SetCardOpacity(opacity);
+            }
         }
     }
 
