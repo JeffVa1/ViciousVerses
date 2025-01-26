@@ -102,11 +102,6 @@ public class DeckObj
         }
     }
 
-    public void PlayCardToPhrase(Card card)
-    {
-
-    }
-
     // Mehtod to return Graveyard to Library when Library is empty
     public void GraveyardToLibrary()
     {
@@ -116,6 +111,70 @@ public class DeckObj
             graveyard.Remove(graveyard[i]);
         }
     }
+
+    public void DiscardHandExcept(List<Card> savedCards)
+    {
+        List<Card> cardsToDiscard = new List<Card>();
+
+        // Identify cards to discard
+        foreach (Card card in playerHand)
+        {
+            if (!savedCards.Contains(card))
+            {
+                cardsToDiscard.Add(card);
+            }
+        }
+
+        // Move identified cards to the graveyard
+        foreach (Card card in cardsToDiscard)
+        {
+            graveyard.Add(card);
+            playerHand.Remove(card);
+        }
+    }
+
+    public void DrawCards(int numCards)
+    {
+        for (int i = 0; i < numCards; i++)
+        {
+            if (playerHand.Count >= maxCardsInHand)
+            {
+                Debug.Log("Player hand is full.");
+                break;
+            }
+
+            if (library.Count == 0)
+            {
+                if (graveyard.Count > 0)
+                {
+                    Debug.Log("Library is empty. Shuffling graveyard back into library.");
+                    GraveyardToLibrary();
+                    ShuffleDeck();
+                }
+                else
+                {
+                    Debug.Log("No more cards to draw.");
+                    break;
+                }
+            }
+
+            DrawOneToHandFromLibrary(library);
+        }
+    }
+
+    public void ShuffleDeck()
+    {
+        for (int i = 0; i < library.Count; i++)
+        {
+            int randomIndex = Random.Range(0, library.Count);
+            Card temp = library[i];
+            library[i] = library[randomIndex];
+            library[randomIndex] = temp;
+        }
+
+        Debug.Log("Library shuffled.");
+    }
+
 
 }
 

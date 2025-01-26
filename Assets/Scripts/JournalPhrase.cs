@@ -52,6 +52,30 @@ public class JournalPhrase
         Debug.Log("Num blank: " + numBlanks);
     }
 
+    public string GetDisplayText(List<Card> selectedCards)
+    {
+        List<string> displayList = new List<string>(phraseList); // Create a copy of the phrase list
+        int selectedIndex = 0;
+
+        for (int i = 0; i < displayList.Count; i++)
+        {
+            if (displayList[i] == "" && selectedIndex < selectedCards.Count)
+            {
+                // Replace blank with the text of the selected card
+                displayList[i] = selectedCards[selectedIndex].GetText();
+                selectedIndex++;
+            }
+            else if (displayList[i] == "")
+            {
+                // Keep remaining blanks as underscores
+                displayList[i] = "_____";
+            }
+        }
+
+        return string.Join(" ", displayList);
+    }
+
+
 
 
 }
