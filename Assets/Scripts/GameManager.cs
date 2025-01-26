@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public Bard OpponentBard3 { get; private set; }
 
     public Bard CurrentOpponent { get; private set; }
+
+    public List<Card> shop_cards = new List<Card> {};
+    public List<JournalPhrase> shop_phrases = new List<JournalPhrase> {};
     
     public int round_number = 1;
     
@@ -59,6 +62,22 @@ public class GameManager : MonoBehaviour
         //TODO - ASSIGN JOURNAL TO PLAYER BARD INSTANCE
 
         PlayerBard = new Bard(player_dictionary, player_journal);
+
+
+        // LOADING SHOP CARDS
+        string shop_noun_filename = "shopNouns.json";
+        string shop_verb_filename = "shopVerbs.json";
+        List<Card> shop_nouns = ParseCardsFromJson(shop_noun_filename, "noun");
+        List<Card> shop_verbs = ParseCardsFromJson(shop_verb_filename, "noun");
+        List<Card> all_shop_cards = new List<Card>();
+        all_shop_cards.AddRange(shop_nouns);
+        all_shop_cards.AddRange(shop_verbs);
+        shop_cards = all_shop_cards;
+
+        // LOADING SHOP PHRASES
+        string shop_phrase_filename = "shopPhrases.json";
+        List<JournalPhrase> new_shop_phrases = ParsePhrasesFromJson(shop_phrase_filename);
+        shop_phrases = new_shop_phrases;
 
         // Initialize game state
         CurrentState = GameState.Intro;
@@ -151,6 +170,39 @@ public class GameManager : MonoBehaviour
         {
             card.LogCard(true);
         }
+    }
+
+    public List<Card> GetAllShopCards()
+    {
+        return shop_cards;
+    }
+
+    public List<JournalPhrase> GetAllShopPhrases()
+    {
+        return shop_phrases;
+    }
+
+    public Card GetRandomShopCard()
+    {
+        int randomIndex = Random.Range(0, shop_cards.Count);
+        return shop_cards[randomIndex];
+    }
+
+    // Get a random journal phrase from the available phrases
+    public JournalPhrase GetRandomShopJournalPhrase()
+    {
+        int randomIndex = Random.Range(0, shop_phrases.Count);
+        return shop_phrases[randomIndex];
+    }
+
+    public void RemoveCardFromShop(Card c)
+    {
+        shop_cards.Remove(c);
+    }
+
+    public void RemovePhraseFromShop(JournalPhrase j)
+    {
+        shop_phrases.Remove(j);
     }
 
     void DisplayWelcomeModal()

@@ -2,39 +2,37 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class CardUI : MonoBehaviour
+public class PhraseUI : MonoBehaviour
 {
-    [SerializeField] private TMP_Text cardText;   // Text to display the card's text
-    [SerializeField] private TMP_Text posText;    // Text to display the card's part of speech
+    [SerializeField] private TMP_Text phraseText;    // Text to display the phrase
     [SerializeField] private TMP_Text costText;    // Text to display the phrase cost
-    [SerializeField] private Button actionButton; // Button to trigger actions (e.g., add/remove card)
+    [SerializeField] private Button actionButton;    // Button to trigger actions (e.g., add/remove phrase)
 
-    private Card card; // Reference to the card this UI represents
-    private System.Action<Card> onCardAction; // Callback for the card action (e.g., Add to Deck)
+    private JournalPhrase phrase; // Reference to the journal phrase this UI represents
+    private System.Action<JournalPhrase> onPhraseAction; // Callback for the phrase action (e.g., Add to Journal)
 
     private bool isPurchased = false;
 
-    // Setup the card UI with data
-    public void Setup(Card cardData, System.Action<Card> cardAction)
+    // Setup the phrase UI with data
+    public void Setup(JournalPhrase phraseData, System.Action<JournalPhrase> phraseAction)
     {
-        card = cardData;
-        onCardAction = cardAction;
+        phrase = phraseData;
+        onPhraseAction = phraseAction;
 
         // Update the UI elements
-        cardText.text = card.GetText();
-        posText.text = card.GetPartOfSpeech();
+        phraseText.text = phrase.GetPhraseText();
 
         // Attach the action to the button
         actionButton.onClick.RemoveAllListeners();
-        actionButton.onClick.AddListener(() => onCardAction?.Invoke(card));
+        actionButton.onClick.AddListener(() => onPhraseAction?.Invoke(phrase));
 
         // Update the opacity based on whether it's purchased
-        SetCardOpacity(isPurchased ? 0.5f : 1f);
+        SetPhraseOpacity(isPurchased ? 0.5f : 1f);
     }
 
-    public Card GetCard()
+    public JournalPhrase GetPhrase()
     {
-        return card;
+        return phrase;
     }
 
     public bool IsPurchased()
@@ -45,10 +43,10 @@ public class CardUI : MonoBehaviour
     public void SetPurchased(bool purchased)
     {
         isPurchased = purchased;
-        SetCardOpacity(isPurchased ? 0.5f : 1f); // Update opacity based on purchase status
+        SetPhraseOpacity(isPurchased ? 0.5f : 1f); // Update opacity based on purchase status
     }
 
-    public void SetCardOpacity(float opacity)
+    public void SetPhraseOpacity(float opacity)
     {
         // Ensure the opacity value is clamped between 0 (fully transparent) and 1 (fully opaque)
         opacity = Mathf.Clamp(opacity, 0f, 1f);
