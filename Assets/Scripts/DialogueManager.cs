@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 
 
@@ -26,40 +27,50 @@ public class DialogueManager : MonoBehaviour
 
     public TextMeshProUGUI TextComponent;
     public float TextSpeed;
+    private string JsonFilePath;
     private List<DialogueLine> DialogueLines;
 
-    public TextAsset DialogueJson;
+    private TextAsset DialogueJson;
     private DialogueRoot DialogueRoot;
     private int Index;
 
     public UnityEngine.UI.Image SpeakerImage;
-    public Sprite PlayerSprite;
-    public Sprite EnemySprite;
+    private Sprite PlayerSprite;
+    private Sprite EnemySprite;
 
-    void Start()
-    {
+    public GameObject DialogBox;
+
+
+    public void Initialize(string JsonFilePath, Sprite PlayerSprite, Sprite EnemySprite) {
+        this.JsonFilePath = JsonFilePath;
+        this.PlayerSprite = PlayerSprite;
+        this.EnemySprite = EnemySprite;
+
+        DialogBox.SetActive(true);
         TextComponent.text = string.Empty;
         StartDialogue();
     }
 
-    void StartDialogue()
+    private void StartDialogue()
     {
         Index = 0;
         ParseDialogue();
         UpdateSpeakerSprite();
         StartCoroutine(TypeLine());
     }
+
+    private void EndDialogue() {
+        DialogBox.SetActive(false);
+    }
+
     private void ParseDialogue()
     {
-        Debug.Log("DialogJson.text= " + DialogueJson.text);
-
-        DialogueRoot = JsonUtility.FromJson<DialogueRoot>(DialogueJson.text);
-
-        Debug.Log("DialogueRoot.Dialogue " + DialogueRoot.Dialogue.Count);
+        string JsonContent = File.ReadAllText(JsonFilePath);
+        DialogueRoot = JsonUtility.FromJson<DialogueRoot>(JsonContent);
         DialogueLines = DialogueRoot.Dialogue;
     }
 
-    IEnumerator TypeLine()
+    private IEnumerator TypeLine()
     {
 
         DialogueLine line = DialogueLines[Index];
@@ -70,7 +81,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void NextLine()
+    private void NextLine()
     {
         if (Index < DialogueLines.Count -1)
         {
@@ -81,11 +92,11 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            EndDialogue();
         }
     }
 
-    void UpdateSpeakerSprite()
+    private void UpdateSpeakerSprite()
     {
         Debug.Log("Index = "+ Index);
         string speaker = DialogueLines[Index].Speaker;
@@ -99,7 +110,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {

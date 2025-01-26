@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour
     public Bard CurrentOpponent { get; private set; }
     
     public int round_number = 1;
+
+    public DialogueManager DialogueManager;
+    public Sprite PlayerSprite;
+    public Sprite EnemySprite;
+
     
 
     private void Awake()
@@ -63,7 +68,10 @@ public class GameManager : MonoBehaviour
         // Initialize game state
         CurrentState = GameState.Intro;
         
+        DialogueManager.Initialize("Assets/Data/testDialogue.json", PlayerSprite, EnemySprite);
     }
+
+    
 
     public void ChangeState(GameState newState)
     {
