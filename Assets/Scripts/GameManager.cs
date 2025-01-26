@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
 
         // Initialize game state
         CurrentState = GameState.Intro;
+        
     }
 
     public void ChangeState(GameState newState)

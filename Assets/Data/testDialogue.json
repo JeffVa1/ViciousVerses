@@ -1,24 +1,24 @@
 {
-    "dialogue": [
+    "Dialogue": [
         {
-            "speaker": "player",
-            "text": "Your mother is a hamster!"
+            "Speaker": "player",
+            "Text": "Your mother is a hamster!"
         },
         {
-            "speaker": "enemy",
-            "text": "Your father smells of elderberries!"
+            "Speaker": "enemy",
+            "Text": "Your father smells of elderberries!"
         },
         {
-            "speaker": "player",
-            "text": "Oh yea?!"
+            "Speaker": "player",
+            "Text": "Oh yea?!"
         },
         {
-            "speaker": "player",
-            "text": "Well, you dance like a squirrel!!"
+            "Speaker": "player",
+            "Text": "Well, you dance like a squirrel!!"
         },
         {
-            "speaker": "enemy",
-            "text": "Yeah!?"
+            "Speaker": "enemy",
+            "Text": "Yeah!?"
         }
     ]
 }

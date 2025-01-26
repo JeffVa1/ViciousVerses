@@ -10,92 +10,72 @@ using System.Collections.Generic;
 [System.Serializable]
 public class DialogueLine
 {
-    public string speaker;
-    public string text;
+    public string Speaker;
+    public string Text;
 }
 
 [System.Serializable]
 public class DialogueRoot
 {
-    public List<DialogueLine> dialogue;
+    public List<DialogueLine> Dialogue;
 }
 
 public class DialogueManager : MonoBehaviour
 {
 
 
-    public TextMeshProUGUI textComponent;
-    public float textSpeed;
-    private List<DialogueLine> dialogueLines;
+    public TextMeshProUGUI TextComponent;
+    public float TextSpeed;
+    private List<DialogueLine> DialogueLines;
 
-    public TextAsset dialogueJson;
-    private DialogueRoot dialogueRoot;
-    private int index;
-    
-    public UnityEngine.UI.Image speakerImage;
-    public Sprite playerSprite;
-    public Sprite enemySprite;
+    public TextAsset DialogueJson;
+    private DialogueRoot DialogueRoot;
+    private int Index;
 
-
-
-
-
+    public UnityEngine.UI.Image SpeakerImage;
+    public Sprite PlayerSprite;
+    public Sprite EnemySprite;
 
     void Start()
     {
-        textComponent.text = string.Empty;
+        TextComponent.text = string.Empty;
         StartDialogue();
     }
 
-    private void ParseDialogue()
-    {
-        dialogueRoot = JsonUtility.FromJson<DialogueRoot>(dialogueJson.text);
-        dialogueLines = dialogueRoot.dialogue;
-
-    }
-
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (textComponent.text == dialogueLines[index].text)
-            {
-                NextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = dialogueLines[index].text;
-            }
-        }
-    }
-
-
     void StartDialogue()
     {
-        index = 0;
+        Index = 0;
         ParseDialogue();
         UpdateSpeakerSprite();
         StartCoroutine(TypeLine());
+    }
+    private void ParseDialogue()
+    {
+        Debug.Log("DialogJson.text= " + DialogueJson.text);
+
+        DialogueRoot = JsonUtility.FromJson<DialogueRoot>(DialogueJson.text);
+
+        Debug.Log("DialogueRoot.Dialogue " + DialogueRoot.Dialogue.Count);
+        DialogueLines = DialogueRoot.Dialogue;
     }
 
     IEnumerator TypeLine()
     {
 
-        DialogueLine line = dialogueLines[index];
-        foreach (char c in line.text.ToCharArray())
+        DialogueLine line = DialogueLines[Index];
+        foreach (char c in line.Text.ToCharArray())
         {
-            textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            TextComponent.text += c;
+            yield return new WaitForSeconds(TextSpeed);
         }
     }
 
     void NextLine()
     {
-        if (index < dialogueLines.Count - 1)
+        if (Index < DialogueLines.Count -1)
         {
-            index++;
-            textComponent.text = string.Empty;
+            Index++;
+            TextComponent.text = string.Empty;
             UpdateSpeakerSprite();
             StartCoroutine(TypeLine());
         }
@@ -105,16 +85,34 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void UpdateSpeakerSprite() {
-        string speaker = dialogueLines[index].speaker;
-        if (speaker == "player") {
-            speakerImage.sprite = playerSprite;
+    void UpdateSpeakerSprite()
+    {
+        Debug.Log("Index = "+ Index);
+        string speaker = DialogueLines[Index].Speaker;
+        if (speaker == "player")
+        {
+            SpeakerImage.sprite = PlayerSprite;
         }
-        else if (speaker == "enemy") {
-            speakerImage.sprite = enemySprite;
+        else if (speaker == "enemy")
+        {
+            SpeakerImage.sprite = EnemySprite;
         }
     }
 
-
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (TextComponent.text == DialogueLines[Index].Text)
+            {
+                NextLine();
+            }
+            else
+            {
+                StopAllCoroutines();
+                TextComponent.text = DialogueLines[Index].Text;
+            }
+        }
+    }
 
 }
