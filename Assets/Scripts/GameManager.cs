@@ -35,10 +35,10 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
 
-        Debug.Log("LOADING NOUNS");
+        // Debug.Log("LOADING NOUNS");
         string noun_filename = "defaultNouns.json";
         List<Card> nouns = ParseCardsFromJson(noun_filename, "noun");
-        Debug.Log("LOADING VERBS");
+        // Debug.Log("LOADING VERBS");
         string verb_filename = "defaultVerbs.json";
         List<Card> verbs = ParseCardsFromJson(verb_filename, "verb");
         List<Card> playerCardList = new List<Card>();
@@ -48,12 +48,12 @@ public class GameManager : MonoBehaviour
         player_dictionary.LogCards(true);
         //TODO - CREATE PLAYER DECK
 
-        Debug.Log("LOADING PLAYER JOURNAL");
+        // Debug.Log("LOADING PLAYER JOURNAL");
         string player_phrase_filename = "playerPhrases.json";
         List<JournalPhrase> player_phrases = ParsePhrasesFromJson(player_phrase_filename);
         Journal player_journal = new Journal(player_phrases);
         player_journal.LogAllPhrases();
-        Debug.Log("SHUFFLING PHRASES");
+        // Debug.Log("SHUFFLING PHRASES");
         player_journal.ShuffleAvailable();
         player_journal.LogAllPhrases();
         //TODO - ASSIGN JOURNAL TO PLAYER BARD INSTANCE

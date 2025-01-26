@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7d08ad9443f95fe41826e849cc49b8a0
+guid: 935008e1a19334c4d9b49c7d20052d69
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8752028713342821100
-    second: Stage_0
+      213: -3625934697953180807
+    second: enemy1-dialogue-image_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stage_0
+      name: enemy1-dialogue-image_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 984
-        height: 671
+        width: 170
+        height: 170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41d9e25614c8a8680800000000000000
-      internalID: -8752028713342821100
+      spriteID: 973ccbd6a971eadc0800000000000000
+      internalID: -3625934697953180807
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Stage_0: -8752028713342821100
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

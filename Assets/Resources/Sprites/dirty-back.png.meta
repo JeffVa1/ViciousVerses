@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7d08ad9443f95fe41826e849cc49b8a0
+guid: 4d7ea0d149fb8314b8a2afb732379dbb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8752028713342821100
-    second: Stage_0
+      213: 7628740024163641869
+    second: dirty-back_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -96,40 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stage_0
+      name: dirty-back_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 984
-        height: 671
+        x: 13
+        y: 13
+        width: 101
+        height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 34, y: 34, z: 35, w: 34}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 41d9e25614c8a8680800000000000000
-      internalID: -8752028713342821100
+      spriteID: d0a241812aabed960800000000000000
+      internalID: 7628740024163641869
       vertices: []
       indices: 
       edges: []
@@ -138,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a1a03ff2b3bc21d458bf1cc80436ca37
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Stage_0: -8752028713342821100
+      dirty-back_0: 7628740024163641869
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
