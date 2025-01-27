@@ -2,7 +2,8 @@
     "1": [
         {
             "phrase": "I bite my thumb at you, you BLANK",
-            "blanks": [
+            "blanks": 1,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -19,7 +20,8 @@
     "2": [
         {
             "phrase": "Your mother is a BLANK",
-            "blanks": [
+            "blanks": 1,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -36,7 +38,8 @@
     "3": [
         {
             "phrase": "You dance like a BLANK",
-            "blanks": [
+            "blanks": 1,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -53,7 +56,8 @@
     "4": [
         {
             "phrase": "Your father smells of BLANK",
-            "blanks": [
+            "blanks": 1,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -70,7 +74,8 @@
     "5": [
         {
             "phrase": "You fight like a BLANK with BLANK hands",
-            "blanks": [
+            "blanks": 2,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -97,7 +102,8 @@
     "6": [
         {
             "phrase": "You absolute BLANK, go and BLANK somewhere else before you embarrass yourself further.",
-            "blanks": [
+            "blanks": 2,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -124,7 +130,8 @@
     "7": [
         {
             "phrase": "You BLANK like a BLANK stuck to a BLANK",
-            "blanks": [
+            "blanks": 3,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -161,7 +168,8 @@
     "8": [
         {
             "phrase": "Every BLANK thinks you BLANK like a BLANK",
-            "blanks": [
+            "blanks": 3,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -198,7 +206,8 @@
     "9": [
         {
             "phrase": "You absolute BLANK, BLANK around like a BLANK!",
-            "blanks": [
+            "blanks": 3,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -235,7 +244,8 @@
     "10": [
         {
             "phrase": "You're nothing but a BLANK where shame BLANK, the kind of BLANK that even shadows avoid.",
-            "blanks": [
+            "blanks": 3,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -272,7 +282,8 @@
     "11": [
         {
             "phrase": "Your BLANK is worse than a BLANK riding a BLANK",
-            "blanks": [
+            "blanks": 3,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -309,7 +320,8 @@
     "12": [
         {
             "phrase": "Your BLANK is an embarrassment to BLANK-kind",
-            "blanks": [
+            "blanks": 2,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -336,7 +348,8 @@
     "13": [
         {
             "phrase": "BLANK like a desperate BLANK, then BLANK away before anyone notices the failure.",
-            "blanks": [
+            "blanks": 3,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -373,7 +386,8 @@
     "14": [
         {
             "phrase": "You're a BLANK's BLANK, destined to BLANK into obscurity.",
-            "blanks": [
+            "blanks": 3,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
@@ -410,7 +424,8 @@
     "15": [
         {
             "phrase": "Even the audiance BLANK at how this BLANK BLANK as wasted our time",
-            "blanks": [
+            "blanks": 3,
+            "blank_info": [
                 {
                     "blank_id": 1,
                     "blank_attributes": {
