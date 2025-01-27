@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
 
 public class JournalPhrase
 {
@@ -15,20 +17,53 @@ public class JournalPhrase
         phraseList = ParsePhrase(phraseText);
     }
 
+
     private List<string> ParsePhrase(string phrase)
     {
-        List<string> phrases = new List<string>(phrase.Split(' '));
+        // Use a regular expression to identify "BLANK" and preserve parts of contractions
+        string pattern = @"BLANK(?=\W|$)|(?<=\W|^)BLANK|BLANK(-\w+)";
+        List<string> phrases = new List<string>();
 
-        for (int i = 0; i < phrases.Count; i++)
+        int lastIndex = 0;
+
+        foreach (Match match in Regex.Matches(phrase, pattern))
         {
-            if (phrases[i] == "BLANK")
+            // Add the text before the match to the list
+            if (match.Index > lastIndex)
             {
-                phrases[i] = "";
+                string textBeforeMatch = phrase.Substring(lastIndex, match.Index - lastIndex).Trim();
+                if (!string.IsNullOrEmpty(textBeforeMatch))
+                {
+                    phrases.AddRange(textBeforeMatch.Split(' '));
+                }
+            }
+
+            // Add an empty string for "BLANK"
+            phrases.Add("");
+
+            // If there's a suffix like "-ish", add it to the list
+            if (match.Groups[1].Success)
+            {
+                phrases.Add(match.Groups[1].Value);
+            }
+
+            lastIndex = match.Index + match.Length;
+        }
+
+        // Add any remaining text after the last match
+        if (lastIndex < phrase.Length)
+        {
+            string remainingText = phrase.Substring(lastIndex).Trim();
+            if (!string.IsNullOrEmpty(remainingText))
+            {
+                phrases.AddRange(remainingText.Split(' '));
             }
         }
 
         return phrases;
     }
+
+
 
     public int GetNumBlanks() 
     {

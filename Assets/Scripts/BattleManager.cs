@@ -32,12 +32,13 @@ public class BattleManager : MonoBehaviour
         if (enemyBard.GetJournal().GetCurrentPhrase() == null) {
             enemyBard.GetJournal().SelectNewPhrase();
         }
-        
+
         isPlayerTurn = true;
         roundNumber = 1;
 
         Debug.Log("Battle Initialized!");
         endTurnButton.onClick.AddListener(EndPlayerTurn);
+        playerBard.GetDeck().DrawMaxPlayerHandFromLibrary();
         StartBattle();
     }
 
@@ -75,6 +76,7 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator PlayerTurn()
     {
+        
         Debug.Log("Player, complete your roast!");
 
         // Wait for the player to press the End Turn button.
@@ -125,7 +127,7 @@ public class BattleManager : MonoBehaviour
             int egoDamage = CalculatePhraseEffect(playerBard, playerSelectedCards);
             enemyBard.AddEgo(-egoDamage);
             Debug.Log($"Enemy's ego reduced by {egoDamage}. Current ego: {enemyBard.GetEgo()}.");
-
+            playerBard.GetJournal().SelectNewPhrase();
             // Clear selected cards after completing the phrase.
             playerSelectedCards.Clear();
         }
@@ -138,6 +140,7 @@ public class BattleManager : MonoBehaviour
         playerBard.GetDeck().DiscardHandExcept(playerSelectedCards);
         playerBard.GetDeck().DrawCards(5);
         UpdateHandUI();
+        UpdatePhraseUI();
 
         isPlayerTurn = false; // End the player's turn.
     }
@@ -167,11 +170,13 @@ public class BattleManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        foreach (Card card in playerBard.GetDeck().playerHand)
+        foreach (Card card in playerBard.GetDeck().GetHand())
         {
             GameObject cardObj = Instantiate(cardPrefab, handArea);
-            cardObj.GetComponentInChildren<Text>().text = card.GetText();
-            cardObj.GetComponent<Button>().onClick.AddListener(() => OnCardSelected(card));
+            CardUI cardUI = cardObj.GetComponent<CardUI>();
+            cardUI.Setup(card, OnCardSelected);
+            //cardObj.GetComponentInChildren<Text>().text = card.GetText();
+            //cardObj.GetComponent<Button>().onClick.AddListener(() => OnCardSelected(card));
         }
     }
 

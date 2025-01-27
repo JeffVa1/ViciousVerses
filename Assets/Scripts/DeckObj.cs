@@ -41,6 +41,16 @@ public class DeckObj
         return playerHand.Count;
     }
 
+    public List<Card> GetHand()
+    {
+        return playerHand;
+    }
+
+    public List<Card> GetGraveyard()
+    {
+        return graveyard;
+    }
+
     public int GetLibraryCount()
     {
         return library.Count;
@@ -76,7 +86,7 @@ public class DeckObj
         library.Remove(library[0]);
     }
 
-    public void DrawMaxPlayerHandFromLibrary(List<Card> library)
+    public void DrawMaxPlayerHandFromLibrary()
     {
         for (int i = 0; i < maxDrawNewHand; i++)
         {
