@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
 
+        // LOADING PLAYER DATA
         Debug.Log("LOADING NOUNS");
         string noun_filename = "defaultNouns.json";
         List<Card> nouns = ParseCardsFromJson(noun_filename, "noun");
@@ -49,20 +50,35 @@ public class GameManager : MonoBehaviour
         playerCardList.AddRange(verbs);
         Dictionary player_dictionary = new Dictionary(playerCardList);
         player_dictionary.LogCards(true);
-        //TODO - CREATE PLAYER DECK
-
         Debug.Log("LOADING PLAYER JOURNAL");
         string player_phrase_filename = "playerPhrases.json";
         List<JournalPhrase> player_phrases = ParsePhrasesFromJson(player_phrase_filename);
         Journal player_journal = new Journal(player_phrases);
         player_journal.LogAllPhrases();
-        Debug.Log("SHUFFLING PHRASES");
-        player_journal.ShuffleAvailable();
-        player_journal.LogAllPhrases();
-        //TODO - ASSIGN JOURNAL TO PLAYER BARD INSTANCE
-
         PlayerBard = new Bard(player_dictionary, player_journal);
 
+
+        // LOADING ENEMY DATA
+        Debug.Log("");
+        Debug.Log("");
+        Debug.Log("LOADING OPPONENT DATA");
+        Debug.Log("LOADING NOUNS");
+        noun_filename = "opponentNouns.json";
+        nouns = ParseCardsFromJson(noun_filename, "noun");
+        Debug.Log("LOADING VERBS");
+        verb_filename = "opponentVerbs.json";
+        verbs = ParseCardsFromJson(verb_filename, "verb");
+        List<Card> opponentCardList = new List<Card>();
+        opponentCardList.AddRange(nouns);
+        opponentCardList.AddRange(verbs);
+        Dictionary opponent_dictionary = new Dictionary(opponentCardList);
+        opponent_dictionary.LogCards(true);
+        Debug.Log("LOADING OPPONENT JOURNAL");
+        string opponent_phrase_filename = "genericOpponentPhrases.json";
+        List<JournalPhrase> opponent_phrases = ParsePhrasesFromJson(opponent_phrase_filename);
+        Journal opponent_journal = new Journal(opponent_phrases);
+        opponent_journal.LogAllPhrases();
+        OpponentBard1 = new Bard(opponent_dictionary, opponent_journal);
 
         // LOADING SHOP CARDS
         string shop_noun_filename = "shopNouns.json";
