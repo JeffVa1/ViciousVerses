@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Dictionary;
 
+
 public class DeckObj
 {
     public List<Card> library = new List<Card>();

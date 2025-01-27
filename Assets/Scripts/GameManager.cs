@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     public List<Card> shop_cards = new List<Card> {};
     public List<JournalPhrase> shop_phrases = new List<JournalPhrase> {};
+
+    [SerializeField] private BattleManager battleManager;
     
     public int round_number = 1;
     
@@ -98,7 +100,8 @@ public class GameManager : MonoBehaviour
         shop_phrases = new_shop_phrases;
 
         // Initialize game state
-        CurrentState = GameState.Intro;
+        //CurrentState = GameState.Intro;
+        battleManager.Initialize(PlayerBard, OpponentBard1);
     }
 
     public void ChangeState(GameState newState)

@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BattleManager : MonoBehaviour
 {
     [Header("UI Elements")]
     public Transform handArea; // Parent object for card UI elements
-    public Text currentPhraseText; // Displays the current phrase
+    public TMP_Text currentPhraseText; // Displays the current phrase
     public Button endTurnButton; // Button to end the player's turn
     public GameObject cardPrefab; // Prefab for card UI elements
 
@@ -23,8 +24,15 @@ public class BattleManager : MonoBehaviour
     public void Initialize(Bard player, Bard enemy)
     {
         playerBard = player;
-        enemyBard = enemy;
+        if (playerBard.GetJournal().GetCurrentPhrase() == null) {
+            playerBard.GetJournal().SelectNewPhrase();
+        }
 
+        enemyBard = enemy;
+        if (enemyBard.GetJournal().GetCurrentPhrase() == null) {
+            enemyBard.GetJournal().SelectNewPhrase();
+        }
+        
         isPlayerTurn = true;
         roundNumber = 1;
 
@@ -169,7 +177,26 @@ public class BattleManager : MonoBehaviour
 
     private void UpdatePhraseUI()
     {
-        JournalPhrase phrase = playerBard.GetJournal().GetCurrentPhrase();
+        if (playerBard == null)
+        {
+            Debug.LogError("playerBard is null in UpdatePhraseUI!");
+            return;
+        }
+
+        Journal journal = playerBard.GetJournal();
+        if (journal == null)
+        {
+            Debug.LogError("playerBard's Journal is null in UpdatePhraseUI!");
+            return;
+        }
+
+        JournalPhrase phrase = journal.GetCurrentPhrase();
+        if (phrase == null)
+        {
+            Debug.LogError("playerBard's Journal does not have a current phrase in UpdatePhraseUI!");
+            return;
+        }
+
         string displayText = phrase.GetDisplayText(playerSelectedCards);
         currentPhraseText.text = displayText;
     }
