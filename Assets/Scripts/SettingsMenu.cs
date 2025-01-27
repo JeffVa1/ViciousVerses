@@ -29,12 +29,12 @@ public class SettingsMenu : MonoBehaviour
         if (ProfanityToggle.isOn)
         {
             PlayerPrefs.SetInt("Profanity", 1);
-            Debug.Log("Profanity is on");
+            Debug.Log("Profanity Filter is on");
         }
         else
         {
             PlayerPrefs.SetInt("Profanity", 0);
-            Debug.Log("Profanity is off");
+            Debug.Log("Profanity Filter is off");
         }
 
     }
