@@ -208,9 +208,34 @@ public class BattleManager : MonoBehaviour
 
     private void OnCardSelected(Card card)
     {
-        if (playerSelectedCards.Contains(card)) return; // Prevent duplicate selection
+        if (playerSelectedCards.Contains(card))
+        {
+            // If the card is already selected, deselect it
+            playerSelectedCards.Remove(card);
+            UpdateCardOpacity(card, 1.0f); // Reset opacity to 100%
+        }
+        else
+        {
+            // Select the card and change its opacity
+            playerSelectedCards.Add(card);
+            UpdateCardOpacity(card, 0.5f); // Set opacity to 50%
+        }
 
-        playerSelectedCards.Add(card);
         UpdatePhraseUI();
     }
+
+    private void UpdateCardOpacity(Card card, float opacity)
+    {
+        // Find the corresponding card object in the hand UI
+        foreach (Transform child in handArea)
+        {
+            CardUI cardUI = child.GetComponent<CardUI>();
+            if (cardUI != null && cardUI.GetCard() == card)
+            {
+                cardUI.SetCardOpacity(opacity); // Call the CardUI method to update opacity
+                break;
+            }
+        }
+    }
+
 }
