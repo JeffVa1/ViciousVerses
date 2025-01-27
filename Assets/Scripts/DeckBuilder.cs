@@ -50,7 +50,19 @@ public class DeckBuilder : MonoBehaviour
             return;
         }
 
+        InitializeCardOpacityStates();
         StartCoroutine(InitializeUI());
+    }
+
+    private void InitializeCardOpacityStates()
+    {
+        foreach (Card card in deck.GetLibrary())
+        {
+            if (!cardOpacityStates.ContainsKey(card))
+            {
+                cardOpacityStates[card] = 0.5f; // Set opacity to 0.5 for cards already in the deck
+            }
+        }
     }
 
     private System.Collections.IEnumerator InitializeUI()
@@ -84,15 +96,13 @@ public class DeckBuilder : MonoBehaviour
             // Apply stored opacity state (default to 1 if not present in the dictionary)
             float opacity = cardOpacityStates.ContainsKey(allCards[i]) ? cardOpacityStates[allCards[i]] : 1f;
             cardUI.SetCardOpacity(opacity);
-            // Apply stored opacity state (if it exists)
-            if (cardOpacityStates.ContainsKey(allCards[i]))
-            {
-                opacity = cardOpacityStates[allCards[i]];
-                cardUI.SetCardOpacity(opacity);
-            }
         }
     }
 
+    private int GetCurrentDeckCount()
+    {
+        return deck.GetLibrary().Count;
+    }
 
     private void UpdatePageNumberText()
     {
@@ -101,7 +111,7 @@ public class DeckBuilder : MonoBehaviour
 
     private void UpdateDeckCounterText()
     {
-        deckCounterText.text = $"{currentDeckCount} / {maxDeckSize}";
+        deckCounterText.text = $"{GetCurrentDeckCount()} / {maxDeckSize}";
     }
 
     private void CalculateMaxPages()
@@ -154,8 +164,9 @@ public class DeckBuilder : MonoBehaviour
             Debug.Log("Deck is full!");
             return;
         }
-        currentDeckCount += 1;
+
         deck.AddCardToLibrary(card);
+        currentDeckCount = GetCurrentDeckCount();
         RefreshDeckUI();
         UpdateDeckCounterText();
         ChangeCardOpacity(card, 0.5f);
@@ -180,7 +191,7 @@ public class DeckBuilder : MonoBehaviour
     private void RemoveCardFromDeck(Card card)
     {
         deck.RemoveCardFromLibrary(card);
-        currentDeckCount -= 1;
+        currentDeckCount = GetCurrentDeckCount();
         UpdateDeckCounterText();
         ChangeCardOpacity(card, 1f);
         RefreshDeckUI();

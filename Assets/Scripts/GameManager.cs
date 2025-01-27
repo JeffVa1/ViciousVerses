@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
         Journal player_journal = new Journal(player_phrases);
         player_journal.LogAllPhrases();
         PlayerBard = new Bard(player_dictionary, player_journal);
+        PlayerBard.SetRandomDeck();
 
 
         // LOADING ENEMY DATA
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
         Journal opponent_journal = new Journal(opponent_phrases);
         opponent_journal.LogAllPhrases();
         OpponentBard1 = new Bard(opponent_dictionary, opponent_journal);
+        OpponentBard1.SetRandomDeck();
 
         // LOADING SHOP CARDS
         string shop_noun_filename = "shopNouns.json";

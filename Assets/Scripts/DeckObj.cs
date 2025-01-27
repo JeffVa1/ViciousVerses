@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static Dictionary;
 
 public class DeckObj
 {
@@ -9,6 +10,7 @@ public class DeckObj
 
     private int maxCardsInHand = 10;
     private int maxDrawNewHand = 5;
+    private int maxCardsInDeck = 30;
 
     // Constructor
     public DeckObj(List<Card> cards)
@@ -174,6 +176,31 @@ public class DeckObj
 
         Debug.Log("Library shuffled.");
     }
+
+    public void SetRandomLibrary(Dictionary d)
+    {
+        library.Clear(); // Ensure the library starts empty
+
+        List<Card> allCards = d.GetAllCards(); // Assume Dictionary has a method to get all available cards
+        List<Card> tempDeck = new List<Card>(allCards);
+
+        if (tempDeck.Count < 30)
+        {
+            Debug.LogError("Not enough cards in the dictionary to fill the library.");
+            return;
+        }
+
+        for (int i = 0; i < 30; i++)
+        {
+            int randomIndex = Random.Range(0, tempDeck.Count);
+            Card selectedCard = tempDeck[randomIndex];
+            library.Add(selectedCard);
+            tempDeck.RemoveAt(randomIndex); // Remove to avoid duplicates
+        }
+
+        Debug.Log("Library set with 30 random cards.");
+    }
+
 
 
 }
