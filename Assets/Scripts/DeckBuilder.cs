@@ -32,21 +32,21 @@ public class DeckBuilder : MonoBehaviour
         playerBard = GameManager.Instance?.PlayerBard;
         if (playerBard == null)
         {
-            Debug.LogError("PlayerBard is null! Make sure GameManager and PlayerBard are initialized.");
+            // Debug.LogError("PlayerBard is null! Make sure GameManager and PlayerBard are initialized.");
             return;
         }
 
         dictionary = playerBard.GetDictionary();
         if (dictionary == null)
         {
-            Debug.LogError("Dictionary is null! Make sure the Bard has a dictionary assigned.");
+            // Debug.LogError("Dictionary is null! Make sure the Bard has a dictionary assigned.");
             return;
         }
 
         deck = playerBard.GetDeck();
         if (deck == null)
         {
-            Debug.LogError("Deck is null! Make sure the Bard has a deck assigned.");
+            // Debug.LogError("Deck is null! Make sure the Bard has a deck assigned.");
             return;
         }
 
@@ -145,13 +145,13 @@ public class DeckBuilder : MonoBehaviour
     {
         if (deck.GetLibrary().Contains(card))
         {
-            Debug.Log("This card is already in the deck!");
+            // Debug.Log("This card is already in the deck!");
             return;
         }
         if (deck.GetLibrary().Count >= maxDeckSize)
         {
-            Debug.Log(deck.GetLibrary().Count);
-            Debug.Log("Deck is full!");
+            // Debug.Log(deck.GetLibrary().Count);
+            // Debug.Log("Deck is full!");
             return;
         }
         currentDeckCount += 1;
@@ -200,7 +200,7 @@ public class DeckBuilder : MonoBehaviour
     public void ConfirmDeck()
     {
         playerBard.SetDeck(deck);
-        Debug.Log("Deck confirmed!");
+        // Debug.Log("Deck confirmed!");
         GameManager.Instance.ChangeState(GameManager.GameState.Battle);
     }
 }

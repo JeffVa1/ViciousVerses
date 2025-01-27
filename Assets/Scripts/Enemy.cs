@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Enemy image is not assigned. Please assign a sprite in the Inspector.");
+            // Debug.LogWarning("Enemy image is not assigned. Please assign a sprite in the Inspector.");
         }
     }
 }
