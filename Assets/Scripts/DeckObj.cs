@@ -184,13 +184,13 @@ public class DeckObj
         List<Card> allCards = d.GetAllCards(); // Assume Dictionary has a method to get all available cards
         List<Card> tempDeck = new List<Card>(allCards);
 
-        if (tempDeck.Count < 30)
+        if (tempDeck.Count < maxCardsInDeck)
         {
             Debug.LogError("Not enough cards in the dictionary to fill the library.");
             return;
         }
 
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < maxCardsInDeck; i++)
         {
             int randomIndex = Random.Range(0, tempDeck.Count);
             Card selectedCard = tempDeck[randomIndex];
