@@ -11,6 +11,7 @@ public class BattleManager : MonoBehaviour
     public TMP_Text currentPhraseText; // Displays the current phrase
     public Button endTurnButton; // Button to end the player's turn
     public GameObject cardPrefab; // Prefab for card UI elements
+    public TMP_Text enemyPhraseText;
 
     private Bard playerBard;
     private Bard enemyBard;
@@ -21,8 +22,13 @@ public class BattleManager : MonoBehaviour
     private List<Card> playerSelectedCards = new List<Card>(); // Tracks player-selected cards for the phrase
     private List<Card> enemySelectedCards = new List<Card>(); // Tracks enemy-selected cards for the phrase
 
+    private int MoneyEarned = 0;
+
     public void Initialize(Bard player, Bard enemy)
     {
+        enemyPhraseText.gameObject.SetActive(false);
+        currentPhraseText.gameObject.SetActive(true);
+        
         playerBard = player;
         if (playerBard.GetJournal().GetCurrentPhrase() == null) {
             playerBard.GetJournal().SelectNewPhrase();
@@ -39,6 +45,7 @@ public class BattleManager : MonoBehaviour
         Debug.Log("Battle Initialized!");
         endTurnButton.onClick.AddListener(EndPlayerTurn);
         playerBard.GetDeck().DrawMaxPlayerHandFromLibrary();
+        enemyBard.GetDeck().DrawMaxPlayerHandFromLibrary();
         StartBattle();
     }
 
@@ -55,24 +62,32 @@ public class BattleManager : MonoBehaviour
         while (playerBard.GetEgo() > 0 && enemyBard.GetEgo() > 0)
         {
             Debug.Log($"Round {roundNumber} begins.");
-
+            Debug.Log("IS PLAYER TURN: " + isPlayerTurn);
             if (isPlayerTurn)
             {
+                currentPhraseText.gameObject.SetActive(true);
                 Debug.Log("Player's turn.");
-                yield return PlayerTurn();
+                yield return PlayerTurn(); // Wait for the player's turn to finish
             }
             else
             {
                 Debug.Log("Enemy's turn.");
-                yield return EnemyTurn();
+                yield return EnemyTurn(); // Wait for the enemy's turn to finish
             }
 
-            isPlayerTurn = !isPlayerTurn;
-            roundNumber++;
+            // Alternate turns
+            //isPlayerTurn = !isPlayerTurn;
+
+            // Increment the round number after both players have taken their turns
+            if (isPlayerTurn)
+            {
+                roundNumber++;
+            }
         }
 
         EndBattle();
     }
+
 
     private IEnumerator PlayerTurn()
     {
@@ -87,16 +102,61 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator EnemyTurn()
     {
-        // Simulate enemy AI selecting cards and completing a phrase.
         Debug.Log("Enemy is roasting...");
+
+        // Get the current phrase for the enemy
+        JournalPhrase currentPhrase = enemyBard.GetJournal().GetCurrentPhrase();
+
+        if (currentPhrase == null)
+        {
+            Debug.LogError("Enemy's journal does not have a current phrase!");
+            yield break;
+        }
+
+        // Clear previous selections
+        enemySelectedCards.Clear();
+
+        // Randomly select cards from the enemy's hand to fill the phrase blanks
+        List<Card> enemyHand = enemyBard.GetDeck().GetHand();
+        int blanksToFill = currentPhrase.GetNumBlanks();
+        for (int i = 0; i < blanksToFill; i++)
+        {
+            if (enemyHand.Count == 0) break; // No more cards to select
+
+            // Randomly select a card from the enemy's hand
+            Card selectedCard = enemyHand[Random.Range(0, enemyHand.Count)];
+            enemySelectedCards.Add(selectedCard);
+            enemyHand.Remove(selectedCard); // Remove the card from the hand
+        }
+
+        // Update the enemy's phrase text and display it
+        string enemyDisplayText = currentPhrase.GetDisplayText(enemySelectedCards);
+        enemyPhraseText.text = enemyDisplayText;
+        enemyPhraseText.gameObject.SetActive(true);
+
+        // Wait for 3 seconds to display the enemy's completed phrase
         yield return new WaitForSeconds(3f);
 
-        // Example: Randomly generate ego damage.
-        int egoDamage = Random.Range(5, 15);
+        // Hide the enemy phrase text
+        enemyPhraseText.gameObject.SetActive(false);
+
+        // Calculate the phrase effect
+        int egoDamage = CalculatePhraseEffect(enemyBard, enemySelectedCards);
         playerBard.AddEgo(-egoDamage);
 
         Debug.Log($"Player's ego reduced by {egoDamage}. Current ego: {playerBard.GetEgo()}.");
+
+        // Select a new phrase for the enemy
+        enemyBard.GetJournal().SelectNewPhrase();
+
+        // Simulate enemy drawing new cards
+        enemyBard.GetDeck().DiscardHandExcept(enemySelectedCards);
+        enemyBard.GetDeck().DrawCards(5);
+
+        isPlayerTurn = true;
+        Debug.Log("Enemy turn ended.");
     }
+
 
     private int CalculatePhraseEffect(Bard bard, List<Card> selectedCards)
     {
@@ -121,8 +181,10 @@ public class BattleManager : MonoBehaviour
 
     private void EndPlayerTurn()
     {
+        Debug.Log("THIS IS A TEST1");
         if (playerSelectedCards.Count == playerBard.GetJournal().GetCurrentPhrase().GetNumBlanks())
         {
+            Debug.Log("THIS IS A TEST2");
             // Calculate phrase effect if phrase is full.
             int egoDamage = CalculatePhraseEffect(playerBard, playerSelectedCards);
             enemyBard.AddEgo(-egoDamage);
@@ -136,6 +198,7 @@ public class BattleManager : MonoBehaviour
             Debug.Log("Phrase incomplete. Skipping effect calculation.");
         }
 
+        currentPhraseText.gameObject.SetActive(false);
         // Discard remaining cards and draw a new hand.
         playerBard.GetDeck().DiscardHandExcept(playerSelectedCards);
         playerBard.GetDeck().DrawCards(5);
@@ -175,8 +238,6 @@ public class BattleManager : MonoBehaviour
             GameObject cardObj = Instantiate(cardPrefab, handArea);
             CardUI cardUI = cardObj.GetComponent<CardUI>();
             cardUI.Setup(card, OnCardSelected);
-            //cardObj.GetComponentInChildren<Text>().text = card.GetText();
-            //cardObj.GetComponent<Button>().onClick.AddListener(() => OnCardSelected(card));
         }
     }
 
@@ -214,7 +275,7 @@ public class BattleManager : MonoBehaviour
             playerSelectedCards.Remove(card);
             UpdateCardOpacity(card, 1.0f); // Reset opacity to 100%
         }
-        else
+        else if (playerSelectedCards.Count < playerBard.GetJournal().GetCurrentPhrase().GetNumBlanks())
         {
             // Select the card and change its opacity
             playerSelectedCards.Add(card);
