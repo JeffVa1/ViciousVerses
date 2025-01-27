@@ -24,9 +24,18 @@ public class SettingsMenu : MonoBehaviour
         audioMixer.SetFloat("SFX", SXFVolumeSlider.value);
         Debug.Log(SXFVolumeSlider.value);
     }
-    public void ToggleProfanity(bool profanity)
+    public void ToggleProfanity()
     {
-        print(profanity);
-        Debug.Log(profanity);
+        if (ProfanityToggle.isOn)
+        {
+            PlayerPrefs.SetInt("Profanity", 1);
+            Debug.Log("Profanity is on");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Profanity", 0);
+            Debug.Log("Profanity is off");
+        }
+
     }
 }
