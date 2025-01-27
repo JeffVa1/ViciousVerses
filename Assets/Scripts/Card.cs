@@ -53,13 +53,14 @@ public class Card
     {
         if (full_info)
         {
-            Debug.Log("CARD");
-            Debug.Log("Text: " + Text);
-            Debug.Log("Mult: " + pointMultiplier);
-            Debug.Log("Add : " + pointAddition);
-            Debug.Log("");
+            // Debug.Log("CARD");
+            // Debug.Log("Text: " + Text);
+            // Debug.Log("POS : " + partOfSpeech);
+            // Debug.Log("Mult: " + pointMultiplier);
+            // Debug.Log("Add : " + pointAddition);
+            // Debug.Log("");
         } else {
-            Debug.Log(Text);
+            // Debug.Log(Text);
         }
     }
 }
