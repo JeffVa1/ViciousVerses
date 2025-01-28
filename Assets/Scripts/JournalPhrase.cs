@@ -82,9 +82,9 @@ public class JournalPhrase
 
     public void LogPhrase()
     {
-        Debug.Log(GetPhraseText());
-        Debug.Log("Num words: " + phraseList.Count);
-        Debug.Log("Num blank: " + numBlanks);
+        // Debug.Log(GetPhraseText());
+        // Debug.Log("Num words: " + phraseList.Count);
+        // Debug.Log("Num blank: " + numBlanks);
     }
 
     public string GetDisplayText(List<Card> selectedCards)

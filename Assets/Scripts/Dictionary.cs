@@ -13,7 +13,7 @@ public class Dictionary
 
     public Dictionary()
     {
-        Debug.Log("Dictionary created");
+        // Debug.Log("Dictionary created");
         Cards = new List<Card> {};
     }
     public Dictionary(List<Card> c)

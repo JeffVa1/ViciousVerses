@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BattleManager battleManager;
     
     public int round_number = 1;
+
+    public DialogueManager DialogueManager;
+    public Sprite PlayerSprite;
+    public Sprite EnemySprite;
+
     
 
     private void Awake()
@@ -44,7 +49,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("LOADING NOUNS");
         string noun_filename = "defaultNouns.json";
         List<Card> nouns = ParseCardsFromJson(noun_filename, "noun");
-        Debug.Log("LOADING VERBS");
+        // Debug.Log("LOADING VERBS");
         string verb_filename = "defaultVerbs.json";
         List<Card> verbs = ParseCardsFromJson(verb_filename, "verb");
         List<Card> playerCardList = new List<Card>();
@@ -52,7 +57,7 @@ public class GameManager : MonoBehaviour
         playerCardList.AddRange(verbs);
         Dictionary player_dictionary = new Dictionary(playerCardList);
         player_dictionary.LogCards(true);
-        Debug.Log("LOADING PLAYER JOURNAL");
+
         string player_phrase_filename = "playerPhrases.json";
         List<JournalPhrase> player_phrases = ParsePhrasesFromJson(player_phrase_filename);
         Journal player_journal = new Journal(player_phrases);
@@ -100,9 +105,13 @@ public class GameManager : MonoBehaviour
         shop_phrases = new_shop_phrases;
 
         // Initialize game state
-        //CurrentState = GameState.Intro;
         battleManager.Initialize(PlayerBard, OpponentBard1);
+        CurrentState = GameState.Intro;
+        
+        DialogueManager.Initialize("Assets/Data/testDialogue.json", PlayerSprite, EnemySprite);
     }
+
+    
 
     public void ChangeState(GameState newState)
     {

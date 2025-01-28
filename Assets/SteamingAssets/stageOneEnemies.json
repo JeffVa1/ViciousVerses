@@ -1,0 +1,12 @@
+{
+    "enemies": [
+        {
+            "spriteAddress": "Sprites/SIB_Bard_1_placeholder.PNG",
+            "ego": 10
+        },
+        {
+            "spriteAddress": "Sprites/SIB_Bard_2_placeholder.PNG",
+            "ego": 20
+        }
+    ]
+}

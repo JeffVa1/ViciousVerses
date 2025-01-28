@@ -61,9 +61,9 @@ public class Journal
 
     public void LogPhrase(JournalPhrase phrase)
     {
-        Debug.Log(phrase.GetPhraseText());
-        Debug.Log("Num words: " + phrase.GetPhraseList().Count);
-        Debug.Log("Num blank: " + phrase.GetNumBlanks());
+        // Debug.Log(phrase.GetPhraseText());
+        // Debug.Log("Num words: " + phrase.GetPhraseList().Count);
+        // Debug.Log("Num blank: " + phrase.GetNumBlanks());
     }
 
     public void LogCurrentPhrase()
@@ -90,7 +90,7 @@ public class Journal
         }
         else
         {
-            Debug.Log("ERROR - no more phrases available in journal");
+            // Debug.Log("ERROR - no more phrases available in journal");
             return false;
         }
 
