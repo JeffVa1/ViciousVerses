@@ -1,0 +1,29 @@
+{
+    "Dialogue": [
+        {
+            "Speaker": "narator",
+            "Text": "Welcome to the world my friend! Your journey has been long and you are soon due a rest.",
+            "Flag": "0"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "You are known as Jaque Blaque, a traveling bard.",
+            "Flag": "1"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "You travel where the wind takes you, spinning tales, defending your honor, and the honor of beautiful young maidens!",
+            "Flag": "1"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "On this day you come across a tavern during your travels called The Empty Flask",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "Here you stop for a well deserved drink...",
+            "Flag": "2"
+        }
+    ]
+}
