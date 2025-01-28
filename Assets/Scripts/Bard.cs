@@ -80,6 +80,11 @@ public class Bard
         deck = new DeckObj(d);
     }
 
+    public void SetRandomDeck()
+    {
+        deck.SetRandomLibrary(dict);
+    }
+
     public DeckObj GetDeck()
     {
         return deck;
