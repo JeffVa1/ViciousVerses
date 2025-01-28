@@ -22,6 +22,8 @@ public class BattleManager : MonoBehaviour
     private List<Card> playerSelectedCards = new List<Card>(); // Tracks player-selected cards for the phrase
     private List<Card> enemySelectedCards = new List<Card>(); // Tracks enemy-selected cards for the phrase
 
+    private Dictionary<Card, float> cardOpacityState = new Dictionary<Card, float>(); // Track card opacity state
+
     private int MoneyEarned = 0;
 
     public void Initialize(Bard player, Bard enemy)
@@ -161,30 +163,68 @@ public class BattleManager : MonoBehaviour
     private int CalculatePhraseEffect(Bard bard, List<Card> selectedCards)
     {
         JournalPhrase currentPhrase = bard.GetJournal().GetCurrentPhrase();
-        List<string> phraseList = currentPhrase.GetPhraseList();
-        int totalDamage = 0;
-
-        foreach (string word in phraseList)
+        if (currentPhrase == null)
         {
-            if (!string.IsNullOrEmpty(word))
+            Debug.LogError("Current phrase is null. Cannot calculate phrase effect.");
+            return 0;
+        }
+
+        List<Blank> blanksInfo = currentPhrase.GetBlanksInfo();
+        if (blanksInfo == null || blanksInfo.Count == 0)
+        {
+            Debug.LogError("Blanks info is null or empty. Cannot calculate phrase effect.");
+            return 0;
+        }
+
+        int totalDamage = 0;
+        int audienceReaction = 0;
+        int totalMultiplier = 1;
+
+        for (int i = 0; i < blanksInfo.Count; i++)
+        {
+            if (i >= selectedCards.Count)
             {
-                Card card = selectedCards.Find(c => c.GetText() == word);
-                if (card != null)
-                {
-                    totalDamage += card.GetEgoDamage();
-                }
+                Debug.LogWarning($"Not enough cards selected to fill all blanks. Skipping blank {i + 1}.");
+                continue;
+            }
+
+            Blank blank = blanksInfo[i];
+            Card card = selectedCards[i];
+
+
+            bool posMatch = blank.PreferredPOS == null || blank.PreferredPOS == card.GetPartOfSpeech();
+            bool categoryMatch = blank.PreferredCAT == null || card.GetCategories().Contains(blank.PreferredCAT);
+            bool insultMatch = blank.Insult == null || blank.Insult == card.IsInsult();
+
+
+            Debug.Log($"Blank {i + 1}: POS Match: {posMatch}, CAT Match: {categoryMatch}, Insult Match: {insultMatch}");
+            if (isPlayerTurn)
+            {
+                if (posMatch) audienceReaction += 2; // Example reaction score for POS match
+                if (categoryMatch) audienceReaction += 4; // Example reaction score for category match
+                if (insultMatch) audienceReaction += 8; // Example reaction score for insult match
+            }
+           
+
+            // Increase damage - if all matching attributes, add multiplier to cards damage.
+            if (posMatch && categoryMatch && insultMatch)
+            {
+                totalDamage += (card.GetEgoDamage() * card.GetMultiplier());
+            } else {
+                totalDamage += card.GetEgoDamage();
             }
         }
 
-        return totalDamage;
+        Debug.Log($"Total Audience Reaction: {audienceReaction}");
+        Debug.Log($"Total Ego Damage: {totalDamage}");
+
+        return Mathf.RoundToInt(totalDamage);
     }
 
     private void EndPlayerTurn()
     {
-        Debug.Log("THIS IS A TEST1");
         if (playerSelectedCards.Count == playerBard.GetJournal().GetCurrentPhrase().GetNumBlanks())
         {
-            Debug.Log("THIS IS A TEST2");
             // Calculate phrase effect if phrase is full.
             int egoDamage = CalculatePhraseEffect(playerBard, playerSelectedCards);
             enemyBard.AddEgo(-egoDamage);
@@ -192,6 +232,7 @@ public class BattleManager : MonoBehaviour
             playerBard.GetJournal().SelectNewPhrase();
             // Clear selected cards after completing the phrase.
             playerSelectedCards.Clear();
+            cardOpacityState.Clear();
         }
         else
         {
@@ -238,8 +279,19 @@ public class BattleManager : MonoBehaviour
             GameObject cardObj = Instantiate(cardPrefab, handArea);
             CardUI cardUI = cardObj.GetComponent<CardUI>();
             cardUI.Setup(card, OnCardSelected);
+
+            // Apply saved opacity state to the card
+            if (cardOpacityState.ContainsKey(card))
+            {
+                cardUI.SetCardOpacity(cardOpacityState[card]); // Apply saved opacity
+            }
+            else
+            {
+                cardUI.SetCardOpacity(1.0f); // Default to full opacity if not in the dictionary
+            }
         }
     }
+
 
     private void UpdatePhraseUI()
     {
@@ -273,17 +325,19 @@ public class BattleManager : MonoBehaviour
         {
             // If the card is already selected, deselect it
             playerSelectedCards.Remove(card);
-            UpdateCardOpacity(card, 1.0f); // Reset opacity to 100%
+            cardOpacityState[card] = 1.0f; // Reset opacity to 100%
         }
         else if (playerSelectedCards.Count < playerBard.GetJournal().GetCurrentPhrase().GetNumBlanks())
         {
             // Select the card and change its opacity
             playerSelectedCards.Add(card);
-            UpdateCardOpacity(card, 0.5f); // Set opacity to 50%
+            cardOpacityState[card] = 0.5f; // Set opacity to 50%
         }
 
         UpdatePhraseUI();
+        UpdateHandUI();
     }
+
 
     private void UpdateCardOpacity(Card card, float opacity)
     {
@@ -298,5 +352,4 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
 }

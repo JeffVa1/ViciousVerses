@@ -61,9 +61,7 @@ public class Journal
 
     public void LogPhrase(JournalPhrase phrase)
     {
-        // Debug.Log(phrase.GetPhraseText());
-        // Debug.Log("Num words: " + phrase.GetPhraseList().Count);
-        // Debug.Log("Num blank: " + phrase.GetNumBlanks());
+        phrase.LogPhrase(true);
     }
 
     public void LogCurrentPhrase()

@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         battleManager.Initialize(PlayerBard, OpponentBard1);
         CurrentState = GameState.Intro;
         
-        DialogueManager.Initialize("Assets/Data/testDialogue.json", PlayerSprite, EnemySprite);
+        //DialogueManager.Initialize("Assets/Data/testDialogue.json", PlayerSprite, EnemySprite);
     }
 
     
@@ -159,14 +159,16 @@ public class GameManager : MonoBehaviour
         {
             foreach (var phraseData in entry.Value)
             {
-                JournalPhrase journalPhrase = new JournalPhrase(phraseData.phrase, phraseData.blanks);
+                // Pass the phrase, number of blanks, and blank_info JSON directly to the JournalPhrase constructor
+                string blankInfoJson = JsonConvert.SerializeObject(phraseData.blank_info);
+                JournalPhrase journalPhrase = new JournalPhrase(phraseData.phrase, phraseData.blanks, blankInfoJson);
                 journalPhrases.Add(journalPhrase);
             }
         }
 
-
         return journalPhrases;
     }
+
 
     private List<Card> ParseCardsFromJson(string filename, string partOfSpeech)
     {
@@ -185,7 +187,9 @@ public class GameManager : MonoBehaviour
                     addition: cardData.ptValue,
                     pos: partOfSpeech,
                     e: cardData.egoDmg,
-                    audience: cardData.audienceValue
+                    audience: cardData.audienceValue,
+                    inslt: cardData.insult,
+                    category: cardData.categories
                 );
                 cards.Add(card);
             }
@@ -261,6 +265,8 @@ public class CardData
     public float ptMultiplier { get; set; }
     public int egoDmg { get; set; }
     public int audienceValue { get; set; }
+    public bool insult { get; set; }
+    public List<string> categories { get; set; }
 }
 
 // Helper class for Phrase data deserialization
@@ -269,4 +275,22 @@ public class JournalPhraseData
 {
     public string phrase;
     public int blanks;
+    public List<BlankData> blank_info;
+}
+
+[System.Serializable]
+public class BlankData
+{
+    public int blank_id;
+    public BlankAttributes blank_attributes;
+}
+
+[System.Serializable]
+public class BlankAttributes
+{
+    public string word;
+    public string PreferredPOS;
+    public string PreferredCAT;
+    public bool Insult;
+    public string Tense;
 }
