@@ -1,92 +1,462 @@
 {
     "1": [
         {
-            "phrase": "I bite my thumb at your BLANK",
-            "blanks": 1
+            "phrase": "I bite my thumb at you, you BLANK",
+            "blanks": 1,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
         }
     ],
     "2": [
         {
             "phrase": "Your mother is a BLANK",
-            "blanks": 1
+            "blanks": 1,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
         }
     ],
     "3": [
         {
             "phrase": "You dance like a BLANK",
-            "blanks": 1
+            "blanks": 1,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
         }
     ],
     "4": [
         {
             "phrase": "Your father smells of BLANK",
-            "blanks": 1
+            "blanks": 1,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
         }
     ],
     "5": [
         {
             "phrase": "You fight like a BLANK with BLANK hands",
-            "blanks": 2
+            "blanks": 2,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
         }
     ],
     "6": [
         {
-            "phrase": "Your BLANK is so BLANK it makes babies cry",
-            "blanks": 2
+            "phrase": "You absolute BLANK, go and BLANK somewhere else before you embarrass yourself further.",
+            "blanks": 2,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": "SX"
+                    }
+                }
+            ]
         }
     ],
     "7": [
         {
-            "phrase": "You BLANK like a BLANK stuck in a BLANK",
-            "blanks": 3
+            "phrase": "You BLANK like a BLANK stuck to a BLANK",
+            "blanks": 3,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": false,
+                        "Tense": "SX"
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 3,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
         }
     ],
     "8": [
         {
-            "phrase": "Even your BLANK thinks you BLANK like a BLANK",
-            "blanks": 3
+            "phrase": "Every BLANK thinks you BLANK like a BLANK",
+            "blanks": 3,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": false,
+                        "Tense": "SX"
+                    }
+                },
+                {
+                    "blank_id": 3,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
         }
     ],
     "9": [
         {
-            "phrase": "You look like a BLANK and BLANK like a BLANK",
-            "blanks": 3
+            "phrase": "You absolute BLANK, BLANK around like a BLANK!",
+            "blanks": 3,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": false,
+                        "Tense": "AA"
+                    }
+                },
+                {
+                    "blank_id": 3,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
         }
     ],
     "10": [
         {
-            "phrase": "Your BLANK is so BLANK it could scare a BLANK",
-            "blanks": 3
+            "phrase": "You're nothing but a BLANK where shame BLANK, the kind of BLANK that even shadows avoid.",
+            "blanks": 3,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": "IA"
+                    }
+                },
+                {
+                    "blank_id": 3,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
         }
     ],
     "11": [
         {
-            "phrase": "You BLANK worse than a BLANK riding a BLANK",
-            "blanks": 3
+            "phrase": "Your BLANK is worse than a BLANK riding a BLANK",
+            "blanks": 3,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": false,
+                        "Tense": "AA"
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 3,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
         }
     ],
     "12": [
         {
             "phrase": "Your BLANK is an embarrassment to BLANK-kind",
-            "blanks": 2
+            "blanks": 2,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
         }
     ],
     "13": [
         {
-            "phrase": "You BLANK like a BLANK trying to BLANK a BLANK",
-            "blanks": 4
+            "phrase": "BLANK like a desperate BLANK, then BLANK away before anyone notices the failure.",
+            "blanks": 3,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": false,
+                        "Tense": "AA"
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 3,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": false,
+                        "Tense": "AA"
+                    }
+                }
+            ]
         }
     ],
     "14": [
         {
-            "phrase": "Your BLANK makes even a BLANK look BLANK",
-            "blanks": 3
+            "phrase": "You're a BLANK's BLANK, destined to BLANK into obscurity.",
+            "blanks": 3,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 3,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": "SX"
+                    }
+                }
+            ]
         }
     ],
     "15": [
         {
-            "phrase": "You BLANK so BLANK that a BLANK would laugh",
-            "blanks": 3
+            "phrase": "Even the audiance BLANK at how this BLANK BLANK has wasted our time",
+            "blanks": 3,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": false,
+                        "Tense": "IA"
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": "AA"
+                    }
+                },
+                {
+                    "blank_id": 3,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
         }
     ]
 }
