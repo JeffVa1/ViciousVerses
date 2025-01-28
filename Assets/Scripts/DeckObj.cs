@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static Dictionary;
+
 
 public class DeckObj
 {
@@ -9,6 +11,7 @@ public class DeckObj
 
     private int maxCardsInHand = 10;
     private int maxDrawNewHand = 5;
+    private int maxCardsInDeck = 30;
 
     // Constructor
     public DeckObj(List<Card> cards)
@@ -36,6 +39,16 @@ public class DeckObj
     public int GetHandCount()
     {
         return playerHand.Count;
+    }
+
+    public List<Card> GetHand()
+    {
+        return playerHand;
+    }
+
+    public List<Card> GetGraveyard()
+    {
+        return graveyard;
     }
 
     public int GetLibraryCount()
@@ -73,7 +86,7 @@ public class DeckObj
         library.Remove(library[0]);
     }
 
-    public void DrawMaxPlayerHandFromLibrary(List<Card> library)
+    public void DrawMaxPlayerHandFromLibrary()
     {
         for (int i = 0; i < maxDrawNewHand; i++)
         {
@@ -102,11 +115,6 @@ public class DeckObj
         }
     }
 
-    public void PlayCardToPhrase(Card card)
-    {
-
-    }
-
     // Mehtod to return Graveyard to Library when Library is empty
     public void GraveyardToLibrary()
     {
@@ -116,6 +124,95 @@ public class DeckObj
             graveyard.Remove(graveyard[i]);
         }
     }
+
+    public void DiscardHandExcept(List<Card> savedCards)
+    {
+        List<Card> cardsToDiscard = new List<Card>();
+
+        // Identify cards to discard
+        foreach (Card card in playerHand)
+        {
+            if (!savedCards.Contains(card))
+            {
+                cardsToDiscard.Add(card);
+            }
+        }
+
+        // Move identified cards to the graveyard
+        foreach (Card card in cardsToDiscard)
+        {
+            graveyard.Add(card);
+            playerHand.Remove(card);
+        }
+    }
+
+    public void DrawCards(int numCards)
+    {
+        for (int i = 0; i < numCards; i++)
+        {
+            if (playerHand.Count >= maxCardsInHand)
+            {
+                Debug.Log("Player hand is full.");
+                break;
+            }
+
+            if (library.Count == 0)
+            {
+                if (graveyard.Count > 0)
+                {
+                    Debug.Log("Library is empty. Shuffling graveyard back into library.");
+                    GraveyardToLibrary();
+                    ShuffleDeck();
+                }
+                else
+                {
+                    Debug.Log("No more cards to draw.");
+                    break;
+                }
+            }
+
+            DrawOneToHandFromLibrary(library);
+        }
+    }
+
+    public void ShuffleDeck()
+    {
+        for (int i = 0; i < library.Count; i++)
+        {
+            int randomIndex = Random.Range(0, library.Count);
+            Card temp = library[i];
+            library[i] = library[randomIndex];
+            library[randomIndex] = temp;
+        }
+
+        Debug.Log("Library shuffled.");
+    }
+
+    public void SetRandomLibrary(Dictionary d)
+    {
+        library.Clear(); // Ensure the library starts empty
+
+        List<Card> allCards = d.GetAllCards(); // Assume Dictionary has a method to get all available cards
+        List<Card> tempDeck = new List<Card>(allCards);
+
+        if (tempDeck.Count < maxCardsInDeck)
+        {
+            Debug.LogError("Not enough cards in the dictionary to fill the library.");
+            return;
+        }
+
+        for (int i = 0; i < maxCardsInDeck; i++)
+        {
+            int randomIndex = Random.Range(0, tempDeck.Count);
+            Card selectedCard = tempDeck[randomIndex];
+            library.Add(selectedCard);
+            tempDeck.RemoveAt(randomIndex); // Remove to avoid duplicates
+        }
+
+        Debug.Log("Library set with 30 random cards.");
+    }
+
+
 
 }
 
