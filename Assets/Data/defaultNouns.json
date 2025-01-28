@@ -364,7 +364,7 @@
         {
             "ptValue": -3,
             "ptMultiplier": 1.4,
-            "egoDmg": 5,
+            "egoDmg": 7,
             "audienceValue": -10,
             "insult": true,
             "categories": [

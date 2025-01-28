@@ -263,7 +263,7 @@
                         "PreferredPOS": "verb",
                         "PreferredCAT": null,
                         "Insult": true,
-                        "Tense": "SF"
+                        "Tense": "IA"
                     }
                 },
                 {
@@ -423,7 +423,7 @@
     ],
     "15": [
         {
-            "phrase": "Even the audiance BLANK at how this BLANK BLANK as wasted our time",
+            "phrase": "Even the audiance BLANK at how this BLANK BLANK has wasted our time",
             "blanks": 3,
             "blank_info": [
                 {
@@ -433,7 +433,7 @@
                         "PreferredPOS": "verb",
                         "PreferredCAT": null,
                         "Insult": false,
-                        "Tense": "AI"
+                        "Tense": "IA"
                     }
                 },
                 {
