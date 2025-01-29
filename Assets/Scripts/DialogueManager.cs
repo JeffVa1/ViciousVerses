@@ -4,6 +4,8 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine.Assertions.Must;
+using System;
 
 
 
@@ -13,6 +15,8 @@ public class DialogueLine
 {
     public string Speaker;
     public string Text;
+
+    public string Flag;
 }
 
 [System.Serializable]
@@ -27,39 +31,51 @@ public class DialogueManager : MonoBehaviour
 
     public TextMeshProUGUI TextComponent;
     public float TextSpeed;
-    private string JsonFilePath;
+    public string JsonFilePath { get; set; }
     private List<DialogueLine> DialogueLines;
-
-    private TextAsset DialogueJson;
     private DialogueRoot DialogueRoot;
     private int Index;
+    public int Flag { get; private set; }
 
     public UnityEngine.UI.Image SpeakerImage;
-    private Sprite PlayerSprite;
-    private Sprite EnemySprite;
+    public Sprite DPlayerSprite;
+    public Sprite DEnemy1Sprite;
+    public Sprite DEnemy2Sprite;
+    public Sprite DEnemy3Sprite;
+
+    public Sprite DNarratorSprite;
+
+    public Sprite DBarMaidSprite;
 
     public GameObject DialogBox;
 
+    private CanvasGroup DialogueCanvasGroup;
 
-    public void Initialize(string JsonFilePath, Sprite PlayerSprite, Sprite EnemySprite) {
-        this.JsonFilePath = JsonFilePath;
-        this.PlayerSprite = PlayerSprite;
-        this.EnemySprite = EnemySprite;
 
-        DialogBox.SetActive(true);
-        TextComponent.text = string.Empty;
-        StartDialogue();
+    public CanvasGroup GetCanvasGroup()
+    {
+        DialogueCanvasGroup = GetComponent<CanvasGroup>();
+        return DialogueCanvasGroup;
     }
 
-    private void StartDialogue()
+    public void Initialize(string JsonFilePath)
+    {
+        this.JsonFilePath = JsonFilePath;
+        TextComponent.text = string.Empty;
+
+    }
+
+    public void StartDialogue()
     {
         Index = 0;
+        DialogBox.SetActive(true);
         ParseDialogue();
         UpdateSpeakerSprite();
         StartCoroutine(TypeLine());
     }
 
-    private void EndDialogue() {
+    public void EndDialogue()
+    {
         DialogBox.SetActive(false);
     }
 
@@ -70,10 +86,13 @@ public class DialogueManager : MonoBehaviour
         DialogueLines = DialogueRoot.Dialogue;
     }
 
+
+
     private IEnumerator TypeLine()
     {
 
         DialogueLine line = DialogueLines[Index];
+        Flag = int.Parse(DialogueLines[Index].Flag);
         foreach (char c in line.Text.ToCharArray())
         {
             TextComponent.text += c;
@@ -83,7 +102,7 @@ public class DialogueManager : MonoBehaviour
 
     private void NextLine()
     {
-        if (Index < DialogueLines.Count -1)
+        if (Index < DialogueLines.Count - 1)
         {
             Index++;
             TextComponent.text = string.Empty;
@@ -98,16 +117,42 @@ public class DialogueManager : MonoBehaviour
 
     private void UpdateSpeakerSprite()
     {
-        Debug.Log("Index = "+ Index);
+
         string speaker = DialogueLines[Index].Speaker;
-        if (speaker == "player")
-        {
-            SpeakerImage.sprite = PlayerSprite;
+        switch (speaker){
+            case "":
+            SpeakerImage.sprite = null;
+            break;
+
+            case "narator":
+            SpeakerImage.sprite = DNarratorSprite;
+            break;
+
+            case "player":
+            SpeakerImage.sprite = DPlayerSprite;
+            break;
+
+            case "barmaid":
+            SpeakerImage.sprite = DBarMaidSprite;
+            break;
+
+            case "enemy1":
+            SpeakerImage.sprite = DEnemy1Sprite;
+            break;
+
+            case "enemy2":
+            SpeakerImage.sprite = DEnemy2Sprite;
+            break;
+
+            case "enemy3":
+            SpeakerImage.sprite = DEnemy3Sprite;
+            break;
         }
-        else if (speaker == "enemy")
-        {
-            SpeakerImage.sprite = EnemySprite;
-        }
+    }
+
+    public void UpdateScriptJson(string filepath)
+    {
+        JsonFilePath = filepath;
     }
 
     private void Update()
