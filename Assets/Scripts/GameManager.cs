@@ -14,7 +14,7 @@ using static DeckObj;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public enum GameState { Intro, DeckBuilder, Battle, Results }
+    public enum GameState { Menu, Opening, DeckBuilder, Battle, Results, CutScene }
     public GameState CurrentState { get; private set; }
     
     public Bard PlayerBard { get; private set; }
@@ -111,7 +111,10 @@ public class GameManager : MonoBehaviour
         //shop_phrases = new_shop_phrases;
 
         // Initialize game state
-        CurrentState = GameState.Intro;
+        
+        Debug.Log("Setting Current State" + CurrentState);
+        CurrentState = GameState.Menu;
+        Debug.Log("Setting Current State" + CurrentState);
     }
 
     private void LoadPlayerData()
@@ -176,6 +179,11 @@ public class GameManager : MonoBehaviour
 
         switch (newState)
         {
+            case GameState.Opening:
+                Debug.Log("Setting Current State" + CurrentState);
+                LoadScene("OpeningScene");
+                Debug.Log("Setting Current State" + CurrentState);
+                break;
             case GameState.DeckBuilder:
                 LoadScene("DeckBuilder");
                 break;
@@ -184,6 +192,9 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Results:
                 LoadScene("Results");
+                break;
+            case GameState.CutScene:
+                LoadScene("CutScene");
                 break;
         }
     }
@@ -212,6 +223,10 @@ public class GameManager : MonoBehaviour
     public void IncrementCurrentBattle()
     {
         currentBattle += 1;
+    }
+
+    public void GoToOpening() {
+        ChangeState(GameState.Opening);
     }
 
     public void GoToResults()

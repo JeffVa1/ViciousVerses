@@ -1,11 +1,14 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class MainMenu: MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // Debug.Log("Current State, " + GameManager.Instance.CurrentState);
+        GameManager.Instance.GoToOpening();
+        Debug.Log("Current State, " + GameManager.Instance.CurrentState);
     }
     public void QuitGame()
     {
