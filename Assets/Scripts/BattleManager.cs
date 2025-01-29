@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class BattleManager : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class BattleManager : MonoBehaviour
         isPlayerTurn = true;
         roundNumber = 1;
 
-        Debug.Log("Battle Initialized!");
+        //Debug.Log("Battle Initialized!");
         endTurnButton.onClick.AddListener(EndPlayerTurn);
         playerBard.GetDeck().DrawMaxPlayerHandFromLibrary();
         enemyBard.GetDeck().DrawMaxPlayerHandFromLibrary();
@@ -53,7 +54,7 @@ public class BattleManager : MonoBehaviour
 
     private void StartBattle()
     {
-        Debug.Log("Starting the battle...");
+        //Debug.Log("Starting the battle...");
         UpdateHandUI();
         UpdatePhraseUI();
         StartCoroutine(BattleLoop());
@@ -63,17 +64,17 @@ public class BattleManager : MonoBehaviour
     {
         while (playerBard.GetEgo() > 0 && enemyBard.GetEgo() > 0)
         {
-            Debug.Log($"Round {roundNumber} begins.");
-            Debug.Log("IS PLAYER TURN: " + isPlayerTurn);
+            //Debug.Log($"Round {roundNumber} begins.");
+            //Debug.Log("IS PLAYER TURN: " + isPlayerTurn);
             if (isPlayerTurn)
             {
                 currentPhraseText.gameObject.SetActive(true);
-                Debug.Log("Player's turn.");
+                //Debug.Log("Player's turn.");
                 yield return PlayerTurn(); // Wait for the player's turn to finish
             }
             else
             {
-                Debug.Log("Enemy's turn.");
+                //Debug.Log("Enemy's turn.");
                 yield return EnemyTurn(); // Wait for the enemy's turn to finish
             }
 
@@ -94,7 +95,7 @@ public class BattleManager : MonoBehaviour
     private IEnumerator PlayerTurn()
     {
         
-        Debug.Log("Player, complete your roast!");
+        //Debug.Log("Player, complete your roast!");
 
         // Wait for the player to press the End Turn button.
         yield return new WaitUntil(() => !isPlayerTurn);
@@ -104,59 +105,82 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator EnemyTurn()
     {
-        Debug.Log("Enemy is roasting...");
-
-        // Get the current phrase for the enemy
         JournalPhrase currentPhrase = enemyBard.GetJournal().GetCurrentPhrase();
-
         if (currentPhrase == null)
         {
-            Debug.LogError("Enemy's journal does not have a current phrase!");
             yield break;
         }
 
-        // Clear previous selections
         enemySelectedCards.Clear();
 
-        // Randomly select cards from the enemy's hand to fill the phrase blanks
-        List<Card> enemyHand = enemyBard.GetDeck().GetHand();
+        List<Card> enemyHand = new List<Card>(enemyBard.GetDeck().GetHand());
         int blanksToFill = currentPhrase.GetNumBlanks();
-        for (int i = 0; i < blanksToFill; i++)
-        {
-            if (enemyHand.Count == 0) break; // No more cards to select
 
-            // Randomly select a card from the enemy's hand
-            Card selectedCard = enemyHand[Random.Range(0, enemyHand.Count)];
-            enemySelectedCards.Add(selectedCard);
-            enemyHand.Remove(selectedCard); // Remove the card from the hand
+        List<List<Card>> possibleCombinations = GetCombinations(enemyHand, blanksToFill);
+        List<(List<Card>, int)> scoredCombinations = possibleCombinations
+            .Select(cards => (cards, CalculatePhraseEffect(enemyBard, cards)))
+            .OrderByDescending(result => result.Item2)
+            .ToList();
+
+        for (int i = 0; i < Mathf.Min(5, scoredCombinations.Count); i++)
+        {
+            Debug.Log($"Top {i + 1} enemy option: {string.Join(", ", scoredCombinations[i].Item1.Select(c => c.GetText()))} with score {scoredCombinations[i].Item2}");
         }
 
-        // Update the enemy's phrase text and display it
+        int targetIndex = 0;
+        if (GameManager.Instance.currentBattle == 1)
+        {
+            targetIndex = 4;
+        } 
+        else if (GameManager.Instance.currentBattle == 2)
+        {
+            targetIndex = 2;
+        }
+        else if (GameManager.Instance.currentBattle == 3)
+        {
+            targetIndex = 0;
+        }
+
+        targetIndex = Mathf.Clamp(targetIndex, 0, scoredCombinations.Count - 1);
+        enemySelectedCards = scoredCombinations.Count > targetIndex ? scoredCombinations[targetIndex].Item1 : new List<Card>();
+
         string enemyDisplayText = currentPhrase.GetDisplayText(enemySelectedCards);
         enemyPhraseText.text = enemyDisplayText;
         enemyPhraseText.gameObject.SetActive(true);
 
-        // Wait for 3 seconds to display the enemy's completed phrase
         yield return new WaitForSeconds(3f);
-
-        // Hide the enemy phrase text
         enemyPhraseText.gameObject.SetActive(false);
 
-        // Calculate the phrase effect
         int egoDamage = CalculatePhraseEffect(enemyBard, enemySelectedCards);
         playerBard.AddEgo(-egoDamage);
 
-        Debug.Log($"Player's ego reduced by {egoDamage}. Current ego: {playerBard.GetEgo()}.");
-
-        // Select a new phrase for the enemy
         enemyBard.GetJournal().SelectNewPhrase();
-
-        // Simulate enemy drawing new cards
         enemyBard.GetDeck().DiscardHandExcept(enemySelectedCards);
         enemyBard.GetDeck().DrawCards(5);
 
         isPlayerTurn = true;
-        Debug.Log("Enemy turn ended.");
+    }
+
+    private List<List<Card>> GetCombinations(List<Card> hand, int size)
+    {
+        List<List<Card>> results = new List<List<Card>>();
+        GetCombinationsRecursive(hand, new List<Card>(), size, 0, results);
+        return results;
+    }
+
+    private void GetCombinationsRecursive(List<Card> hand, List<Card> current, int size, int index, List<List<Card>> results)
+    {
+        if (current.Count == size)
+        {
+            results.Add(new List<Card>(current));
+            return;
+        }
+        for (int i = index; i < hand.Count; i++)
+        {
+            current.Add(hand[i]);
+            GetCombinationsRecursive(hand, current, size, i + 1, results);
+            current.RemoveAt(current.Count - 1);
+        }
     }
 
 
@@ -165,14 +189,14 @@ public class BattleManager : MonoBehaviour
         JournalPhrase currentPhrase = bard.GetJournal().GetCurrentPhrase();
         if (currentPhrase == null)
         {
-            Debug.LogError("Current phrase is null. Cannot calculate phrase effect.");
+            //Debug.LogError("Current phrase is null. Cannot calculate phrase effect.");
             return 0;
         }
 
         List<Blank> blanksInfo = currentPhrase.GetBlanksInfo();
         if (blanksInfo == null || blanksInfo.Count == 0)
         {
-            Debug.LogError("Blanks info is null or empty. Cannot calculate phrase effect.");
+            //Debug.LogError("Blanks info is null or empty. Cannot calculate phrase effect.");
             return 0;
         }
 
@@ -184,7 +208,7 @@ public class BattleManager : MonoBehaviour
         {
             if (i >= selectedCards.Count)
             {
-                Debug.LogWarning($"Not enough cards selected to fill all blanks. Skipping blank {i + 1}.");
+                //Debug.LogWarning($"Not enough cards selected to fill all blanks. Skipping blank {i + 1}.");
                 continue;
             }
 
@@ -197,7 +221,7 @@ public class BattleManager : MonoBehaviour
             bool insultMatch = blank.Insult == null || blank.Insult == card.IsInsult();
 
 
-            Debug.Log($"Blank {i + 1}: POS Match: {posMatch}, CAT Match: {categoryMatch}, Insult Match: {insultMatch}");
+            //Debug.Log($"Blank {i + 1}: POS Match: {posMatch}, CAT Match: {categoryMatch}, Insult Match: {insultMatch}");
             if (isPlayerTurn)
             {
                 if (posMatch) audienceReaction += 2; // Example reaction score for POS match
@@ -215,8 +239,8 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        Debug.Log($"Total Audience Reaction: {audienceReaction}");
-        Debug.Log($"Total Ego Damage: {totalDamage}");
+        //Debug.Log($"Total Audience Reaction: {audienceReaction}");
+        //Debug.Log($"Total Ego Damage: {totalDamage}");
 
         return Mathf.RoundToInt(totalDamage);
     }
@@ -228,7 +252,7 @@ public class BattleManager : MonoBehaviour
             // Calculate phrase effect if phrase is full.
             int egoDamage = CalculatePhraseEffect(playerBard, playerSelectedCards);
             enemyBard.AddEgo(-egoDamage);
-            Debug.Log($"Enemy's ego reduced by {egoDamage}. Current ego: {enemyBard.GetEgo()}.");
+            //Debug.Log($"Enemy's ego reduced by {egoDamage}. Current ego: {enemyBard.GetEgo()}.");
             playerBard.GetJournal().SelectNewPhrase();
             // Clear selected cards after completing the phrase.
             playerSelectedCards.Clear();
@@ -236,7 +260,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Phrase incomplete. Skipping effect calculation.");
+            //Debug.Log("Phrase incomplete. Skipping effect calculation.");
         }
 
         currentPhraseText.gameObject.SetActive(false);
@@ -253,18 +277,18 @@ public class BattleManager : MonoBehaviour
     {
         if (playerBard.GetEgo() <= 0)
         {
-            Debug.Log("The player has been roasted! Enemy wins.");
+            //Debug.Log("The player has been roasted! Enemy wins.");
         }
         else if (enemyBard.GetEgo() <= 0)
         {
-            Debug.Log("The enemy has been roasted! Player wins.");
+            //Debug.Log("The enemy has been roasted! Player wins.");
         }
         else
         {
-            Debug.Log("Battle ended unexpectedly.");
+            //Debug.Log("Battle ended unexpectedly.");
         }
 
-        Debug.Log("Battle over.");
+        //Debug.Log("Battle over.");
     }
 
     private void UpdateHandUI()
@@ -297,21 +321,21 @@ public class BattleManager : MonoBehaviour
     {
         if (playerBard == null)
         {
-            Debug.LogError("playerBard is null in UpdatePhraseUI!");
+            //Debug.LogError("playerBard is null in UpdatePhraseUI!");
             return;
         }
 
         Journal journal = playerBard.GetJournal();
         if (journal == null)
         {
-            Debug.LogError("playerBard's Journal is null in UpdatePhraseUI!");
+            //Debug.LogError("playerBard's Journal is null in UpdatePhraseUI!");
             return;
         }
 
         JournalPhrase phrase = journal.GetCurrentPhrase();
         if (phrase == null)
         {
-            Debug.LogError("playerBard's Journal does not have a current phrase in UpdatePhraseUI!");
+            //Debug.LogError("playerBard's Journal does not have a current phrase in UpdatePhraseUI!");
             return;
         }
 
