@@ -3,20 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu: MonoBehaviour
 {
-
-
-    public void Start()
-    {
-    }
-
-
     public void PlayGame()
     {
-        SceneManager.LoadScene("TavernScene");
-    }
-    public void OpenSettings()
-    {
-        Debug.Log("Settings menu opened!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void QuitGame()
     {
