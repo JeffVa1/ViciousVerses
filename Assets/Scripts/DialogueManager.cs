@@ -38,9 +38,14 @@ public class DialogueManager : MonoBehaviour
     public int Flag { get; private set; }
 
     public UnityEngine.UI.Image SpeakerImage;
-    private Sprite PlayerSprite;
-    private Sprite EnemySprite;
-    private Sprite NarratorSprite;
+    public Sprite DPlayerSprite;
+    public Sprite DEnemy1Sprite;
+    public Sprite DEnemy2Sprite;
+    public Sprite DEnemy3Sprite;
+
+    public Sprite DNarratorSprite;
+
+    public Sprite DBarMaidSprite;
 
     public GameObject DialogBox;
 
@@ -53,30 +58,23 @@ public class DialogueManager : MonoBehaviour
         return DialogueCanvasGroup;
     }
 
-
-
-
-    public void Initialize(string JsonFilePath, Sprite PlayerSprite, Sprite EnemySprite, Sprite NarratorSprite)
+    public void Initialize(string JsonFilePath)
     {
         this.JsonFilePath = JsonFilePath;
-        this.PlayerSprite = PlayerSprite;
-        this.EnemySprite = EnemySprite;
-        this.NarratorSprite = NarratorSprite;
-
-        DialogBox.SetActive(true);
         TextComponent.text = string.Empty;
-        StartDialogue();
+
     }
 
-    private void StartDialogue()
+    public void StartDialogue()
     {
         Index = 0;
+        DialogBox.SetActive(true);
         ParseDialogue();
         UpdateSpeakerSprite();
         StartCoroutine(TypeLine());
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         DialogBox.SetActive(false);
     }
@@ -119,19 +117,36 @@ public class DialogueManager : MonoBehaviour
 
     private void UpdateSpeakerSprite()
     {
-        
+
         string speaker = DialogueLines[Index].Speaker;
-        if (speaker == "player")
-        {
-            SpeakerImage.sprite = PlayerSprite;
-        }
-        else if (speaker == "enemy")
-        {
-            SpeakerImage.sprite = EnemySprite;
-        }
-        else if (speaker == "narator")
-        {
-            SpeakerImage.sprite = NarratorSprite;
+        switch (speaker){
+            case "":
+            SpeakerImage.sprite = null;
+            break;
+
+            case "narator":
+            SpeakerImage.sprite = DNarratorSprite;
+            break;
+
+            case "player":
+            SpeakerImage.sprite = DPlayerSprite;
+            break;
+
+            case "barmaid":
+            SpeakerImage.sprite = DBarMaidSprite;
+            break;
+
+            case "enemy1":
+            SpeakerImage.sprite = DEnemy1Sprite;
+            break;
+
+            case "enemy2":
+            SpeakerImage.sprite = DEnemy2Sprite;
+            break;
+
+            case "enemy3":
+            SpeakerImage.sprite = DEnemy3Sprite;
+            break;
         }
     }
 

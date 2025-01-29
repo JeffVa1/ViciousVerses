@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Vicious_Verses-Logo.FULL_0: 9095154212514043117
+      Vicious_Verses-Logo.FULL_1: -4806245065288251012
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

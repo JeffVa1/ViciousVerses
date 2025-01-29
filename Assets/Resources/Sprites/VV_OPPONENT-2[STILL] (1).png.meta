@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f6b656d6bd3d2414c9f59555d5e8bfe9
+guid: 14e36ae1c7daa844f856eac2e0912820
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 210218377603585464
-    second: VV-PLAYER[STILL] (1)_0
+      213: -2945749018247238510
+    second: VV_OPPONENT-2[STILL] (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: VV-PLAYER[STILL] (1)_0
+      name: VV_OPPONENT-2[STILL] (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 328
-        height: 601
+        width: 415
+        height: 591
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b5125a2088dae200800000000000000
-      internalID: 210218377603585464
+      spriteID: 29ceae900e89e17d0800000000000000
+      internalID: -2945749018247238510
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      VV-PLAYER[STILL] (1)_0: 210218377603585464
+      VV_OPPONENT-2[STILL] (1)_0: -2945749018247238510
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

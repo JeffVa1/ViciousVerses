@@ -24,6 +24,93 @@
             "Speaker": "narator",
             "Text": "Here you stop for a well deserved drink...",
             "Flag": "2"
+        },
+        {
+            "Speaker": "",
+            "Text": "...............",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "",
+            "Text": "CRASH!!!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "",
+            "Text": "...............",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "",
+            "Text": "EEEEK!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "barmaid",
+            "Text": "I told you already!",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "barmaid",
+            "Text": "You have had enough tonight, you are cut off!!",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "enemy1",
+            "Text": "You can't cut me off, you wench!",
+            "Flag": "4"
+        },
+        {
+            "Speaker": "enemy1",
+            "Text": "I'll drink myself 'till I drown if I please it!",
+            "Flag": "4"
+        },
+        {
+            "Speaker": "enemy1",
+            "Text": "Now get me another drink before I get rough!!",
+            "Flag": "4"
+        },
+        {
+            "Speaker": "player",
+            "Text": "Oh, My!",
+            "Flag": "5"
+        }, 
+        {
+            "Speaker": "player",
+            "Text": "What seems to be the problem sir?",
+            "Flag": "5"
+        },
+        {
+            "Speaker": "player",
+            "Text": "Certainly want for a drink wouldn't push you to speak so callously to this lovely young bar maid!",
+            "Flag": "5"
+        },
+        {
+            "Speaker": "enemy1",
+            "Text": "Piss off!!",
+            "Flag": "5"
+        },
+        {
+            "Speaker": "enemy1",
+            "Text": "A mare's arse, such as yourself, hasn't any place in this tavern!",
+            "Flag": "5"
+        },
+        {
+            "Speaker": "player",
+            "Text": "Such vulgairty!",
+            "Flag": "5"
+        },
+        {
+            "Speaker": "player",
+            "Text": "I would defend her honor, and mine!",
+            "Flag": "5"
+        },
+        {
+            "Speaker": "player",
+            "Text": "You half witted swine!",
+            "Flag": "5"
         }
+        
+
     ]
 }

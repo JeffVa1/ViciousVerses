@@ -3,29 +3,25 @@ using UnityEngine;
 
 public class SceneOneSequence : MonoBehaviour
 {
-    public SpriteRenderer HillViewRenderer; // Reference to the SpriteRenderer for HillView
-    public SpriteRenderer BarRenderer;     // Reference to the SpriteRenderer for Bar
-    public SpriteRenderer PlayerRenderer;  // Reference to the SpriteRenderer for Player
-    public SpriteRenderer BarmaidRenderer; // Reference to the SpriteRenderer for Barmaid
-    public SpriteRenderer LogoRenderer;    // Reference to the SpriteRenderer for Logo
+    public SpriteRenderer HillViewRenderer; 
+    public SpriteRenderer BarRenderer;     
+    public SpriteRenderer PlayerRenderer;  
+    public SpriteRenderer BarmaidRenderer; 
+    public SpriteRenderer LogoRenderer;    
+    public SpriteRenderer Enemy1Renderer;
+    public SpriteRenderer Enemy2Renderer;
+    public SpriteRenderer Enemy3Renderer;
 
 
     public float FadeDuration = 1f; // Duration for fade effects
 
     public DialogueManager DialogueManager;
 
-    public Sprite PlayerSprite;
-    public Sprite EnemySprite;
-    public Sprite NarratorSprite;
-
     private CanvasGroup DialogueCanvasGroup;
 
     void Start()
     {
-
-
         DialogueCanvasGroup = DialogueManager.GetCanvasGroup();
-
         StartCoroutine(EventSequence());
     }
 
@@ -42,10 +38,9 @@ public class SceneOneSequence : MonoBehaviour
         yield return StartCoroutine(SpriteFadeOut(LogoRenderer));
                
         // Fade in Dialogue
-        DialogueManager.Initialize("Assets/Data/openingScene.json", PlayerSprite, EnemySprite, NarratorSprite);
+        DialogueManager.Initialize("Assets/Data/openingScene.json");
         StartCoroutine(DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
-
-        
+        DialogueManager.StartDialogue();
 
         // On Flag = 1: render player
         yield return StartCoroutine(WaitForFlag(1));
@@ -54,21 +49,20 @@ public class SceneOneSequence : MonoBehaviour
         // On Flag = 2:
         // Fade out HillView and player and fade in Bar
         yield return StartCoroutine(WaitForFlag(2));
-        StartCoroutine(SpriteFadeOut(HillViewRenderer));
         StartCoroutine(SpriteFadeOut(PlayerRenderer));
+        StartCoroutine(SpriteFadeOut(HillViewRenderer));
         StartCoroutine(SpriteFadeIn(BarRenderer));
+        
+        // Transition to the Bar
+        yield return StartCoroutine(WaitForFlag(3));
+        StartCoroutine(SpriteFadeIn(BarmaidRenderer));
+        yield return StartCoroutine(WaitForFlag(4));
+        StartCoroutine(SpriteFadeIn(Enemy1Renderer));
+        yield return StartCoroutine(WaitForFlag(5));
+        StartCoroutine(SpriteFadeOut(BarmaidRenderer));
+        StartCoroutine(SpriteFadeIn(PlayerRenderer));
 
-        // // Show Player and Barmaid
-        // 
-        // yield return StartCoroutine(FadeIn(BarmaidRenderer));
 
-
-        // // Wait for 2 seconds, then fade everything out
-        // yield return new WaitForSeconds(2);
-        // yield return StartCoroutine(FadeOut(BarRenderer));
-        // yield return StartCoroutine(FadeOut(PlayerRenderer));
-        // yield return StartCoroutine(FadeOut(BarmaidRenderer));
-        // yield return StartCoroutine(FadeOut(LogoRenderer));
     }
 
     IEnumerator WaitForFlag(int flagValue)
