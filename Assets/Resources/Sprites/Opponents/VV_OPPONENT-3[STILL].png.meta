@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VV_OPPONENT-3[STILL]_0: -1987062815986034498
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

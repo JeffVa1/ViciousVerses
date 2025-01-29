@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      START BATTLE BUTTON_0: 4207473304031254680
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VV-DECK_BUILDER_SCREEN_0: -6149731826619093374
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
