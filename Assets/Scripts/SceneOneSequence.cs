@@ -62,6 +62,9 @@ public class SceneOneSequence : MonoBehaviour
         StartCoroutine(SpriteFadeOut(BarmaidRenderer));
         StartCoroutine(SpriteFadeIn(PlayerRenderer));
 
+        // initialze battle
+        DialogueManager.EndDialogue();
+
 
     }
 

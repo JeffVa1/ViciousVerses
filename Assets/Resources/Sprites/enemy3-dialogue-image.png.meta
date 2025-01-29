@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      enemy3-dialogue-image_0: 5627144697873666952
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
