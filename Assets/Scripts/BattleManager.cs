@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class BattleManager : MonoBehaviour
 {
@@ -315,11 +316,13 @@ public class BattleManager : MonoBehaviour
 
     private void UpdateHandUI()
     {
+        // Destroy previous card UI elements
         foreach (Transform child in handArea)
         {
             Destroy(child.gameObject);
         }
 
+        // Instantiate new card UI elements
         foreach (Card card in playerBard.GetDeck().GetHand())
         {
             GameObject cardObj = Instantiate(cardPrefab, handArea);
@@ -329,14 +332,26 @@ public class BattleManager : MonoBehaviour
             // Apply saved opacity state to the card
             if (cardOpacityState.ContainsKey(card))
             {
-                cardUI.SetCardOpacity(cardOpacityState[card]); // Apply saved opacity
+                cardUI.SetCardOpacity(cardOpacityState[card]);
             }
             else
             {
                 cardUI.SetCardOpacity(1.0f); // Default to full opacity if not in the dictionary
             }
+
+            // Add EventTrigger to handle hover actions
+            EventTrigger eventTrigger = cardObj.AddComponent<EventTrigger>();
+            
+            EventTrigger.Entry entryEnter = new EventTrigger.Entry { eventID = EventTriggerType.PointerEnter };
+            entryEnter.callback.AddListener((data) => cardUI.OnPointerEnter((PointerEventData)data));
+            eventTrigger.triggers.Add(entryEnter);
+
+            EventTrigger.Entry entryExit = new EventTrigger.Entry { eventID = EventTriggerType.PointerExit };
+            entryExit.callback.AddListener((data) => cardUI.OnPointerExit((PointerEventData)data));
+            eventTrigger.triggers.Add(entryExit);
         }
     }
+
 
 
     private void UpdatePhraseUI()
