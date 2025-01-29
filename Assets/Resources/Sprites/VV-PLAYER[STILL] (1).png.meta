@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2aba7b780afd54c48b9d5022caa56da8
+guid: f6b656d6bd3d2414c9f59555d5e8bfe9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2408710733903994242
-    second: SIB_Bard_2_placeholder_0
+      213: 210218377603585464
+    second: VV-PLAYER[STILL] (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SIB_Bard_2_placeholder_0
+      name: VV-PLAYER[STILL] (1)_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 3
-        width: 27
-        height: 50
+        x: 0
+        y: 0
+        width: 328
+        height: 601
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28d940d86a57d6120800000000000000
-      internalID: 2408710733903994242
+      spriteID: 8b5125a2088dae200800000000000000
+      internalID: 210218377603585464
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SIB_Bard_2_placeholder_0: 2408710733903994242
+      VV-PLAYER[STILL] (1)_0: 210218377603585464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

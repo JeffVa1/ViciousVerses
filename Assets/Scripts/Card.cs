@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Card
 {
@@ -8,8 +10,10 @@ public class Card
     private string partOfSpeech = "";
     private int egoDmg = 0;
     private int audienceValue = 0;
+    private bool insult;
+    private List<string> categories;
 
-    public Card(string text, int multiplier, int addition, string pos, int e, int audience)
+    public Card(string text, int multiplier, int addition, string pos, int e, int audience, bool inslt, List<string> category)
     {
         Text = text;
         pointMultiplier = multiplier;
@@ -17,6 +21,28 @@ public class Card
         partOfSpeech = pos;
         egoDmg = e;
         audienceValue = audience;
+        insult = inslt;
+        categories = category;
+    }
+
+    public bool IsInsult()
+    {
+        return insult;
+    }
+
+    public void SetInsult(bool i)
+    {
+        insult = i;
+    }
+
+    public List<string> GetCategories()
+    {
+        return categories;
+    }
+
+    public void SetCategories(List<string> c)
+    {
+        categories = c;
     }
 
     public string GetText()
@@ -53,14 +79,22 @@ public class Card
     {
         if (full_info)
         {
-            // Debug.Log("CARD");
-            // Debug.Log("Text: " + Text);
-            // Debug.Log("POS : " + partOfSpeech);
-            // Debug.Log("Mult: " + pointMultiplier);
-            // Debug.Log("Add : " + pointAddition);
-            // Debug.Log("");
-        } else {
-            // Debug.Log(Text);
+            Debug.Log("CARD INFO:");
+            
+            string format = "{0,-15}: {1}";
+            Debug.Log(string.Format(format, "Text", Text));
+            Debug.Log(string.Format(format, "Point Multiplier", pointMultiplier));
+            Debug.Log(string.Format(format, "Point Addition", pointAddition));
+            Debug.Log(string.Format(format, "Part of Speech", partOfSpeech));
+            Debug.Log(string.Format(format, "Ego Damage", egoDmg));
+            Debug.Log(string.Format(format, "Audience Value", audienceValue));
+            Debug.Log(string.Format(format, "Insult", insult));
+            Debug.Log(string.Format(format, "Categories", categories != null ? string.Join(", ", categories) : "None"));
+            Debug.Log("");
+        }
+        else
+        {
+            Debug.Log($"Card Text: {Text}");
         }
     }
 }

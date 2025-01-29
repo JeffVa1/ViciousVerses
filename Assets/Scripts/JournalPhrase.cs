@@ -1,7 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 
 
 public class JournalPhrase
@@ -9,18 +11,19 @@ public class JournalPhrase
     private string phraseText;
     private List<string> phraseList;
     private int numBlanks;
+    private List<Blank> blanks_info;
 
-    public JournalPhrase(string phrase, int b)
+    public JournalPhrase(string phrase, int blanks, string blankInfoJson)
     {
         phraseText = phrase;
-        numBlanks = b;
+        numBlanks = blanks;
         phraseList = ParsePhrase(phraseText);
+        ParseBlanksInfo(blankInfoJson);
     }
-
 
     private List<string> ParsePhrase(string phrase)
     {
-        // Use a regular expression to identify "BLANK" and preserve parts of contractions
+        // Your existing ParsePhrase implementation
         string pattern = @"BLANK(?=\W|$)|(?<=\W|^)BLANK|BLANK(-\w+)";
         List<string> phrases = new List<string>();
 
@@ -28,7 +31,6 @@ public class JournalPhrase
 
         foreach (Match match in Regex.Matches(phrase, pattern))
         {
-            // Add the text before the match to the list
             if (match.Index > lastIndex)
             {
                 string textBeforeMatch = phrase.Substring(lastIndex, match.Index - lastIndex).Trim();
@@ -38,10 +40,7 @@ public class JournalPhrase
                 }
             }
 
-            // Add an empty string for "BLANK"
             phrases.Add("");
-
-            // If there's a suffix like "-ish", add it to the list
             if (match.Groups[1].Success)
             {
                 phrases.Add(match.Groups[1].Value);
@@ -50,7 +49,6 @@ public class JournalPhrase
             lastIndex = match.Index + match.Length;
         }
 
-        // Add any remaining text after the last match
         if (lastIndex < phrase.Length)
         {
             string remainingText = phrase.Substring(lastIndex).Trim();
@@ -63,14 +61,17 @@ public class JournalPhrase
         return phrases;
     }
 
+    private void ParseBlanksInfo(string blankInfoJson)
+    {
+        blanks_info = JsonConvert.DeserializeObject<List<Blank>>(blankInfoJson);
+    }
 
-
-    public int GetNumBlanks() 
+    public int GetNumBlanks()
     {
         return numBlanks;
     }
 
-    public string GetPhraseText() 
+    public string GetPhraseText()
     {
         return phraseText.Replace("BLANK", "_____");
     }
@@ -80,12 +81,39 @@ public class JournalPhrase
         return phraseList;
     }
 
-    public void LogPhrase()
+    public List<Blank> GetBlanksInfo()
     {
-        // Debug.Log(GetPhraseText());
-        // Debug.Log("Num words: " + phraseList.Count);
-        // Debug.Log("Num blank: " + numBlanks);
+        return blanks_info;
     }
+
+    public void LogPhrase(bool fullInfo)
+    {
+        Debug.Log("PHRASE INFO:");
+
+        // Log phrase text and number of blanks
+        string format = "{0,-15}: {1}";
+        Debug.Log(string.Format(format, "Phrase Text", phraseText));
+        Debug.Log(string.Format(format, "Num Blanks", numBlanks));
+
+        // Log phrase list
+        Debug.Log(string.Format(format, "Phrase List", string.Join(" | ", phraseList)));
+
+        if (fullInfo && blanks_info != null)
+        {
+            Debug.Log("BLANKS INFO:");
+            foreach (var blank in blanks_info)
+            {
+                Debug.Log($"  Blank ID      : {blank.BlankID}");
+                Debug.Log($"  Word          : {blank.Word}");
+                Debug.Log($"  Preferred POS : {blank.PreferredPOS}");
+                Debug.Log($"  Preferred CAT : {blank.PreferredCAT}");
+                Debug.Log($"  Insult        : {blank.Insult}");
+                Debug.Log($"  Tense         : {blank.Tense}");
+                Debug.Log("");
+            }
+        }
+    }
+
 
     public string GetDisplayText(List<Card> selectedCards)
     {
@@ -96,21 +124,37 @@ public class JournalPhrase
         {
             if (displayList[i] == "" && selectedIndex < selectedCards.Count)
             {
-                // Replace blank with the text of the selected card
                 displayList[i] = selectedCards[selectedIndex].GetText();
                 selectedIndex++;
             }
             else if (displayList[i] == "")
             {
-                // Keep remaining blanks as underscores
                 displayList[i] = "_____";
             }
         }
 
         return string.Join(" ", displayList);
     }
+}
 
 
 
+public class Blank
+{
+    public int BlankID { get; private set; }
+    public string Word { get; private set; }
+    public string PreferredPOS { get; private set; }
+    public string PreferredCAT { get; private set; }
+    public bool Insult { get; private set; }
+    public string Tense { get; private set; }
 
+    public Blank(int blankID, string word, string preferredPOS, string preferredCAT, bool insult, string tense)
+    {
+        BlankID = blankID;
+        Word = word;
+        PreferredPOS = preferredPOS;
+        PreferredCAT = preferredCAT;
+        Insult = insult;
+        Tense = tense;
+    }
 }
