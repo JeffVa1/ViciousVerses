@@ -5,7 +5,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "slicing",
+                "IA": "slices",
+                "SX": "slice",
+                "PX": "have sliced",
+                "SP": "sliced",
+                "PP": "had sliced",
+                "SF": "will slice",
+                "PF": "will have sliced"
+            }
         }
     ],
     "Smash": [
@@ -14,7 +24,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "smashing",
+                "IA": "smashes",
+                "SX": "smash",
+                "PX": "have smashed",
+                "SP": "smashed",
+                "PP": "had smashed",
+                "SF": "will smash",
+                "PF": "will have smashed"
+            }
         }
     ],
     "Crush": [
@@ -23,7 +43,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "crushing",
+                "IA": "crushes",
+                "SX": "crush",
+                "PX": "have crushed",
+                "SP": "crushed",
+                "PP": "had crushed",
+                "SF": "will crush",
+                "PF": "will have crushed"
+            }
         }
     ],
     "Shatter": [
@@ -32,7 +62,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "shattering",
+                "IA": "shatters",
+                "SX": "shatter",
+                "PX": "have shattered",
+                "SP": "shattered",
+                "PP": "had shattered",
+                "SF": "will shatter",
+                "PF": "will have shattered"
+            }
         }
     ],
     "Chop": [
@@ -41,7 +81,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "chopping",
+                "IA": "chops",
+                "SX": "chop",
+                "PX": "have chopped",
+                "SP": "chopped",
+                "PP": "had chopped",
+                "SF": "will chop",
+                "PF": "will have chopped"
+            }
         }
     ],
     "Slash": [
@@ -50,7 +100,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "slashing",
+                "IA": "slashes",
+                "SX": "slash",
+                "PX": "have slashed",
+                "SP": "slashed",
+                "PP": "had slashed",
+                "SF": "will slash",
+                "PF": "will have slashed"
+            }
         }
     ],
     "Punch": [
@@ -59,7 +119,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "punching",
+                "IA": "punches",
+                "SX": "punch",
+                "PX": "have punched",
+                "SP": "punched",
+                "PP": "had punched",
+                "SF": "will punch",
+                "PF": "will have punched"
+            }
         }
     ],
     "Kick": [
@@ -68,7 +138,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "kicking",
+                "IA": "kicks",
+                "SX": "kick",
+                "PX": "have kicked",
+                "SP": "kicked",
+                "PP": "had kicked",
+                "SF": "will kick",
+                "PF": "will have kicked"
+            }
         }
     ],
     "Throw": [
@@ -77,7 +157,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "throwing",
+                "IA": "throws",
+                "SX": "throw",
+                "PX": "have thrown",
+                "SP": "threw",
+                "PP": "had thrown",
+                "SF": "will throw",
+                "PF": "will have thrown"
+            }
         }
     ],
     "Catch": [
@@ -86,7 +176,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "catching",
+                "IA": "catches",
+                "SX": "catch",
+                "PX": "have caught",
+                "SP": "caught",
+                "PP": "had caught",
+                "SF": "will catch",
+                "PF": "will have caught"
+            }
         }
     ],
     "Strike": [
@@ -95,7 +195,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "striking",
+                "IA": "strikes",
+                "SX": "strike",
+                "PX": "have struck",
+                "SP": "struck",
+                "PP": "had struck",
+                "SF": "will strike",
+                "PF": "will have struck"
+            }
         }
     ],
     "Swing": [
@@ -104,7 +214,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "swinging",
+                "IA": "swings",
+                "SX": "swing",
+                "PX": "have swung",
+                "SP": "swung",
+                "PP": "had swung",
+                "SF": "will swing",
+                "PF": "will have swung"
+            }
         }
     ],
     "Leap": [
@@ -113,7 +233,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "leaping",
+                "IA": "leaps",
+                "SX": "leap",
+                "PX": "have leapt",
+                "SP": "leapt",
+                "PP": "had leapt",
+                "SF": "will leap",
+                "PF": "will have leapt"
+            }
         }
     ],
     "Dodge": [
@@ -122,7 +252,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "dodging",
+                "IA": "dodges",
+                "SX": "dodge",
+                "PX": "have dodged",
+                "SP": "dodged",
+                "PP": "had dodged",
+                "SF": "will dodge",
+                "PF": "will have dodged"
+            }
         }
     ],
     "Dash": [
@@ -131,7 +271,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "dashing",
+                "IA": "dashes",
+                "SX": "dash",
+                "PX": "have dashed",
+                "SP": "dashed",
+                "PP": "had dashed",
+                "SF": "will dash",
+                "PF": "will have dashed"
+            }
         }
     ],
     "Charge": [
@@ -140,7 +290,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "charging",
+                "IA": "charges",
+                "SX": "charge",
+                "PX": "have charged",
+                "SP": "charged",
+                "PP": "had charged",
+                "SF": "will charge",
+                "PF": "will have charged"
+            }
         }
     ],
     "Blast": [
@@ -149,7 +309,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "blasting",
+                "IA": "blasts",
+                "SX": "blast",
+                "PX": "have blasted",
+                "SP": "blasted",
+                "PP": "had blasted",
+                "SF": "will blast",
+                "PF": "will have blasted"
+            }
         }
     ],
     "Burn": [
@@ -158,7 +328,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "burning",
+                "IA": "burns",
+                "SX": "burn",
+                "PX": "have burned",
+                "SP": "burned",
+                "PP": "had burned",
+                "SF": "will burn",
+                "PF": "will have burned"
+            }
         }
     ],
     "Freeze": [
@@ -167,7 +347,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "freezing",
+                "IA": "freezes",
+                "SX": "freeze",
+                "PX": "have frozen",
+                "SP": "froze",
+                "PP": "had frozen",
+                "SF": "will freeze",
+                "PF": "will have frozen"
+            }
         }
     ],
     "Zap": [
@@ -176,7 +366,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "zapping",
+                "IA": "zaps",
+                "SX": "zap",
+                "PX": "have zapped",
+                "SP": "zapped",
+                "PP": "had zapped",
+                "SF": "will zap",
+                "PF": "will have zapped"
+            }
         }
     ],
     "Tackle": [
@@ -185,7 +385,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "tackling",
+                "IA": "tackles",
+                "SX": "tackle",
+                "PX": "have tackled",
+                "SP": "tackled",
+                "PP": "had tackled",
+                "SF": "will tackle",
+                "PF": "will have tackled"
+            }
         }
     ],
     "Tear": [
@@ -194,7 +404,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "tearing",
+                "IA": "tears",
+                "SX": "tear",
+                "PX": "have torn",
+                "SP": "tore",
+                "PP": "had torn",
+                "SF": "will tear",
+                "PF": "will have torn"
+            }
         }
     ],
     "Rip": [
@@ -203,7 +423,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "ripping",
+                "IA": "rips",
+                "SX": "rip",
+                "PX": "have ripped",
+                "SP": "ripped",
+                "PP": "had ripped",
+                "SF": "will rip",
+                "PF": "will have ripped"
+            }
         }
     ],
     "Pummel": [
@@ -212,7 +442,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "pummeling",
+                "IA": "pummels",
+                "SX": "pummel",
+                "PX": "have pummeled",
+                "SP": "pummeled",
+                "PP": "had pummeled",
+                "SF": "will pummel",
+                "PF": "will have pummeled"
+            }
         }
     ],
     "Slam": [
@@ -221,7 +461,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "slamming",
+                "IA": "slams",
+                "SX": "slam",
+                "PX": "have slammed",
+                "SP": "slammed",
+                "PP": "had slammed",
+                "SF": "will slam",
+                "PF": "will have slammed"
+            }
         }
     ],
     "Twist": [
@@ -230,7 +480,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "twisting",
+                "IA": "twists",
+                "SX": "twist",
+                "PX": "have twisted",
+                "SP": "twisted",
+                "PP": "had twisted",
+                "SF": "will twist",
+                "PF": "will have twisted"
+            }
         }
     ],
     "Snatch": [
@@ -239,7 +499,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "snatching",
+                "IA": "snatches",
+                "SX": "snatch",
+                "PX": "have snatched",
+                "SP": "snatched",
+                "PP": "had snatched",
+                "SF": "will snatch",
+                "PF": "will have snatched"
+            }
         }
     ],
     "Seize": [
@@ -248,7 +518,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "seizing",
+                "IA": "seizes",
+                "SX": "seize",
+                "PX": "have seized",
+                "SP": "seized",
+                "PP": "had seized",
+                "SF": "will seize",
+                "PF": "will have seized"
+            }
         }
     ],
     "Drag": [
@@ -257,7 +537,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "dragging",
+                "IA": "drags",
+                "SX": "drag",
+                "PX": "have dragged",
+                "SP": "dragged",
+                "PP": "had dragged",
+                "SF": "will drag",
+                "PF": "will have dragged"
+            }
         }
     ],
     "Lunge": [
@@ -266,7 +556,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "lunging",
+                "IA": "lunges",
+                "SX": "lunge",
+                "PX": "have lunged",
+                "SP": "lunged",
+                "PP": "had lunged",
+                "SF": "will lunge",
+                "PF": "will have lunged"
+            }
         }
     ],
     "Snarl": [
@@ -275,7 +575,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "snarling",
+                "IA": "snarls",
+                "SX": "snarl",
+                "PX": "have snarled",
+                "SP": "snarled",
+                "PP": "had snarled",
+                "SF": "will snarl",
+                "PF": "will have snarled"
+            }
         }
     ],
     "Glare": [
@@ -284,7 +594,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "glaring",
+                "IA": "glares",
+                "SX": "glare",
+                "PX": "have glared",
+                "SP": "glared",
+                "PP": "had glared",
+                "SF": "will glare",
+                "PF": "will have glared"
+            }
         }
     ],
     "Peer": [
@@ -293,7 +613,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "peering",
+                "IA": "peers",
+                "SX": "peer",
+                "PX": "have peered",
+                "SP": "peered",
+                "PP": "had peered",
+                "SF": "will peer",
+                "PF": "will have peered"
+            }
         }
     ],
     "Gaze": [
@@ -302,7 +632,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "gazing",
+                "IA": "gazes",
+                "SX": "gaze",
+                "PX": "have gazed",
+                "SP": "gazed",
+                "PP": "had gazed",
+                "SF": "will gaze",
+                "PF": "will have gazed"
+            }
         }
     ],
     "Stagger": [
@@ -311,7 +651,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "staggering",
+                "IA": "staggers",
+                "SX": "stagger",
+                "PX": "have staggered",
+                "SP": "staggered",
+                "PP": "had staggered",
+                "SF": "will stagger",
+                "PF": "will have staggered"
+            }
         }
     ],
     "Stumble": [
@@ -320,7 +670,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "stumbling",
+                "IA": "stumbles",
+                "SX": "stumble",
+                "PX": "have stumbled",
+                "SP": "stumbled",
+                "PP": "had stumbled",
+                "SF": "will stumble",
+                "PF": "will have stumbled"
+            }
         }
     ],
     "Vault": [
@@ -329,7 +689,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "vaulting",
+                "IA": "vaults",
+                "SX": "vault",
+                "PX": "have vaulted",
+                "SP": "vaulted",
+                "PP": "had vaulted",
+                "SF": "will vault",
+                "PF": "will have vaulted"
+            }
         }
     ],
     "Crawl": [
@@ -338,7 +708,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "crawling",
+                "IA": "crawls",
+                "SX": "crawl",
+                "PX": "have crawled",
+                "SP": "crawled",
+                "PP": "had crawled",
+                "SF": "will crawl",
+                "PF": "will have crawled"
+            }
         }
     ],
     "Bash": [
@@ -347,7 +727,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "bashing",
+                "IA": "bashes",
+                "SX": "bash",
+                "PX": "have bashed",
+                "SP": "bashed",
+                "PP": "had bashed",
+                "SF": "will bash",
+                "PF": "will have bashed"
+            }
         }
     ],
     "Plunge": [
@@ -356,7 +746,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "plunging",
+                "IA": "plunges",
+                "SX": "plunge",
+                "PX": "have plunged",
+                "SP": "plunged",
+                "PP": "had plunged",
+                "SF": "will plunge",
+                "PF": "will have plunged"
+            }
         }
     ],
     "Dive": [
@@ -365,7 +765,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "diving",
+                "IA": "dives",
+                "SX": "dive",
+                "PX": "have dived",
+                "SP": "dived",
+                "PP": "had dived",
+                "SF": "will dive",
+                "PF": "will have dived"
+            }
         }
     ],
     "Roll": [
@@ -374,7 +784,17 @@
             "ptValue": 1,
             "ptMultiplier": 1,
             "egoDmg": 1,
-            "audienceValue": 1
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "rolling",
+                "IA": "rolls",
+                "SX": "roll",
+                "PX": "have rolled",
+                "SP": "rolled",
+                "PP": "had rolled",
+                "SF": "will roll",
+                "PF": "will have rolled"
+            }
         }
     ]
 }

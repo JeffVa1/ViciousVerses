@@ -1,41 +1,77 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+
 
 public class JournalPhrase
 {
     private string phraseText;
     private List<string> phraseList;
     private int numBlanks;
+    private List<Blank> blanks_info;
 
-    public JournalPhrase(string phrase, int b)
+    public JournalPhrase(string phrase, int blanks, string blankInfoJson)
     {
         phraseText = phrase;
-        numBlanks = b;
+        numBlanks = blanks;
         phraseList = ParsePhrase(phraseText);
+        ParseBlanksInfo(blankInfoJson);
     }
 
     private List<string> ParsePhrase(string phrase)
     {
-        List<string> phrases = new List<string>(phrase.Split(' '));
+        // Your existing ParsePhrase implementation
+        string pattern = @"BLANK(?=\W|$)|(?<=\W|^)BLANK|BLANK(-\w+)";
+        List<string> phrases = new List<string>();
 
-        for (int i = 0; i < phrases.Count; i++)
+        int lastIndex = 0;
+
+        foreach (Match match in Regex.Matches(phrase, pattern))
         {
-            if (phrases[i] == "BLANK")
+            if (match.Index > lastIndex)
             {
-                phrases[i] = "";
+                string textBeforeMatch = phrase.Substring(lastIndex, match.Index - lastIndex).Trim();
+                if (!string.IsNullOrEmpty(textBeforeMatch))
+                {
+                    phrases.AddRange(textBeforeMatch.Split(' '));
+                }
+            }
+
+            phrases.Add("");
+            if (match.Groups[1].Success)
+            {
+                phrases.Add(match.Groups[1].Value);
+            }
+
+            lastIndex = match.Index + match.Length;
+        }
+
+        if (lastIndex < phrase.Length)
+        {
+            string remainingText = phrase.Substring(lastIndex).Trim();
+            if (!string.IsNullOrEmpty(remainingText))
+            {
+                phrases.AddRange(remainingText.Split(' '));
             }
         }
 
         return phrases;
     }
 
-    public int GetNumBlanks() 
+    private void ParseBlanksInfo(string blankInfoJson)
+    {
+        blanks_info = JsonConvert.DeserializeObject<List<Blank>>(blankInfoJson);
+    }
+
+    public int GetNumBlanks()
     {
         return numBlanks;
     }
 
-    public string GetPhraseText() 
+    public string GetPhraseText()
     {
         return phraseText.Replace("BLANK", "_____");
     }
@@ -45,13 +81,80 @@ public class JournalPhrase
         return phraseList;
     }
 
-    public void LogPhrase()
+    public List<Blank> GetBlanksInfo()
     {
-        // Debug.Log(GetPhraseText());
-        // Debug.Log("Num words: " + phraseList.Count);
-        // Debug.Log("Num blank: " + numBlanks);
+        return blanks_info;
+    }
+
+    public void LogPhrase(bool fullInfo)
+    {
+        Debug.Log("PHRASE INFO:");
+
+        // Log phrase text and number of blanks
+        string format = "{0,-15}: {1}";
+        Debug.Log(string.Format(format, "Phrase Text", phraseText));
+        Debug.Log(string.Format(format, "Num Blanks", numBlanks));
+
+        // Log phrase list
+        Debug.Log(string.Format(format, "Phrase List", string.Join(" | ", phraseList)));
+
+        if (fullInfo && blanks_info != null)
+        {
+            Debug.Log("BLANKS INFO:");
+            foreach (var blank in blanks_info)
+            {
+                Debug.Log($"  Blank ID      : {blank.BlankID}");
+                Debug.Log($"  Word          : {blank.Word}");
+                Debug.Log($"  Preferred POS : {blank.PreferredPOS}");
+                Debug.Log($"  Preferred CAT : {blank.PreferredCAT}");
+                Debug.Log($"  Insult        : {blank.Insult}");
+                Debug.Log($"  Tense         : {blank.Tense}");
+                Debug.Log("");
+            }
+        }
     }
 
 
+    public string GetDisplayText(List<Card> selectedCards)
+    {
+        List<string> displayList = new List<string>(phraseList); // Create a copy of the phrase list
+        int selectedIndex = 0;
 
+        for (int i = 0; i < displayList.Count; i++)
+        {
+            if (displayList[i] == "" && selectedIndex < selectedCards.Count)
+            {
+                displayList[i] = selectedCards[selectedIndex].GetText();
+                selectedIndex++;
+            }
+            else if (displayList[i] == "")
+            {
+                displayList[i] = "_____";
+            }
+        }
+
+        return string.Join(" ", displayList);
+    }
+}
+
+
+
+public class Blank
+{
+    public int BlankID { get; private set; }
+    public string Word { get; private set; }
+    public string PreferredPOS { get; private set; }
+    public string PreferredCAT { get; private set; }
+    public bool Insult { get; private set; }
+    public string Tense { get; private set; }
+
+    public Blank(int blankID, string word, string preferredPOS, string preferredCAT, bool insult, string tense)
+    {
+        BlankID = blankID;
+        Word = word;
+        PreferredPOS = preferredPOS;
+        PreferredCAT = preferredCAT;
+        Insult = insult;
+        Tense = tense;
+    }
 }
