@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/SFX.meta
+guid: 3f207ccc6d58a92468605902bf88c78c
+folderAsset: yes
+========
 guid: 0f8f4899a13759744ae4175c6606cb58
+>>>>>>>> 4ca77ec2b4095657686f727f71a64e990c81f6bf:Assets/Scenes/IfritTest.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
