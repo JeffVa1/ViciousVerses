@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public List<JournalPhrase> shop_phrases = new List<JournalPhrase> {};
 
     [SerializeField] private BattleManager battleManager;
+    public int currentBattle = 1;
     
     public int round_number = 1;
 
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+        SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to sceneLoaded event
 
         // LOADING PLAYER DATA
         Debug.Log("LOADING NOUNS");
@@ -99,8 +101,38 @@ public class GameManager : MonoBehaviour
         shop_phrases = new_shop_phrases;
 
         // Initialize game state
-        battleManager.Initialize(PlayerBard, OpponentBard1);
         CurrentState = GameState.Intro;
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log($"Scene {scene.name} loaded.");
+
+        if (scene.name == "Battle")
+        {
+            Debug.Log("Battle scene detected. Finding BattleManager...");
+            battleManager = FindObjectOfType<BattleManager>();
+
+            if (battleManager != null)
+            {
+                Debug.Log("****** Initializing battle! ******");
+                battleManager.Initialize(PlayerBard, CurrentOpponent);
+            }
+            else
+            {
+                Debug.LogError("BattleManager not found in Battle scene!");
+            }
+        }
     }
 
     
@@ -111,9 +143,6 @@ public class GameManager : MonoBehaviour
 
         switch (newState)
         {
-            case GameState.Intro:
-                LoadScene("Intro");
-                break;
             case GameState.DeckBuilding:
                 LoadScene("DeckBuilding");
                 break;
@@ -128,12 +157,41 @@ public class GameManager : MonoBehaviour
 
     private void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        StartCoroutine(LoadSceneAsync(sceneName));
     }
 
-    public void StartBattle1()
+    private IEnumerator LoadSceneAsync(string sceneName)
     {
-        InitializeBattle(PlayerBard, OpponentBard1);
+        Debug.Log($"Starting async load for {sceneName}...");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        asyncLoad.allowSceneActivation = true;
+
+        while (!asyncLoad.isDone)
+        {
+            Debug.Log($"Loading progress: {asyncLoad.progress}");
+            yield return null;
+        }
+
+        Debug.Log($"Scene {sceneName} loaded successfully.");
+    }
+
+
+    public void IncrementCurrentBattle()
+    {
+        currentBattle += 1;
+    }
+
+    public void StartNextBattle()
+    {
+        if (currentBattle == 1){
+            InitializeBattle(PlayerBard, OpponentBard1);
+        }
+        else if (currentBattle == 2){
+            InitializeBattle(PlayerBard, OpponentBard2);
+        }
+        else if (currentBattle == 3){
+            InitializeBattle(PlayerBard, OpponentBard3);
+        }
     }
 
     public void InitializeBattle(Bard player, Bard opponent)
@@ -141,8 +199,16 @@ public class GameManager : MonoBehaviour
         PlayerBard = player;
         CurrentOpponent = opponent;
         ChangeState(GameState.Battle);
+        StartCoroutine(WaitForBattleSceneLoad());
     }
 
+    private IEnumerator WaitForBattleSceneLoad()
+    {
+        yield return new WaitUntil(() => FindObjectOfType<BattleManager>() != null);
+        battleManager = FindObjectOfType<BattleManager>();
+        Debug.Log("******Initializing battle!******");
+        battleManager.Initialize(PlayerBard, CurrentOpponent);
+    }
 
     private List<JournalPhrase> ParsePhrasesFromJson(string filename)
     {

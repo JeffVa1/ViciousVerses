@@ -65,7 +65,8 @@ public class SceneOneSequence : MonoBehaviour
         // initialze battle
         DialogueManager.EndDialogue();
 
-
+        Debug.Log("Calling StartNextBattle");
+        GameManager.Instance.StartNextBattle();
     }
 
     IEnumerator WaitForFlag(int flagValue)
