@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 94d62105b1bb64948b043a312a9932de
+guid: c3784e69a5682ce4b97e04f643445d61
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4969316309764585428
-    second: SIB_Bard_1_placeholder_0
+      213: 9095154212514043117
+    second: Vicious_Verses-Logo.FULL_0
+  - first:
+      213: -4806245065288251012
+    second: Vicious_Verses-Logo.FULL_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +99,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SIB_Bard_1_placeholder_0
+      name: Vicious_Verses-Logo.FULL_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 2
-        width: 29
-        height: 54
+        x: 182
+        y: 527
+        width: 6159
+        height: 5672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d7b21ceade86f440800000000000000
-      internalID: 4969316309764585428
+      spriteID: de41c4e619a783e70800000000000000
+      internalID: 9095154212514043117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.FULL_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 258
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c790504e399cc4db0800000000000000
+      internalID: -4806245065288251012
       vertices: []
       indices: 
       edges: []
@@ -148,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SIB_Bard_1_placeholder_0: 4969316309764585428
+      Vicious_Verses-Logo.FULL_0: 9095154212514043117
+      Vicious_Verses-Logo.FULL_1: -4806245065288251012
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

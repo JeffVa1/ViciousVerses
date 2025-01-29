@@ -30,9 +30,7 @@ public class GameManager : MonoBehaviour
     
     public int round_number = 1;
 
-    public DialogueManager DialogueManager;
-    public Sprite PlayerSprite;
-    public Sprite EnemySprite;
+    
 
     
 
@@ -108,7 +106,8 @@ public class GameManager : MonoBehaviour
         battleManager.Initialize(PlayerBard, OpponentBard1);
         CurrentState = GameState.Intro;
         
-        //DialogueManager.Initialize("Assets/Data/testDialogue.json", PlayerSprite, EnemySprite);
+
+
     }
 
     
