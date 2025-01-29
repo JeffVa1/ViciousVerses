@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
     
     public int round_number = 1;
 
+    public int prev_audience_score = 115;
+    public int prev_gold_earned = 69;
+    public bool WonLastMatch = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -39,6 +43,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);  // This prevents destruction on scene changes
         SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to sceneLoaded event
 
         // LOADING PLAYER DATA
@@ -102,11 +107,6 @@ public class GameManager : MonoBehaviour
 
         // Initialize game state
         CurrentState = GameState.Intro;
-    }
-
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
@@ -181,6 +181,11 @@ public class GameManager : MonoBehaviour
         currentBattle += 1;
     }
 
+    public void GoToResults()
+    {
+        ChangeState(GameState.Results);
+    }
+
     public void StartNextBattle()
     {
         if (currentBattle == 1){
@@ -199,7 +204,7 @@ public class GameManager : MonoBehaviour
         PlayerBard = player;
         CurrentOpponent = opponent;
         ChangeState(GameState.Battle);
-        StartCoroutine(WaitForBattleSceneLoad());
+        //StartCoroutine(WaitForBattleSceneLoad());
     }
 
     private IEnumerator WaitForBattleSceneLoad()
