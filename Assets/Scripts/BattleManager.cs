@@ -26,6 +26,7 @@ public class BattleManager : MonoBehaviour
     private Dictionary<Card, float> cardOpacityState = new Dictionary<Card, float>(); // Track card opacity state
 
     private int MoneyEarned = 0;
+    private int AudienceScore = 0;
 
     public void Initialize(Bard player, Bard enemy)
     {
@@ -128,17 +129,21 @@ public class BattleManager : MonoBehaviour
         }
 
         int targetIndex = 0;
+        float damageModifier = 0f;
         if (GameManager.Instance.currentBattle == 1)
         {
             targetIndex = 4;
+            damageModifier = 0.3f;
         } 
         else if (GameManager.Instance.currentBattle == 2)
         {
             targetIndex = 2;
+            damageModifier = 0.6f;
         }
         else if (GameManager.Instance.currentBattle == 3)
         {
             targetIndex = 0;
+            damageModifier = 1f;
         }
 
         targetIndex = Mathf.Clamp(targetIndex, 0, scoredCombinations.Count - 1);
@@ -151,7 +156,8 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         enemyPhraseText.gameObject.SetActive(false);
 
-        int egoDamage = CalculatePhraseEffect(enemyBard, enemySelectedCards);
+        int egoDamage =  Mathf.RoundToInt(CalculatePhraseEffect(enemyBard, enemySelectedCards) * damageModifier);
+
         playerBard.AddEgo(-egoDamage);
 
         enemyBard.GetJournal().SelectNewPhrase();
@@ -227,6 +233,7 @@ public class BattleManager : MonoBehaviour
                 if (posMatch) audienceReaction += 2; // Example reaction score for POS match
                 if (categoryMatch) audienceReaction += 4; // Example reaction score for category match
                 if (insultMatch) audienceReaction += 8; // Example reaction score for insult match
+                AudienceScore += audienceReaction;
             }
            
 
@@ -242,7 +249,7 @@ public class BattleManager : MonoBehaviour
         //Debug.Log($"Total Audience Reaction: {audienceReaction}");
         //Debug.Log($"Total Ego Damage: {totalDamage}");
 
-        return Mathf.RoundToInt(totalDamage);
+        return Mathf.RoundToInt(totalDamage) * 5;
     }
 
     private void EndPlayerTurn()
@@ -277,18 +284,33 @@ public class BattleManager : MonoBehaviour
     {
         if (playerBard.GetEgo() <= 0)
         {
-            //Debug.Log("The player has been roasted! Enemy wins.");
+            Debug.Log("The player has been roasted! Enemy wins.");
+            playerBard.SetEgo(0);
+            GameManager.Instance.prev_audience_score = AudienceScore;
+            GameManager.Instance.prev_gold_earned = MoneyEarned;
+            GameManager.Instance.PlayerBard.AddOrRemoveMoney(MoneyEarned);
+            GameManager.Instance.WonLastMatch = false;
+            GameManager.Instance.GoToResults();
         }
         else if (enemyBard.GetEgo() <= 0)
         {
-            //Debug.Log("The enemy has been roasted! Player wins.");
+            Debug.Log("The enemy has been roasted! Player wins.");
+            GameManager.Instance.prev_audience_score = AudienceScore;
+            MoneyEarned = AudienceScore + playerBard.GetEgo();
+            GameManager.Instance.prev_gold_earned = MoneyEarned;
+            GameManager.Instance.PlayerBard.AddOrRemoveMoney(MoneyEarned);
+            GameManager.Instance.WonLastMatch = true;
+            GameManager.Instance.GoToResults();
         }
         else
         {
-            //Debug.Log("Battle ended unexpectedly.");
+            Debug.Log("Battle ended unexpectedly.");
+            GameManager.Instance.prev_audience_score = AudienceScore;
+            GameManager.Instance.prev_gold_earned = MoneyEarned;
+            GameManager.Instance.PlayerBard.AddOrRemoveMoney(MoneyEarned);
+            GameManager.Instance.WonLastMatch = false;
+            GameManager.Instance.GoToResults();
         }
-
-        //Debug.Log("Battle over.");
     }
 
     private void UpdateHandUI()
