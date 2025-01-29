@@ -30,10 +30,6 @@ public class GameManager : MonoBehaviour
     
     public int round_number = 1;
 
-    
-
-    
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -105,9 +101,6 @@ public class GameManager : MonoBehaviour
         // Initialize game state
         battleManager.Initialize(PlayerBard, OpponentBard1);
         CurrentState = GameState.Intro;
-        
-
-
     }
 
     
@@ -136,6 +129,11 @@ public class GameManager : MonoBehaviour
     private void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void StartBattle1()
+    {
+        InitializeBattle(PlayerBard, OpponentBard1);
     }
 
     public void InitializeBattle(Bard player, Bard opponent)
