@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VV_Enviornment-Tavern_0: 4439388522260058549
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

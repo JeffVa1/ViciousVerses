@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VV-INSIDE_CARD[DRAFT]_0: -6890738096407807060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
