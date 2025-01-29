@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -76,34 +77,42 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // Increase the size of the card by a factor of 2.5
-        rectTransform.sizeDelta = originalSize * 2.5f;
+        // Check if the current scene is "Battle"
+        if (SceneManager.GetActiveScene().name == "Battle")
+        {
+            // Increase the size of the card by a factor of 2.5
+            rectTransform.sizeDelta = originalSize * 2.5f;
 
-        // Increase the font size of the text components by a factor of 2.5
-        cardText.fontSize = originalCardTextFontSize * 2.5f;
-        posText.fontSize = originalPosTextFontSize * 2.5f;
-        posLabel.fontSize = originalPosLabelFontSize * 2.5f;
-        costText.fontSize = originalCostTextFontSize * 2.5f;
-        damageText.fontSize = originalDamageTextFontSize * 2.5f;
-        damageLabel.fontSize = originalDamageLabelFontSize * 2.5f;
-        categoriesText.fontSize = originalCategoriesTextFontSize * 2.5f;
-        categoriesLabel.fontSize = originalCategoriesLabelFontSize * 2.5f;
+            // Increase the font size of the text components by a factor of 2.5
+            cardText.fontSize = originalCardTextFontSize * 2.5f;
+            posText.fontSize = originalPosTextFontSize * 2.5f;
+            posLabel.fontSize = originalPosLabelFontSize * 2.5f;
+            costText.fontSize = originalCostTextFontSize * 2.5f;
+            damageText.fontSize = originalDamageTextFontSize * 2.5f;
+            damageLabel.fontSize = originalDamageLabelFontSize * 2.5f;
+            categoriesText.fontSize = originalCategoriesTextFontSize * 2.5f;
+            categoriesLabel.fontSize = originalCategoriesLabelFontSize * 2.5f;
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        // Reset the size of the card to the original size
-        rectTransform.sizeDelta = originalSize;
+        // Check if the current scene is "Battle"
+        if (SceneManager.GetActiveScene().name == "Battle")
+        {
+            // Reset the size of the card to the original size
+            rectTransform.sizeDelta = originalSize;
 
-        // Reset the font size of the text components
-        cardText.fontSize = originalCardTextFontSize;
-        posText.fontSize = originalPosTextFontSize;
-        posLabel.fontSize = originalPosLabelFontSize;
-        costText.fontSize = originalCostTextFontSize;
-        damageText.fontSize = originalDamageTextFontSize;
-        damageLabel.fontSize = originalDamageLabelFontSize;
-        categoriesText.fontSize = originalCategoriesTextFontSize;
-        categoriesLabel.fontSize = originalCategoriesLabelFontSize;
+            // Reset the font size of the text components
+            cardText.fontSize = originalCardTextFontSize;
+            posText.fontSize = originalPosTextFontSize;
+            posLabel.fontSize = originalPosLabelFontSize;
+            costText.fontSize = originalCostTextFontSize;
+            damageText.fontSize = originalDamageTextFontSize;
+            damageLabel.fontSize = originalDamageLabelFontSize;
+            categoriesText.fontSize = originalCategoriesTextFontSize;
+            categoriesLabel.fontSize = originalCategoriesLabelFontSize;
+        }
     }
 
     public Card GetCard()

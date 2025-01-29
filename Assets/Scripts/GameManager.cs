@@ -14,7 +14,7 @@ using static DeckObj;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public enum GameState { Intro, DeckBuilding, Battle, Results }
+    public enum GameState { Intro, DeckBuilder, Battle, Results }
     public GameState CurrentState { get; private set; }
     
     public Bard PlayerBard { get; private set; }
@@ -176,8 +176,8 @@ public class GameManager : MonoBehaviour
 
         switch (newState)
         {
-            case GameState.DeckBuilding:
-                LoadScene("DeckBuilding");
+            case GameState.DeckBuilder:
+                LoadScene("DeckBuilder");
                 break;
             case GameState.Battle:
                 LoadScene("Battle");
