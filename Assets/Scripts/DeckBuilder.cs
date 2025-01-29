@@ -17,7 +17,7 @@ public class DeckBuilder : MonoBehaviour
     [SerializeField] private TextMeshProUGUI pageNumberText;
     [SerializeField] private TextMeshProUGUI deckCounterText;
     private int currentPage = 1;
-    private int cardsPerPage = 21;
+    private int cardsPerPage = 18;
     private int maxPages = 1;
 
     private Dictionary<Card, float> cardOpacityStates = new Dictionary<Card, float>();
