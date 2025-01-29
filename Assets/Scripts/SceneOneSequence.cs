@@ -63,6 +63,7 @@ public class SceneOneSequence : MonoBehaviour
         StartCoroutine(SpriteFadeIn(PlayerRenderer));
 
         // initialze battle
+        yield return StartCoroutine(WaitForFlag(6));
         DialogueManager.EndDialogue();
 
 
