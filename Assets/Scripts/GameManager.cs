@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public GameState CurrentState { get; private set; }
     
     public Bard PlayerBard { get; private set; }
+
+    public LevelLoader levelLoader;
     public Bard OpponentBard1 { get; private set; }
     public Bard OpponentBard2 { get; private set; }
     public Bard OpponentBard3 { get; private set; }
