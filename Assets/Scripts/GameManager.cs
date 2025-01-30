@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public int prev_gold_earned = 0;
     public bool WonLastMatch = false;
 
+   
     private void Awake()
     {
         if (Instance != null && Instance != this)

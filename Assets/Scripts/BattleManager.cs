@@ -29,10 +29,29 @@ public class BattleManager : MonoBehaviour
     private int MoneyEarned = 0;
     private int AudienceScore = 0;
 
+    private CanvasGroup PlayerCanvasGroup;
+    private CanvasGroup EnemyCanvasGroup;
+
+    public PlayerBattleDialogue PlayerBattleDialogue;
+
+    public EnemyBattleDialogue EnemyBattleDialogue;
+
+
+
+
+
     public void Initialize(Bard player, Bard enemy)
     {
+        PlayerCanvasGroup = PlayerBattleDialogue.GetPlayerCanvasGroup();
+        EnemyCanvasGroup = EnemyBattleDialogue.GetEnemyCanvasGroup();
+        
+        
+
         enemyPhraseText.gameObject.SetActive(false);
+        EnemyCanvasGroup.alpha = 0;
+
         currentPhraseText.gameObject.SetActive(true);
+        PlayerCanvasGroup.alpha = 1;
         
         playerBard = player;
         if (playerBard.GetJournal().GetCurrentPhrase() == null) {
@@ -70,12 +89,17 @@ public class BattleManager : MonoBehaviour
             //Debug.Log("IS PLAYER TURN: " + isPlayerTurn);
             if (isPlayerTurn)
             {
+                
                 currentPhraseText.gameObject.SetActive(true);
+                EnemyCanvasGroup.alpha = 0;
+                PlayerCanvasGroup.alpha = 1;
                 //Debug.Log("Player's turn.");
                 yield return PlayerTurn(); // Wait for the player's turn to finish
             }
             else
             {
+                EnemyCanvasGroup.alpha = 1;
+                PlayerCanvasGroup.alpha = 0;
                 //Debug.Log("Enemy's turn.");
                 yield return EnemyTurn(); // Wait for the enemy's turn to finish
             }

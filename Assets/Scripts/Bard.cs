@@ -13,6 +13,8 @@ public class Bard
     private int ego;
     private int money = 500;
 
+
+
     public Bard(Dictionary d, DeckObj new_deck, int e, Journal j)
     {
         dict = d;
