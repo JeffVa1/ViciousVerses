@@ -8,10 +8,16 @@ using static DeckObj;
 
 public class DeckBuilder : MonoBehaviour
 {
-    [SerializeField] private Transform dictionaryContainer; // Parent object for dictionary cards
-    [SerializeField] private Transform deckContainer;       // Parent object for deck cards
-    [SerializeField] private GameObject cardPrefab;         // Prefab for displaying cards
-    [SerializeField] private int maxDeckSize = 30;          // Maximum number of cards in the deck
+    [SerializeField] private Transform dictionaryContainer;
+    [SerializeField] private Transform deckContainer;
+    [SerializeField] private Transform journalContainer;
+    [SerializeField] private ScrollRect JournalScrollView;
+    [SerializeField] private ScrollRect DeckScrollView;
+    [SerializeField] private Button togglePhraseDisplayButton;
+    [SerializeField] private TextMeshProUGUI togglePhraseDisplayButtonText;
+    [SerializeField] private GameObject journalPhrasePrefab;
+    [SerializeField] private GameObject cardPrefab;
+    [SerializeField] private int maxDeckSize = 30;
     [SerializeField] private int currentDeckCount = 0;
 
     [SerializeField] private TextMeshProUGUI pageNumberText;
@@ -19,6 +25,7 @@ public class DeckBuilder : MonoBehaviour
     private int currentPage = 1;
     private int cardsPerPage = 18;
     private int maxPages = 1;
+    private bool isJournalViewActive = false;
 
     private Dictionary<Card, float> cardOpacityStates = new Dictionary<Card, float>();
 
@@ -32,21 +39,18 @@ public class DeckBuilder : MonoBehaviour
         playerBard = GameManager.Instance?.PlayerBard;
         if (playerBard == null)
         {
-            // Debug.LogError("PlayerBard is null! Make sure GameManager and PlayerBard are initialized.");
             return;
         }
 
         dictionary = playerBard.GetDictionary();
         if (dictionary == null)
         {
-            // Debug.LogError("Dictionary is null! Make sure the Bard has a dictionary assigned.");
             return;
         }
 
         deck = playerBard.GetDeck();
         if (deck == null)
         {
-            // Debug.LogError("Deck is null! Make sure the Bard has a deck assigned.");
             return;
         }
 
@@ -67,7 +71,7 @@ public class DeckBuilder : MonoBehaviour
 
     private System.Collections.IEnumerator InitializeUI()
     {
-        yield return null; // Wait for one frame
+        yield return null;
         CalculateMaxPages();
         PopulateDictionaryUI();
         PopulateDeckUI();
@@ -155,13 +159,10 @@ public class DeckBuilder : MonoBehaviour
     {
         if (deck.GetLibrary().Contains(card))
         {
-            // Debug.Log("This card is already in the deck!");
             return;
         }
         if (deck.GetLibrary().Count >= maxDeckSize)
         {
-            // Debug.Log(deck.GetLibrary().Count);
-            // Debug.Log("Deck is full!");
             return;
         }
 
@@ -184,7 +185,6 @@ public class DeckBuilder : MonoBehaviour
             cardOpacityStates.Add(card, opacity);
         }
 
-        // Re-render the current page to reflect the changes
         PopulateDictionaryUI();
     }
 
@@ -199,7 +199,6 @@ public class DeckBuilder : MonoBehaviour
 
     private void RefreshDeckUI()
     {
-        // Clear existing UI
         for (int i = deckContainer.childCount - 1; i >= 0; i--)
         {
             Destroy(deckContainer.GetChild(i).gameObject);
@@ -208,10 +207,64 @@ public class DeckBuilder : MonoBehaviour
         PopulateDeckUI();
     }
 
+    public void TogglePhraseDisplay()
+    {
+        isJournalViewActive = !isJournalViewActive;
+
+        DeckScrollView.gameObject.SetActive(!isJournalViewActive);
+        JournalScrollView.gameObject.SetActive(isJournalViewActive);
+
+        togglePhraseDisplayButtonText.text = isJournalViewActive ? "Deck" : "Journal";
+
+        ToggleChildren(DeckScrollView.content, !isJournalViewActive);
+        ToggleChildren(JournalScrollView.content, isJournalViewActive);
+
+        if (isJournalViewActive)
+        {
+            PopulateJournalUI();
+        }
+
+        SetAllJournalPhrasesActive();
+    }
+
+    private void ToggleChildren(Transform parent, bool isActive)
+    {
+        foreach (Transform child in parent)
+        {
+            child.gameObject.SetActive(isActive);
+        }
+    }
+
+    private void SetAllJournalPhrasesActive()
+    {
+        foreach (Transform child in journalContainer)
+        {
+            child.gameObject.SetActive(true);
+        }
+    }
+
+    private void PopulateJournalUI()
+    {
+        foreach (Transform child in journalContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        List<JournalPhrase> journalPhrases = playerBard.GetJournal().GetAvailablePhrases();
+
+        foreach (JournalPhrase phrase in journalPhrases)
+        {
+            GameObject phraseObj = Instantiate(journalPhrasePrefab, journalContainer);
+            PhraseUI phraseUI = phraseObj.GetComponent<PhraseUI>();
+            phraseUI.Setup(phrase, null); 
+            phraseUI.GetButton().gameObject.SetActive(false);
+        }
+    }
+
+
     public void ConfirmDeck()
     {
         playerBard.SetDeck(deck);
-        // Debug.Log("Deck confirmed!");
         GameManager.Instance.ChangeState(GameManager.GameState.Battle);
     }
 }
