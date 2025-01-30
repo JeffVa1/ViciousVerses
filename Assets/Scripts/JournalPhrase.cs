@@ -124,7 +124,22 @@ public class JournalPhrase
         {
             if (displayList[i] == "" && selectedIndex < selectedCards.Count)
             {
-                displayList[i] = selectedCards[selectedIndex].GetText();
+                Card selectedCard = selectedCards[selectedIndex];
+                Blank correspondingBlank = blanks_info[selectedIndex];
+
+                string finalWord = selectedCard.GetText();
+
+                // Check if the blank has a tense requirement
+                if (!string.IsNullOrEmpty(correspondingBlank.Tense))
+                {
+                    Dictionary<string, string> tenses = selectedCard.GetTenses();
+                    if (tenses != null && tenses.ContainsKey(correspondingBlank.Tense))
+                    {
+                        finalWord = tenses[correspondingBlank.Tense];
+                    }
+                }
+
+                displayList[i] = finalWord;
                 selectedIndex++;
             }
             else if (displayList[i] == "")
@@ -135,6 +150,7 @@ public class JournalPhrase
 
         return string.Join(" ", displayList);
     }
+
 }
 
 
