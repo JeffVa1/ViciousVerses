@@ -1,0 +1,705 @@
+fileFormatVersion: 2
+guid: ee27662001f0fa843b1c204680b35853
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8599409219548703808
+    second: Vicious_Verses-Logo.SINGLE_COLOR_0
+  - first:
+      213: 1906860423175374607
+    second: Vicious_Verses-Logo.SINGLE_COLOR_1
+  - first:
+      213: -7177533654526322341
+    second: Vicious_Verses-Logo.SINGLE_COLOR_2
+  - first:
+      213: -1866667862455046559
+    second: Vicious_Verses-Logo.SINGLE_COLOR_3
+  - first:
+      213: 2566632334472921067
+    second: Vicious_Verses-Logo.SINGLE_COLOR_4
+  - first:
+      213: -5779590951724732892
+    second: Vicious_Verses-Logo.SINGLE_COLOR_5
+  - first:
+      213: 9168140558223712301
+    second: Vicious_Verses-Logo.SINGLE_COLOR_6
+  - first:
+      213: -6903252274802813278
+    second: Vicious_Verses-Logo.SINGLE_COLOR_7
+  - first:
+      213: 995427298617957116
+    second: Vicious_Verses-Logo.SINGLE_COLOR_8
+  - first:
+      213: 5807701527064507615
+    second: Vicious_Verses-Logo.SINGLE_COLOR_9
+  - first:
+      213: 5881880551521854746
+    second: Vicious_Verses-Logo.SINGLE_COLOR_10
+  - first:
+      213: 2701362940872984275
+    second: Vicious_Verses-Logo.SINGLE_COLOR_11
+  - first:
+      213: 7824292999513375493
+    second: Vicious_Verses-Logo.SINGLE_COLOR_12
+  - first:
+      213: 6905495857458072288
+    second: Vicious_Verses-Logo.SINGLE_COLOR_13
+  - first:
+      213: 8264303835308222593
+    second: Vicious_Verses-Logo.SINGLE_COLOR_14
+  - first:
+      213: -3921503809920183300
+    second: Vicious_Verses-Logo.SINGLE_COLOR_15
+  - first:
+      213: -1320999803612654459
+    second: Vicious_Verses-Logo.SINGLE_COLOR_16
+  - first:
+      213: 5472868518272058487
+    second: Vicious_Verses-Logo.SINGLE_COLOR_17
+  - first:
+      213: 6721266770348102218
+    second: Vicious_Verses-Logo.SINGLE_COLOR_18
+  - first:
+      213: -7840441486258392084
+    second: Vicious_Verses-Logo.SINGLE_COLOR_19
+  - first:
+      213: 6987361670448559515
+    second: Vicious_Verses-Logo.SINGLE_COLOR_20
+  - first:
+      213: 1587482815642236039
+    second: Vicious_Verses-Logo.SINGLE_COLOR_21
+  - first:
+      213: 8270693627802946877
+    second: Vicious_Verses-Logo.SINGLE_COLOR_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_0
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 3870
+        width: 2931
+        height: 763
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04c6b61af1d375770800000000000000
+      internalID: 8599409219548703808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_1
+      rect:
+        serializedVersion: 2
+        x: 2999
+        y: 4237
+        width: 446
+        height: 867
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f078e9fa377867a10800000000000000
+      internalID: 1906860423175374607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_2
+      rect:
+        serializedVersion: 2
+        x: 3378
+        y: 3870
+        width: 2931
+        height: 763
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b591c8e5b27446c90800000000000000
+      internalID: -7177533654526322341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_3
+      rect:
+        serializedVersion: 2
+        x: 3137
+        y: 3953
+        width: 170
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16eaab818734816e0800000000000000
+      internalID: -1866667862455046559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2120
+        width: 1379
+        height: 1769
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bef3a4572828e9320800000000000000
+      internalID: 2566632334472921067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_5
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 2543
+        width: 532
+        height: 1142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42ea267a6a4cacfa0800000000000000
+      internalID: -5779590951724732892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_6
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 2588
+        width: 907
+        height: 1134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d20a6c74347cb3f70800000000000000
+      internalID: 9168140558223712301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_7
+      rect:
+        serializedVersion: 2
+        x: 2819
+        y: 2607
+        width: 520
+        height: 1143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a6987d81a8b230a0800000000000000
+      internalID: -6903252274802813278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_8
+      rect:
+        serializedVersion: 2
+        x: 3323
+        y: 2618
+        width: 1069
+        height: 1121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfa99d5aad770dd00800000000000000
+      internalID: 995427298617957116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_9
+      rect:
+        serializedVersion: 2
+        x: 4463
+        y: 2696
+        width: 912
+        height: 1047
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd47c22b4c9199050800000000000000
+      internalID: 5807701527064507615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_10
+      rect:
+        serializedVersion: 2
+        x: 5382
+        y: 2288
+        width: 1092
+        height: 1496
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a152db4b233a0a150800000000000000
+      internalID: 5881880551521854746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_11
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 596
+        width: 1079
+        height: 1766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d68324484b2d7520800000000000000
+      internalID: 2701362940872984275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_12
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 2246
+        width: 1530
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50302963709759c60800000000000000
+      internalID: 7824292999513375493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_13
+      rect:
+        serializedVersion: 2
+        x: 3945
+        y: 2264
+        width: 1535
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ea48bd35ef35df50800000000000000
+      internalID: 6905495857458072288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_14
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 944
+        width: 891
+        height: 1141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 188e1735d84b0b270800000000000000
+      internalID: 8264303835308222593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_15
+      rect:
+        serializedVersion: 2
+        x: 2602
+        y: 924
+        width: 853
+        height: 1209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf3dd58df050499c0800000000000000
+      internalID: -3921503809920183300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_16
+      rect:
+        serializedVersion: 2
+        x: 3408
+        y: 904
+        width: 944
+        height: 1270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5849e457daddaade0800000000000000
+      internalID: -1320999803612654459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_17
+      rect:
+        serializedVersion: 2
+        x: 4339
+        y: 1013
+        width: 924
+        height: 1134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 774460ebbe883fb40800000000000000
+      internalID: 5472868518272058487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_18
+      rect:
+        serializedVersion: 2
+        x: 5169
+        y: 772
+        width: 938
+        height: 1302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a425c3f448cb64d50800000000000000
+      internalID: 6721266770348102218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_19
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 0
+        width: 2466
+        height: 774
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce335593208213390800000000000000
+      internalID: -7840441486258392084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_20
+      rect:
+        serializedVersion: 2
+        x: 1779
+        y: 351
+        width: 938
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b95344c2b6818f060800000000000000
+      internalID: 6987361670448559515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_21
+      rect:
+        serializedVersion: 2
+        x: 3993
+        y: 72
+        width: 1577
+        height: 871
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7847461c53fd70610800000000000000
+      internalID: 1587482815642236039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vicious_Verses-Logo.SINGLE_COLOR_22
+      rect:
+        serializedVersion: 2
+        x: 5475
+        y: 333
+        width: 312
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3d0843d80867c270800000000000000
+      internalID: 8270693627802946877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
