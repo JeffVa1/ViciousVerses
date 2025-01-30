@@ -253,7 +253,8 @@ public class GameManager : MonoBehaviour
     private List<JournalPhrase> ParsePhrasesFromJson(string filename)
     {
         List<JournalPhrase> journalPhrases = new List<JournalPhrase>();
-        string jsonFilePath = Path.Combine(Application.dataPath, "Data", filename);
+        // string jsonFilePath = Path.Combine(Application.dataPath, "Data", filename);
+        string jsonFilePath = "Assets/Data/" + filename;
         string json = File.ReadAllText(jsonFilePath);
 
         Dictionary<string, List<JournalPhraseData>> data = JsonConvert.DeserializeObject<Dictionary<string, List<JournalPhraseData>>>(json);
@@ -275,7 +276,8 @@ public class GameManager : MonoBehaviour
 
     private List<Card> ParseCardsFromJson(string filename, string partOfSpeech)
     {
-        string jsonFilePath = Path.Combine(Application.dataPath, "Data", filename);
+        // string jsonFilePath = Path.Combine(Application.dataPath, "Data", filename);
+        string jsonFilePath = "Assets/Data/" + filename;
         string json = File.ReadAllText(jsonFilePath);
         var cardDict = JsonConvert.DeserializeObject<Dictionary<string, List<CardData>>>(json);
         List<Card> cards = new List<Card>();
