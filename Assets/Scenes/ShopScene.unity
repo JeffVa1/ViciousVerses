@@ -1977,7 +1977,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 284634819}
   - {fileID: 1305770470}
-  - {fileID: 309284227}
   - {fileID: 1278667993}
   - {fileID: 1627164156}
   - {fileID: 1662772934}

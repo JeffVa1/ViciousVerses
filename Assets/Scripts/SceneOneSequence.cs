@@ -34,7 +34,7 @@ public class SceneOneSequence : MonoBehaviour
         StartCoroutine(SpriteFadeIn(HillViewRenderer));
 
         // wait and fade logo
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         yield return StartCoroutine(SpriteFadeOut(LogoRenderer));
                
         // Fade in Dialogue
