@@ -1,0 +1,39 @@
+{
+    "Dialogue": [
+        {
+            "Speaker": "player",
+            "Text": "Wow that guy definitely drank too much... His insults didn't even make sense!",
+            "Flag": "0"
+        }, 
+        {
+            "Speaker": "barmaid",
+            "Text": "Thank you for defending my honor!",
+            "Flag": "1"
+        },
+        {
+            "Speaker": "enemy2",
+            "Text": "How dare you sling your insults in my town!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy2",
+            "Text": "I challenge you to a roast battle. Tomorrow night, be there or resemble a square!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "player",
+            "Text": "You're on!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "",
+            "Text": "...",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "player",
+            "Text": "I better hit the book store to look for some good insults to use tomorrow...",
+            "Flag": "3"
+        }
+    ]
+}
