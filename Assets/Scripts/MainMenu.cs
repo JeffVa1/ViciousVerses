@@ -7,15 +7,8 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        if (levelLoader != null)
-        {
-            levelLoader.CauseSceneTransition();
-        }
-        else
-        {
-            Debug.LogWarning("LevelLoader is not assigned! Loading scene without transition.");
-            GameManager.Instance.GoToOpening();
-        }
+        levelLoader.CauseTransition();
+        GameManager.Instance.GoToOpening();
     }
 
     public void QuitGame()
