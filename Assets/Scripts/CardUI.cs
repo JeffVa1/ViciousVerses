@@ -78,7 +78,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         // Check if the current scene is "Battle"
-        if (SceneManager.GetActiveScene().name == "Battle")
+        if (SceneManager.GetActiveScene().name == "Battle" || SceneManager.GetActiveScene().name == "ShopScene")
         {
             // Increase the size of the card by a factor of 2.5
             rectTransform.sizeDelta = originalSize * 2.5f;
@@ -98,7 +98,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         // Check if the current scene is "Battle"
-        if (SceneManager.GetActiveScene().name == "Battle")
+        if (SceneManager.GetActiveScene().name == "Battle" || SceneManager.GetActiveScene().name == "ShopScene")
         {
             // Reset the size of the card to the original size
             rectTransform.sizeDelta = originalSize;
