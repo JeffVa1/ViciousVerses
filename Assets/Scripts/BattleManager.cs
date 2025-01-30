@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using UnityEngine.EventSystems;
+using System;
 
 public class BattleManager : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class BattleManager : MonoBehaviour
 
     public EnemyBattleDialogue EnemyBattleDialogue;
 
+    public PlayerMeters PlayersMeters;
+
 
 
 
@@ -43,6 +46,10 @@ public class BattleManager : MonoBehaviour
     public void Initialize(Bard player, Bard enemy)
     {
         PlayerCanvasGroup = PlayerBattleDialogue.GetPlayerCanvasGroup();
+        PlayersMeters = FindAnyObjectByType<PlayerMeters>();
+        PlayersMeters.Initialize();
+        
+
         EnemyCanvasGroup = EnemyBattleDialogue.GetEnemyCanvasGroup();
         
         
@@ -184,6 +191,8 @@ public class BattleManager : MonoBehaviour
         int egoDamage =  Mathf.RoundToInt(CalculatePhraseEffect(enemyBard, enemySelectedCards) * damageModifier);
 
         playerBard.AddEgo(-egoDamage);
+        PlayersMeters.Meter.TakeFromBar("hp", egoDamage);
+        
 
         enemyBard.GetJournal().SelectNewPhrase();
         enemyBard.GetDeck().DiscardHandExcept(enemySelectedCards);
@@ -321,7 +330,7 @@ public class BattleManager : MonoBehaviour
         {
             Debug.Log("The enemy has been roasted! Player wins.");
             GameManager.Instance.prev_audience_score = AudienceScore;
-            MoneyEarned = AudienceScore + playerBard.GetEgo();
+            MoneyEarned = AudienceScore + (int)(Math.Floor((double)(playerBard.GetEgo())));
             GameManager.Instance.prev_gold_earned = MoneyEarned;
             GameManager.Instance.PlayerBard.AddOrRemoveMoney(MoneyEarned);
             GameManager.Instance.WonLastMatch = true;
