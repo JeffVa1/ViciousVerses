@@ -1,0 +1,24 @@
+{
+    "Dialogue": [
+        {
+            "Speaker": "player",
+            "Text": "Your mother is a hamster!"
+        },
+        {
+            "Speaker": "enemy",
+            "Text": "Your father smells of elderberries!"
+        },
+        {
+            "Speaker": "player",
+            "Text": "Oh yea?!"
+        },
+        {
+            "Speaker": "player",
+            "Text": "Well, you dance like a squirrel!!"
+        },
+        {
+            "Speaker": "enemy",
+            "Text": "Yeah!?"
+        }
+    ]
+}

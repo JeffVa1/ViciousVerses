@@ -3,15 +3,14 @@ using UnityEngine;
 
 public class SceneOneSequence : MonoBehaviour
 {
-    public SpriteRenderer HillViewRenderer; 
-    public SpriteRenderer BarRenderer;     
-    public SpriteRenderer PlayerRenderer;  
-    public SpriteRenderer BarmaidRenderer; 
-    public SpriteRenderer LogoRenderer;    
+    public SpriteRenderer HillViewRenderer;
+    public SpriteRenderer BarRenderer;
+    public SpriteRenderer PlayerRenderer;
+    public SpriteRenderer BarmaidRenderer;
+    public SpriteRenderer LogoRenderer;
     public SpriteRenderer Enemy1Renderer;
     public SpriteRenderer Enemy2Renderer;
     public SpriteRenderer Enemy3Renderer;
-
 
     public float FadeDuration = 1f; // Duration for fade effects
 
@@ -36,23 +35,38 @@ public class SceneOneSequence : MonoBehaviour
         // wait and fade logo
         yield return new WaitForSeconds(2);
         yield return StartCoroutine(SpriteFadeOut(LogoRenderer));
-               
+
         // Fade in Dialogue
+ JsonLoader.LoadJson("openingScene.json", (jsonData) =>
+{
+    if (jsonData != null)
+    {
+        Debug.Log("Passing JSON to DialogueManager:\n" + jsonData);
+        StartCoroutine(DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
+        DialogueManager.StartDialogueWithJson(jsonData);
+    }
+    else
+    {
+        Debug.LogError("DialogueManager initialization failed due to missing or empty JSON Using UWR");
         DialogueManager.Initialize("Assets/Data/openingScene.json");
         StartCoroutine(DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
         DialogueManager.StartDialogue();
+    }
+});
+
+
 
         // On Flag = 1: render player
         yield return StartCoroutine(WaitForFlag(1));
         StartCoroutine(SpriteFadeIn(PlayerRenderer));
-       
+
         // On Flag = 2:
         // Fade out HillView and player and fade in Bar
         yield return StartCoroutine(WaitForFlag(2));
         StartCoroutine(SpriteFadeOut(PlayerRenderer));
         StartCoroutine(SpriteFadeOut(HillViewRenderer));
         StartCoroutine(SpriteFadeIn(BarRenderer));
-        
+
         // Transition to the Bar
         yield return StartCoroutine(WaitForFlag(3));
         StartCoroutine(SpriteFadeIn(BarmaidRenderer));

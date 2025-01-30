@@ -1,0 +1,602 @@
+{
+    "Fool": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Intelligence",
+                "Behavior"
+            ]
+        }
+    ],
+    "Buffoon": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Intelligence"
+            ]
+        }
+    ],
+    "Simpleton": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Intelligence",
+                "Status"
+            ]
+        }
+    ],
+    "Dunce": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Intelligence"
+            ]
+        }
+    ],
+    "Imbecile": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Intelligence"
+            ]
+        }
+    ],
+    "Nitwit": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Intelligence",
+                "Behavior"
+            ]
+        }
+    ],
+    "Blockhead": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Intelligence",
+                "Physical"
+            ]
+        }
+    ],
+    "Clown": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Status"
+            ]
+        }
+    ],
+    "Idiot": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Intelligence"
+            ]
+        }
+    ],
+    "Moron": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Intelligence"
+            ]
+        }
+    ],
+    "Knucklehead": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Intelligence",
+                "Physical"
+            ]
+        }
+    ],
+    "Loser": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 4,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Character"
+            ]
+        }
+    ],
+    "Tool": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Behavior"
+            ]
+        }
+    ],
+    "Chump": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Behavior"
+            ]
+        }
+    ],
+    "Scoundrel": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Character",
+                "Relationships"
+            ]
+        }
+    ],
+    "Cretin": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Intelligence",
+                "Behavior"
+            ]
+        }
+    ],
+    "Lout": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Status"
+            ]
+        }
+    ],
+    "Jerk": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Relationships"
+            ]
+        }
+    ],
+    "Weasel": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Animal",
+                "Behavior"
+            ]
+        }
+    ],
+    "Swine": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Animal",
+                "Behavior"
+            ]
+        }
+    ],
+    "Cheapskate": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Character",
+                "Behavior"
+            ]
+        }
+    ],
+    "Maggot": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Animal",
+                "Abstract"
+            ]
+        }
+    ],
+    "Rogue": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Character",
+                "Relationships"
+            ]
+        }
+    ],
+    "Parasite": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 4,
+            "audienceValue": 3,
+            "insult": true,
+            "categories": [
+                "Animal",
+                "Behavior",
+                "Relationships"
+            ]
+        }
+    ],
+    "Wretch": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Character"
+            ]
+        }
+    ],
+    "Brat": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Relationships"
+            ]
+        }
+    ],
+    "Savage": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Stereotype"
+            ]
+        }
+    ],
+    "Villain": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Character",
+                "Relationships"
+            ]
+        }
+    ],
+    "Rascal": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Status"
+            ]
+        }
+    ],
+    "Troll": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Abstract"
+            ]
+        }
+    ],
+    "Leech": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Animal",
+                "Relationships",
+                "Behavior"
+            ]
+        }
+    ],
+    "Thief": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Character",
+                "Relationships"
+            ]
+        }
+    ],
+    "Coward": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Character"
+            ]
+        }
+    ],
+    "Goon": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Physical"
+            ]
+        }
+    ],
+    "Scum": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 4,
+            "audienceValue": 3,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Character"
+            ]
+        }
+    ],
+    "Snake": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Animal",
+                "Behavior",
+                "Relationships"
+            ]
+        }
+    ],
+    "Bozo": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Intelligence"
+            ]
+        }
+    ],
+    "Rat": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Animal",
+                "Behavior",
+                "Relationships"
+            ]
+        }
+    ],
+    "Peasant": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Stereotype"
+            ]
+        }
+    ],
+    "Traitor": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Relationships",
+                "Character"
+            ]
+        }
+    ],
+    "Drunkard": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.2,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Stereotype",
+                "Character"
+            ]
+        }
+    ],
+    "Vermin": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Animal",
+                "Status",
+                "Behavior"
+            ]
+        }
+    ],
+    "Slob": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Hygiene",
+                "Behavior"
+            ]
+        }
+    ],
+    "Scallywag": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Stereotype"
+            ]
+        }
+    ],
+    "Punk": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Behavior",
+                "Stereotype"
+            ]
+        }
+    ],
+    "Gremlin": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Behavior"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,647 @@
+{
+    "Goblet": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Food",
+                "Abstract"
+            ]
+        }
+    ],
+    "Trinket": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Relationships",
+                "Abstract"
+            ]
+        }
+    ],
+    "Talisman": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Charm": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Relationships"
+            ]
+        }
+    ],
+    "Potion": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Food"
+            ]
+        }
+    ],
+    "Elixir": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Food"
+            ]
+        }
+    ],
+    "Amulet": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Relationships",
+                "Abstract"
+            ]
+        }
+    ],
+    "Artifact": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Token": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Relationships"
+            ]
+        }
+    ],
+    "Relic": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Badge": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Relationships"
+            ]
+        }
+    ],
+    "Medallion": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Relationships"
+            ]
+        }
+    ],
+    "Sigil": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Trophy": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Relationships"
+            ]
+        }
+    ],
+    "Scroll": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Intelligence"
+            ]
+        }
+    ],
+    "Grimoire": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Intelligence"
+            ]
+        }
+    ],
+    "Crown": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Relationships"
+            ]
+        }
+    ],
+    "Scepter": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Abstract"
+            ]
+        }
+    ],
+    "Orb": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Intelligence"
+            ]
+        }
+    ],
+    "Crystal": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Pendant": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Relationships",
+                "Abstract"
+            ]
+        }
+    ],
+    "Blade": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Abstract"
+            ]
+        }
+    ],
+    "Dagger": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Status",
+                "Abstract"
+            ]
+        }
+    ],
+    "Ring": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Relationships",
+                "Abstract"
+            ]
+        }
+    ],
+    "Cloak": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Mask": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Relationships"
+            ]
+        }
+    ],
+    "Helm": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Gauntlet": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Boot": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Physical"
+            ]
+        }
+    ],
+    "Bracer": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Physical"
+            ]
+        }
+    ],
+    "Cape": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Shield": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Physical"
+            ]
+        }
+    ],
+    "Lantern": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Intelligence"
+            ]
+        }
+    ],
+    "Map": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Intelligence"
+            ]
+        }
+    ],
+    "Compass": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Intelligence"
+            ]
+        }
+    ],
+    "Gem": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Coin": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Candle": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Intelligence"
+            ]
+        }
+    ],
+    "Quill": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Intelligence"
+            ]
+        }
+    ],
+    "Inkwell": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Intelligence"
+            ]
+        }
+    ],
+    "Satchel": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Physical"
+            ]
+        }
+    ],
+    "Chest": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Horn": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Status"
+            ]
+        }
+    ],
+    "Pipe": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Relationships"
+            ]
+        }
+    ],
+    "Pouch": [
+        {
+            "cost": 1,
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Physical"
+            ]
+        }
+    ],
+    "Murloc": [
+        {
+            "cost": 5,
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 2,
+            "audienceValue": 10,
+            "insult": true,
+            "categories": [
+                "Abstract",
+                "Physical",
+                "Allstar"
+            ]
+        }
+    ]
+}
