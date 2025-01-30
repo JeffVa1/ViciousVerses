@@ -29,6 +29,7 @@ public class BattleManager : MonoBehaviour
 
     private int MoneyEarned = 0;
     private int AudienceScore = 50;
+    private int E_AudienceScore = 25;
 
     private CanvasGroup PlayerCanvasGroup;
     private CanvasGroup EnemyCanvasGroup;
@@ -38,6 +39,7 @@ public class BattleManager : MonoBehaviour
     public EnemyBattleDialogue EnemyBattleDialogue;
 
     public PlayerMeters PlayersMeters;
+    public EnemyMeters EnemyMeters;
 
 
 
@@ -51,6 +53,9 @@ public class BattleManager : MonoBehaviour
         
 
         EnemyCanvasGroup = EnemyBattleDialogue.GetEnemyCanvasGroup();
+        EnemyMeters = FindAnyObjectByType<EnemyMeters>();
+        EnemyMeters.Initialize(E_AudienceScore);
+
         
         
 
@@ -151,7 +156,7 @@ public class BattleManager : MonoBehaviour
 
         List<List<Card>> possibleCombinations = GetCombinations(enemyHand, blanksToFill);
         List<(List<Card>, int)> scoredCombinations = possibleCombinations
-            .Select(cards => (cards, CalculatePhraseEffect(enemyBard, cards)))
+            .Select(cards => (cards, CalculatePhraseEffect(enemyBard, cards, false)))
             .OrderByDescending(result => result.Item2)
             .ToList();
 
@@ -188,7 +193,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         enemyPhraseText.gameObject.SetActive(false);
 
-        int egoDamage =  Mathf.RoundToInt(CalculatePhraseEffect(enemyBard, enemySelectedCards) * damageModifier);
+        int egoDamage =  Mathf.RoundToInt(CalculatePhraseEffect(enemyBard, enemySelectedCards, true) * damageModifier);
 
         playerBard.AddEgo(-egoDamage);
         PlayersMeters.Meters.TakeFromBar("hp", egoDamage);
@@ -224,7 +229,7 @@ public class BattleManager : MonoBehaviour
     }
 
 
-    private int CalculatePhraseEffect(Bard bard, List<Card> selectedCards)
+    private int CalculatePhraseEffect(Bard bard, List<Card> selectedCards, bool addReaction)
     {
         JournalPhrase currentPhrase = bard.GetJournal().GetCurrentPhrase();
         if (currentPhrase == null)
@@ -255,19 +260,17 @@ public class BattleManager : MonoBehaviour
             Blank blank = blanksInfo[i];
             Card card = selectedCards[i];
 
-
             bool posMatch = blank.PreferredPOS == null || blank.PreferredPOS == card.GetPartOfSpeech();
             bool categoryMatch = blank.PreferredCAT == null || card.GetCategories().Contains(blank.PreferredCAT);
             bool insultMatch = blank.Insult == null || blank.Insult == card.IsInsult();
 
-
             //Debug.Log($"Blank {i + 1}: POS Match: {posMatch}, CAT Match: {categoryMatch}, Insult Match: {insultMatch}");
-            if (isPlayerTurn)
+            if (isPlayerTurn && addReaction)
             {
-                audienceReaction += posMatch ? 2 : -2; // Example reaction score for POS match
-                audienceReaction += categoryMatch ? 4 : -4; // Example reaction score for category match
-                audienceReaction += insultMatch ? 8 : -8; // Example reaction score for insult match
+                audienceReaction = CalculateAudienceScore(blank, card);
+
                 AudienceScore += audienceReaction;
+                
                 if (audienceReaction > 0 ) {
                     PlayersMeters.Meters.AddToBar("audience", audienceReaction);
                 }
@@ -276,8 +279,18 @@ public class BattleManager : MonoBehaviour
                     PlayersMeters.Meters.TakeFromBar("audience", audienceReaction);
                 }
 
+            } else if (!isPlayerTurn && addReaction) {
+                audienceReaction = CalculateAudienceScore(blank, card);
+
+                E_AudienceScore += audienceReaction;
                 
-                
+                if (audienceReaction > 0 ) {
+                    EnemyMeters.Meters.AddToBar("audience", audienceReaction);
+                }
+                else if (audienceReaction < 0) 
+                {
+                    EnemyMeters.Meters.TakeFromBar("audience", audienceReaction);
+                }
             }
            
 
@@ -296,13 +309,28 @@ public class BattleManager : MonoBehaviour
         return Mathf.RoundToInt(totalDamage) * 5;
     }
 
+    private int CalculateAudienceScore(Blank blank, Card card) {
+        int audienceReaction = 0;
+
+        bool posMatch = blank.PreferredPOS == null || blank.PreferredPOS == card.GetPartOfSpeech();
+        bool categoryMatch = blank.PreferredCAT == null || card.GetCategories().Contains(blank.PreferredCAT);
+        bool insultMatch = blank.Insult == null || blank.Insult == card.IsInsult();
+
+        audienceReaction += posMatch ? 2 : -2; // Example reaction score for POS match
+        audienceReaction += categoryMatch ? 4 : -4; // Example reaction score for category match
+        audienceReaction += insultMatch ? 8 : -8; // Example reaction score for insult match
+
+        return audienceReaction;
+    }
+
     private void EndPlayerTurn()
     {
         if (playerSelectedCards.Count == playerBard.GetJournal().GetCurrentPhrase().GetNumBlanks())
         {
             // Calculate phrase effect if phrase is full.
-            int egoDamage = CalculatePhraseEffect(playerBard, playerSelectedCards);
+            int egoDamage = CalculatePhraseEffect(playerBard, playerSelectedCards, true);
             enemyBard.AddEgo(-egoDamage);
+            EnemyMeters.Meters.TakeFromBar("hp", egoDamage);
             //Debug.Log($"Enemy's ego reduced by {egoDamage}. Current ego: {enemyBard.GetEgo()}.");
             playerBard.GetJournal().SelectNewPhrase();
             // Clear selected cards after completing the phrase.
