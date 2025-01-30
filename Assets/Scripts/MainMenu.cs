@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
         else
         {
             Debug.LogWarning("LevelLoader is not assigned! Loading scene without transition.");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            GameManager.Instance.GoToOpening();
         }
     }
 

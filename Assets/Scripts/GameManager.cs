@@ -14,9 +14,9 @@ using static DeckObj;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public enum GameState { Intro, DeckBuilder, Battle, Results }
+    public enum GameState { Menu, Opening, DeckBuilder, Battle, Results, CutScene }
     public GameState CurrentState { get; private set; }
-    
+
     public Bard PlayerBard { get; private set; }
 
     public LevelLoader levelLoader;
@@ -26,12 +26,12 @@ public class GameManager : MonoBehaviour
 
     public Bard CurrentOpponent { get; private set; }
 
-    public List<Card> shop_cards = new List<Card> {};
-    public List<JournalPhrase> shop_phrases = new List<JournalPhrase> {};
+    public List<Card> shop_cards = new List<Card> { };
+    public List<JournalPhrase> shop_phrases = new List<JournalPhrase> { };
 
     [SerializeField] private BattleManager battleManager;
     public int currentBattle = 1;
-    
+
     public int round_number = 1;
 
     public int prev_audience_score = 115;
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         //playerCardList.AddRange(verbs);
         //Dictionary player_dictionary = new Dictionary(playerCardList);
         //player_dictionary.LogCards(true);
-//
+        //
         //string player_phrase_filename = "playerPhrases.json";
         //List<JournalPhrase> player_phrases = ParsePhrasesFromJson(player_phrase_filename);
         //Journal player_journal = new Journal(player_phrases);
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
         //opponent_journal.LogAllPhrases();
         //OpponentBard1 = new Bard(opponent_dictionary, opponent_journal);
         //OpponentBard1.SetRandomDeck();
-//
+        //
         //// LOADING SHOP CARDS
         //string shop_noun_filename = "shopNouns.json";
         //string shop_verb_filename = "shopVerbs.json";
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
         //shop_phrases = new_shop_phrases;
 
         // Initialize game state
-        CurrentState = GameState.Intro;
+        CurrentState = GameState.Menu;
     }
 
     private void LoadPlayerData()
@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+
 
     public void ChangeState(GameState newState)
     {
@@ -178,6 +178,9 @@ public class GameManager : MonoBehaviour
 
         switch (newState)
         {
+            case GameState.Opening:
+                LoadScene("OpeningScene");
+                break;
             case GameState.DeckBuilder:
                 LoadScene("DeckBuilder");
                 break;
@@ -186,6 +189,9 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Results:
                 LoadScene("Results");
+                break;
+            case GameState.CutScene:
+                LoadScene("CutScene");
                 break;
         }
     }
@@ -221,15 +227,22 @@ public class GameManager : MonoBehaviour
         ChangeState(GameState.Results);
     }
 
+    public void GoToOpening() {
+        ChangeState(GameState.Opening);
+    }
+
     public void StartNextBattle()
     {
-        if (currentBattle == 1){
+        if (currentBattle == 1)
+        {
             InitializeBattle(PlayerBard, OpponentBard1);
         }
-        else if (currentBattle == 2){
+        else if (currentBattle == 2)
+        {
             InitializeBattle(PlayerBard, OpponentBard2);
         }
-        else if (currentBattle == 3){
+        else if (currentBattle == 3)
+        {
             InitializeBattle(PlayerBard, OpponentBard3);
         }
     }
@@ -353,7 +366,7 @@ public class GameManager : MonoBehaviour
     {
         // Displays the shop menu.
     }
-    
+
 
     void DisplayGameOverModal()
     {
