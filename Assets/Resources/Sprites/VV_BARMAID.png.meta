@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 401ea5ee15ddcca45a8d86c30be88285
+guid: 47d2d3096c0ec284090da2d700c3ed5b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1061677180422773551
-    second: barmaid-dialogue-image_0
+      213: 4039457350780949492
+    second: VV_BARMAID_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barmaid-dialogue-image_0
+      name: VV_BARMAID_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 170
-        height: 170
+        width: 289
+        height: 591
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f2bdc3545c5dbbe00800000000000000
-      internalID: 1061677180422773551
+      spriteID: 4f393aefe090f0830800000000000000
+      internalID: 4039457350780949492
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      barmaid-dialogue-image_0: 1061677180422773551
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
