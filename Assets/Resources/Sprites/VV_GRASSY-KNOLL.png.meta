@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VV_GRASSY-KNOLL_0: -2350622556131271679
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

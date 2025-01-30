@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      barmaid-dialogue-image_0: 1061677180422773551
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VV_BARMAID_0: 4039457350780949492
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
