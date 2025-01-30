@@ -47,7 +47,7 @@ public class BattleManager : MonoBehaviour
         isPlayerTurn = true;
         roundNumber = 1;
 
-        //Debug.Log("Battle Initialized!");
+        Debug.Log("Battle Initialized!");
         endTurnButton.onClick.AddListener(EndPlayerTurn);
         playerBard.GetDeck().DrawMaxPlayerHandFromLibrary();
         enemyBard.GetDeck().DrawMaxPlayerHandFromLibrary();
@@ -56,7 +56,7 @@ public class BattleManager : MonoBehaviour
 
     private void StartBattle()
     {
-        //Debug.Log("Starting the battle...");
+        Debug.Log("Starting the battle...");
         UpdateHandUI();
         UpdatePhraseUI();
         StartCoroutine(BattleLoop());

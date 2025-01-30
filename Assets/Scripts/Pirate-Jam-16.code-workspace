@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"dotnet.defaultSolution": "Pirate-Jam-16.sln"
+	}
+}

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using UnityEngine;
 
 public class SceneOneSequence : MonoBehaviour
@@ -27,18 +28,20 @@ public class SceneOneSequence : MonoBehaviour
 
     IEnumerator EventSequence()
     {
-
+        Debug.Log("Test test test test");
         // Logo in
         yield return StartCoroutine(SpriteFadeIn(LogoRenderer));
         // Fade in HillView
         StartCoroutine(SpriteFadeIn(HillViewRenderer));
 
         // wait and fade logo
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         yield return StartCoroutine(SpriteFadeOut(LogoRenderer));
                
         // Fade in Dialogue
         DialogueManager.Initialize("Assets/Data/openingScene.json");
+        Debug.Log("getting full path here: " + Path.GetFullPath("Assets/Data/openingScene.json"));
+       
         StartCoroutine(DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
         DialogueManager.StartDialogue();
 
@@ -69,6 +72,8 @@ public class SceneOneSequence : MonoBehaviour
         Debug.Log("Calling StartNextBattle");
         GameManager.Instance.StartNextBattle();
     }
+
+    
 
     IEnumerator WaitForFlag(int flagValue)
     {
