@@ -2123,7 +2123,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.931
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2260,9 +2260,9 @@ MonoBehaviour:
   CurrentHealth: 100
   MaxHealth: 100
   HealthBar: {fileID: 1542460067}
-  CurrentAudienceScore: 100
+  CurrentAudienceScore: 50
   MaxAudienceScore: 100
-  AudienceBar: {fileID: 0}
+  AudienceBar: {fileID: 949146822}
 --- !u!225 &1574891598
 CanvasGroup:
   m_ObjectHideFlags: 0

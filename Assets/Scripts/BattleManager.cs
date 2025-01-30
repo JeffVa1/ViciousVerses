@@ -28,7 +28,7 @@ public class BattleManager : MonoBehaviour
     private Dictionary<Card, float> cardOpacityState = new Dictionary<Card, float>(); // Track card opacity state
 
     private int MoneyEarned = 0;
-    private int AudienceScore = 0;
+    private int AudienceScore = 50;
 
     private CanvasGroup PlayerCanvasGroup;
     private CanvasGroup EnemyCanvasGroup;
@@ -47,7 +47,7 @@ public class BattleManager : MonoBehaviour
     {
         PlayerCanvasGroup = PlayerBattleDialogue.GetPlayerCanvasGroup();
         PlayersMeters = FindAnyObjectByType<PlayerMeters>();
-        PlayersMeters.Initialize();
+        PlayersMeters.Initialize(AudienceScore);
         
 
         EnemyCanvasGroup = EnemyBattleDialogue.GetEnemyCanvasGroup();
@@ -191,7 +191,7 @@ public class BattleManager : MonoBehaviour
         int egoDamage =  Mathf.RoundToInt(CalculatePhraseEffect(enemyBard, enemySelectedCards) * damageModifier);
 
         playerBard.AddEgo(-egoDamage);
-        PlayersMeters.Meter.TakeFromBar("hp", egoDamage);
+        PlayersMeters.Meters.TakeFromBar("hp", egoDamage);
         
 
         enemyBard.GetJournal().SelectNewPhrase();
@@ -264,10 +264,20 @@ public class BattleManager : MonoBehaviour
             //Debug.Log($"Blank {i + 1}: POS Match: {posMatch}, CAT Match: {categoryMatch}, Insult Match: {insultMatch}");
             if (isPlayerTurn)
             {
-                if (posMatch) audienceReaction += 2; // Example reaction score for POS match
-                if (categoryMatch) audienceReaction += 4; // Example reaction score for category match
-                if (insultMatch) audienceReaction += 8; // Example reaction score for insult match
+                audienceReaction += posMatch ? 2 : -2; // Example reaction score for POS match
+                audienceReaction += categoryMatch ? 4 : -4; // Example reaction score for category match
+                audienceReaction += insultMatch ? 8 : -8; // Example reaction score for insult match
                 AudienceScore += audienceReaction;
+                if (audienceReaction > 0 ) {
+                    PlayersMeters.Meters.AddToBar("audience", audienceReaction);
+                }
+                else if (audienceReaction < 0) 
+                {
+                    PlayersMeters.Meters.TakeFromBar("audience", audienceReaction);
+                }
+
+                
+                
             }
            
 

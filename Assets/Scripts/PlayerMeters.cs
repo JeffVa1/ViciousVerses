@@ -1,10 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerMeters : MonoBehaviour
 {
 
-    public Meter Meter { get; private set; }
+    public Meter Meters { get; private set; }
     public float CurrentHealth = 100f;
     public float MaxHealth = 100f;
     private float MinHealth = 0f;
@@ -16,9 +17,9 @@ public class PlayerMeters : MonoBehaviour
     
 
     
-    public void Initialize()
+    public void Initialize(int AudienceScore)
     {
-       Meter = new Meter(CurrentHealth,
+        Meters = new Meter(CurrentHealth,
                          MaxHealth, 
                          MinHealth, 
                          HealthBar,
@@ -26,6 +27,8 @@ public class PlayerMeters : MonoBehaviour
                          MaxAudienceScore,
                          MinAudienceScore,
                          AudienceBar);
+
+        Meters.SetAudienceBarValue(AudienceScore) ;
     }
 
     

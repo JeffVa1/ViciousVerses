@@ -47,6 +47,7 @@ public class Meter
     public void SetHpBarValue(float value)
     {
         this.hpBarValue = value;
+        healthBar.fillAmount = GetHpBarValue() / maxHpBarValue;
     }
 
     public float GetMaxHpBarValue()
@@ -61,12 +62,13 @@ public class Meter
 
     public float GetAudienceBarValue()
     {
-        return hpBarValue;
+        return audienceBarValue;
     }
 
     public void SetAudienceBarValue(float value)
     {
-        this.hpBarValue = value;
+        this.audienceBarValue = value;
+        audienceBar.fillAmount = GetAudienceBarValue() / maxAudienceBarValue;
     }
 
     public float GetMaxAudienceBarValue()
