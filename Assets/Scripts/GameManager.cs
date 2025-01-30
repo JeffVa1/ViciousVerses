@@ -289,7 +289,6 @@ public class GameManager : MonoBehaviour
 
     private List<Card> ParseCardsFromJson(string filename, string partOfSpeech)
     {
-        // string jsonFilePath = Path.Combine(Application.dataPath, "Data", filename);
         string jsonFilePath = "Assets/Data/" + filename;
         string json = File.ReadAllText(jsonFilePath);
         var cardDict = JsonConvert.DeserializeObject<Dictionary<string, List<CardData>>>(json);
@@ -307,7 +306,8 @@ public class GameManager : MonoBehaviour
                     e: cardData.egoDmg,
                     audience: cardData.audienceValue,
                     inslt: cardData.insult,
-                    category: cardData.categories
+                    category: cardData.categories,
+                    tenseDict: cardData.tenses
                 );
                 cards.Add(card);
             }
@@ -315,6 +315,7 @@ public class GameManager : MonoBehaviour
 
         return cards;
     }
+
 
     void LogCardArray(List<Card> cards)
     {
@@ -385,7 +386,9 @@ public class CardData
     public int audienceValue { get; set; }
     public bool insult { get; set; }
     public List<string> categories { get; set; }
+    public Dictionary<string, string> tenses { get; set; }
 }
+
 
 // Helper class for Phrase data deserialization
 [System.Serializable]

@@ -12,8 +12,9 @@ public class Card
     private int audienceValue = 0;
     private bool insult;
     private List<string> categories;
+    private Dictionary<string, string> tenses;
 
-    public Card(string text, int multiplier, int addition, string pos, int e, int audience, bool inslt, List<string> category)
+    public Card(string text, int multiplier, int addition, string pos, int e, int audience, bool inslt, List<string> category, Dictionary<string, string> tenseDict)
     {
         Text = text;
         pointMultiplier = multiplier;
@@ -22,65 +23,31 @@ public class Card
         egoDmg = e;
         audienceValue = audience;
         insult = inslt;
-        categories = category;
+        categories = category ?? new List<string>();
+        tenses = tenseDict ?? new Dictionary<string, string>();
     }
 
-    public bool IsInsult()
-    {
-        return insult;
-    }
+    public bool IsInsult() => insult;
+    public void SetInsult(bool i) => insult = i;
 
-    public void SetInsult(bool i)
-    {
-        insult = i;
-    }
+    public List<string> GetCategories() => categories;
+    public void SetCategories(List<string> c) => categories = c;
 
-    public List<string> GetCategories()
-    {
-        return categories;
-    }
+    public Dictionary<string, string> GetTenses() => tenses;
+    public void SetTenses(Dictionary<string, string> t) => tenses = t;
 
-    public void SetCategories(List<string> c)
-    {
-        categories = c;
-    }
-
-    public string GetText()
-    {
-        return Text;
-    }
-
-    public int GetMultiplier()
-    {
-        return pointMultiplier;
-    }
-
-    public int GetAddition()
-    {
-        return pointAddition;
-    }
-
-    public string GetPartOfSpeech()
-    {
-        return partOfSpeech;
-    }
-
-    public int GetEgoDamage()
-    {
-        return egoDmg;
-    }
-
-    public int GetAudienceValue()
-    {
-        return audienceValue;
-    }
+    public string GetText() => Text;
+    public int GetMultiplier() => pointMultiplier;
+    public int GetAddition() => pointAddition;
+    public string GetPartOfSpeech() => partOfSpeech;
+    public int GetEgoDamage() => egoDmg;
+    public int GetAudienceValue() => audienceValue;
 
     public void LogCard(bool full_info)
     {
         if (full_info)
         {
             Debug.Log("CARD INFO:");
-            
             string format = "{0,-15}: {1}";
             Debug.Log(string.Format(format, "Text", Text));
             Debug.Log(string.Format(format, "Point Multiplier", pointMultiplier));
@@ -90,6 +57,7 @@ public class Card
             Debug.Log(string.Format(format, "Audience Value", audienceValue));
             Debug.Log(string.Format(format, "Insult", insult));
             Debug.Log(string.Format(format, "Categories", categories != null ? string.Join(", ", categories) : "None"));
+            Debug.Log(string.Format(format, "Tenses", tenses != null ? string.Join(", ", tenses) : "None"));
             Debug.Log("");
         }
         else
