@@ -15,10 +15,10 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private TMP_Text tripleScrollCostText; // Text to display the cost of the triple scroll
 
     [Header("Item Costs")]
-    [SerializeField] private int wordCardCost = 10;       // Cost of a word card
-    [SerializeField] private int scrollCost = 20;         // Cost of a scroll
-    [SerializeField] private int bookCost = 50;           // Cost of a book
-    [SerializeField] private int tripleScrollCost = 60;   // Cost of a triple scroll
+    [SerializeField] private int wordCardCost = 30;       // Cost of a word card
+    [SerializeField] private int scrollCost = 50;         // Cost of a scroll
+    [SerializeField] private int bookCost = 150;           // Cost of a book
+    [SerializeField] private int tripleScrollCost = 150;   // Cost of a triple scroll
 
     private Bard bard; // Reference to the Bard class (which manages the player's cards and journal)
     private GameManager gameManager; // Reference to the GameManager (which stores available cards and journal phrases)
@@ -61,6 +61,7 @@ public class ShopManager : MonoBehaviour
     {
         // Display 3 available cards (if there are enough)
         List<Card> availableCards = gameManager.GetAllShopCards();
+        ShuffleList(availableCards);
         for (int i = 0; i < 3; i++)
         {
             if (i < availableCards.Count)
@@ -91,6 +92,7 @@ public class ShopManager : MonoBehaviour
 
         // Display 2 available phrases (if there are enough)
         List<JournalPhrase> availablePhrases = gameManager.GetAllShopPhrases();
+        ShuffleList(availablePhrases);
         for (int i = 0; i < 2; i++)
         {
             if (i < availablePhrases.Count)
@@ -269,5 +271,24 @@ public class ShopManager : MonoBehaviour
         ColorBlock colors = button.colors;
         colors.normalColor = new Color(colors.normalColor.r, colors.normalColor.g, colors.normalColor.b, opacity);
         button.colors = colors;
+    }
+
+    private void ShuffleList<T>(List<T> list)
+    {
+        System.Random rng = new System.Random();
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
+    }
+
+    public void ExitShop()
+    {
+        GameManager.Instance.GoToNextScene("Shop");
     }
 }
