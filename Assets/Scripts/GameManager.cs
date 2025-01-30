@@ -34,8 +34,8 @@ public class GameManager : MonoBehaviour
 
     public int round_number = 1;
 
-    public int prev_audience_score = 115;
-    public int prev_gold_earned = 69;
+    public int prev_audience_score = 0;
+    public int prev_gold_earned = 0;
     public bool WonLastMatch = false;
 
     private void Awake()
@@ -52,65 +52,6 @@ public class GameManager : MonoBehaviour
         LoadPlayerData();
         LoadOpponentData();
         LoadShopData();
-
-        // LOADING PLAYER DATA
-        //Debug.Log("LOADING NOUNS");
-        //string noun_filename = "defaultNouns.json";
-        //List<Card> nouns = ParseCardsFromJson(noun_filename, "noun");
-        //// Debug.Log("LOADING VERBS");
-        //string verb_filename = "defaultVerbs.json";
-        //List<Card> verbs = ParseCardsFromJson(verb_filename, "verb");
-        //List<Card> playerCardList = new List<Card>();
-        //playerCardList.AddRange(nouns);
-        //playerCardList.AddRange(verbs);
-        //Dictionary player_dictionary = new Dictionary(playerCardList);
-        //player_dictionary.LogCards(true);
-        //
-        //string player_phrase_filename = "playerPhrases.json";
-        //List<JournalPhrase> player_phrases = ParsePhrasesFromJson(player_phrase_filename);
-        //Journal player_journal = new Journal(player_phrases);
-        //player_journal.LogAllPhrases();
-        //PlayerBard = new Bard(player_dictionary, player_journal);
-        //PlayerBard.SetRandomDeck();
-
-
-        // LOADING ENEMY DATA
-        //Debug.Log("");
-        //Debug.Log("");
-        //Debug.Log("LOADING OPPONENT DATA");
-        //Debug.Log("LOADING NOUNS");
-        //noun_filename = "opponentNouns.json";
-        //nouns = ParseCardsFromJson(noun_filename, "noun");
-        //Debug.Log("LOADING VERBS");
-        //verb_filename = "opponentVerbs.json";
-        //verbs = ParseCardsFromJson(verb_filename, "verb");
-        //List<Card> opponentCardList = new List<Card>();
-        //opponentCardList.AddRange(nouns);
-        //opponentCardList.AddRange(verbs);
-        //Dictionary opponent_dictionary = new Dictionary(opponentCardList);
-        //opponent_dictionary.LogCards(true);
-        //Debug.Log("LOADING OPPONENT JOURNAL");
-        //string opponent_phrase_filename = "genericOpponentPhrases.json";
-        //List<JournalPhrase> opponent_phrases = ParsePhrasesFromJson(opponent_phrase_filename);
-        //Journal opponent_journal = new Journal(opponent_phrases);
-        //opponent_journal.LogAllPhrases();
-        //OpponentBard1 = new Bard(opponent_dictionary, opponent_journal);
-        //OpponentBard1.SetRandomDeck();
-        //
-        //// LOADING SHOP CARDS
-        //string shop_noun_filename = "shopNouns.json";
-        //string shop_verb_filename = "shopVerbs.json";
-        //List<Card> shop_nouns = ParseCardsFromJson(shop_noun_filename, "noun");
-        //List<Card> shop_verbs = ParseCardsFromJson(shop_verb_filename, "noun");
-        //List<Card> all_shop_cards = new List<Card>();
-        //all_shop_cards.AddRange(shop_nouns);
-        //all_shop_cards.AddRange(shop_verbs);
-        //shop_cards = all_shop_cards;
-
-        // LOADING SHOP PHRASES
-        //string shop_phrase_filename = "shopPhrases.json";
-        //List<JournalPhrase> new_shop_phrases = ParsePhrasesFromJson(shop_phrase_filename);
-        //shop_phrases = new_shop_phrases;
 
         // Initialize game state
         CurrentState = GameState.Menu;
@@ -133,7 +74,11 @@ public class GameManager : MonoBehaviour
         Dictionary opponentDictionary = new Dictionary(new List<Card>(nouns).Concat(verbs).ToList());
         List<JournalPhrase> opponentPhrases = ParsePhrasesFromJson("genericOpponentPhrases.json");
         OpponentBard1 = new Bard(opponentDictionary, new Journal(opponentPhrases));
+        OpponentBard2 = new Bard(opponentDictionary, new Journal(opponentPhrases));
+        OpponentBard3 = new Bard(opponentDictionary, new Journal(opponentPhrases));
         OpponentBard1.SetRandomDeck();
+        OpponentBard2.SetRandomDeck();
+        OpponentBard3.SetRandomDeck();
     }
 
     private void LoadShopData()
@@ -189,6 +134,10 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Results:
                 LoadScene("Results");
+                if (WonLastMatch)
+                {
+                    IncrementCurrentBattle();
+                }
                 break;
             case GameState.CutScene:
                 LoadScene("CutScene");
@@ -357,23 +306,6 @@ public class GameManager : MonoBehaviour
     {
         shop_phrases.Remove(j);
     }
-
-    void DisplayWelcomeModal()
-    {
-        // Displays the welcome message.
-    }
-
-    void DisplayShopModal()
-    {
-        // Displays the shop menu.
-    }
-
-
-    void DisplayGameOverModal()
-    {
-        // Displays game over message and gives player option to restart.
-    }
-
 
 }
 
