@@ -210,10 +210,8 @@ public class GameManager : MonoBehaviour
 
     public void GoToNextScene()
     {
-        if (current_scene == "Shop")
-        {
-            nextScene = GameState.DeckBuilder;
-        }
+ 
+
         ChangeState(nextScene);
     }
 
@@ -266,11 +264,7 @@ private async Task<List<JournalPhrase>> ParsePhrasesFromJson(string filename)
                         foreach (var phraseData in entry.Value)
                         {
                             string blankInfoJson = JsonConvert.SerializeObject(phraseData.blank_info ?? new List<BlankData>());
-                            Debug.LogError(phraseData.phrase);
-                            Debug.LogError(phraseData.blanks);
-                            Debug.LogError(blankInfoJson);
                             JournalPhrase journalPhrase = new JournalPhrase(phraseData.phrase, phraseData.blanks, blankInfoJson);
-                            Debug.LogError(journalPhrase);
                             journalPhrases.Add(journalPhrase);
                         }
                     }
