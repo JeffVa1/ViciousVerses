@@ -18,8 +18,25 @@ public class Scene_3_Sequence : MonoBehaviour
 
     private IEnumerator EventSequence(){
         
-        Debug.Log("Scene 3 loaded sucessfully");
+        // fade in scene assets
         yield return new WaitForSeconds(1);
+
+        // parse json
+        JsonLoader.LoadJson("openingScene.json", (jsonData) =>
+        {
+            if (jsonData != null)
+            {
+                StartCoroutine(TheSpriteManager.DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
+                DialogueManager.StartDialogueWithJson(jsonData);
+            }
+            else
+            {
+                Debug.LogError("DialogueManager initialization failed due to missing or empty JSON Using UWR");
+                DialogueManager.Initialize("Assets/Data/openingScene.json");
+                StartCoroutine(TheSpriteManager.DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
+                DialogueManager.StartDialogue();
+            }
+        });
         
     }
 }

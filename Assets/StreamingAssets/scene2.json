@@ -2,38 +2,153 @@
     "Dialogue": [
         {
             "Speaker": "player",
-            "Text": "Wow that guy definitely drank too much... His insults didn't even make sense!",
-            "Flag": "0"
+            "Text": "Have you had enough?",
+            "Flag": "1"
         }, 
         {
-            "Speaker": "barmaid",
-            "Text": "Thank you for defending my honor!",
+            "Speaker": "enemy1",
+            "Text": "You!!",
             "Flag": "1"
-        },
+        }, 
         {
-            "Speaker": "enemy2",
-            "Text": "How dare you sling your insults in my town!",
+            "Speaker": "enemy1",
+            "Text": "You haven't heard the last of me!",
+            "Flag": "1"
+        }, 
+        {
+            "Speaker": "enemy1",
+            "Text": "My brother Steven will not take kindly to the slings and arrows you accosted my family honor with!",
+            "Flag": "1"
+        }, 
+        {
+            "Speaker": "player",
+            "Text": "Begone then!!",
+            "Flag": "1"
+        }, 
+        {
+            "Speaker": "player",
+            "Text": "Trouble us no longer with your foul presence ",
+            "Flag": "1"
+        }, 
+        {
+            "Speaker": "",
+            "Text": ".................... ",
             "Flag": "2"
         },
         {
-            "Speaker": "enemy2",
-            "Text": "I challenge you to a roast battle. Tomorrow night, be there or resemble a square!",
+            "Speaker": "barmaid",
+            "Text": "You didn't have to do that, really ",
+            "Flag": "2"
+        }, 
+        {
+            "Speaker": "barmaid",
+            "Text": "What do I call you?",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "barmaid",
+            "Text": "My hero?",
             "Flag": "2"
         },
         {
             "Speaker": "player",
-            "Text": "You're on!",
+            "Text": "I am known as Jacque.",
+            "Flag": "2"
+        }, 
+        {
+            "Speaker": "player",
+            "Text": "Jacque Blaque.",
+            "Flag": "2"
+        }, 
+        {
+            "Speaker": "barmaid",
+            "Text": "He and his family are quite wealthy in these lands.",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "barmaid",
+            "Text": "You might have just bought yourself more trouble than my honor is worth!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "player",
+            "Text": "It would be all made worth it, for a pint of your finest ale.",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "You drink, and try to enjoy the evening in a tavern that strikes you as quite foreign.",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "After a pint or two however a new challenger arrives, looking to sooth his wounded family honor....",
             "Flag": "2"
         },
         {
             "Speaker": "",
-            "Text": "...",
+            "Text": "BANG!!!",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "...A stranger kicks the door open...",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "enemy2",
+            "Text": "...Glares around the tavern...",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "enemy2",
+            "Text": "Who is the one who gave my bother a tongue lashing tonight?",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "enemy2",
+            "Text": "...Glares around the tavern...",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "enemy2",
+            "Text": "...Locks eyes with Jacque..",
             "Flag": "3"
         },
         {
             "Speaker": "player",
-            "Text": "I better hit the book store to look for some good insults to use tomorrow...",
+            "Text": "Ah, your brother must be that ill mannered drunkard.",
             "Flag": "3"
+        },
+        {
+            "Speaker": "player",
+            "Text": "I hope my vicious verses left him tending the wounds to his ego!",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "player",
+            "Text": "He sure left in a hurry!",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "...The patrons of the bar laugh...",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "enemy2",
+            "Text": "On my families honor, this will not stand!",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "enemy2",
+            "Text": "You think my brother a fool?!",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "enemy2",
+            "Text": "I will show you how vicious my verses can be!!",
+            "Flag": "4"
         }
     ]
 }
