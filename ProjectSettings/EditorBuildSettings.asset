@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeckBuilder.unity
     guid: ed61b75604f8d994ea3f5b0a475f1dba
+  - enabled: 1
+    path: Assets/Scenes/Scene_2.unity
+    guid: f68094a2720567d47b2ee4739b8943f5
+  - enabled: 1
+    path: Assets/Scenes/Scene_3.unity
+    guid: 55536b16ca3bebb4aa8f7a020aa7ab61
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
