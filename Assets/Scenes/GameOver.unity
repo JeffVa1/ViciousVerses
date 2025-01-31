@@ -981,8 +981,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 147, y: -114}
-  m_SizeDelta: {x: -1136.3853, y: -874.4404}
+  m_AnchoredPosition: {x: 225, y: -116}
+  m_SizeDelta: {x: -764.8502, y: -864.9139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1373276711
 MonoBehaviour:
@@ -1004,9 +1004,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Developer: \t\tJeff [CrookedKaptain]\nDeveloper: \t\tDavid Swanstrom\nDeveloper:\t\tDevan
-    [Hades The Unseen]\nDeveloper: \t\tRonald Martin\n        Artist: \t\tFrankie
-    Mish"
+  m_text: "          Developer: \t\tJeff [CrookedKaptain]\n          Developer: \t\tDavid
+    Swanstrom [Ifritborn]\n          Developer:\t\tDevan [Hades The Unseen]\n         
+    Developer:  \tRonald Martin [Unfundedpurse01]\nArtist & Musician: \t\tFrankie
+    Mish [MOUSE]"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
