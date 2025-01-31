@@ -1980,6 +1980,7 @@ MonoBehaviour:
   endTurnButton: {fileID: 1015696803}
   cardPrefab: {fileID: 3950817516003140305, guid: 13f523effc5c7874db1b48239771158c, type: 3}
   enemyPhraseText: {fileID: 125722405}
+  ImageManager: {fileID: 1406964727}
   PlayerBattleDialogue: {fileID: 761578174}
   EnemyBattleDialogue: {fileID: 1510689003}
   PlayersMeters: {fileID: 0}
@@ -2483,6 +2484,7 @@ MonoBehaviour:
   enemyPortrait1: {fileID: 518332770}
   enemyPortrait2: {fileID: 1964713469}
   enemyPortrait3: {fileID: 1765149222}
+  AudienceImage: {fileID: 1043599394}
 --- !u!4 &1406964729
 Transform:
   m_ObjectHideFlags: 0
@@ -3269,7 +3271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4535459785811451693, guid: 189fd1c66ef00a343b76c590b1e25473, type: 3}
+  m_Sprite: {fileID: -6104398793297367984, guid: 7315ef8a0df0aa84ca0d04162f2b032c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3698,7 +3700,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4535459785811451693, guid: 189fd1c66ef00a343b76c590b1e25473, type: 3}
+  m_Sprite: {fileID: -8525710739048671394, guid: c6732ee2152d76d41a22b761a9adc4db, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

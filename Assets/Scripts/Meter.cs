@@ -116,7 +116,7 @@ public class Meter
                 }
                 else
                 {
-                    SetAudienceBarValue(GetAudienceBarValue() + value);
+                    SetAudienceBarValue(GetAudienceBarValue() + heal);
                     audienceBar.fillAmount = GetAudienceBarValue() / maxAudienceBarValue;
                 }
                 break;
@@ -156,7 +156,7 @@ public class Meter
                 }
                 else
                 {
-                    SetAudienceBarValue(GetAudienceBarValue() - value);
+                    SetAudienceBarValue(GetAudienceBarValue() - damage);
                     audienceBar.fillAmount = GetAudienceBarValue() / maxAudienceBarValue;
                 }
                 break;
