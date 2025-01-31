@@ -439,7 +439,7 @@ MonoBehaviour:
   DEnemy1Sprite: {fileID: -3625934697953180807, guid: 54daa33c9df43864aa6dfbfce0f1d7a4, type: 3}
   DEnemy2Sprite: {fileID: -3625934697953180807, guid: 935008e1a19334c4d9b49c7d20052d69, type: 3}
   DEnemy3Sprite: {fileID: 5627144697873666952, guid: 5f72b75d0dfd40e4fbc12c3bcd3b3672, type: 3}
-  DNarratorSprite: {fileID: -7374194972789952094, guid: dafa8d67607f5bf49859a1563322b4aa, type: 3}
+  DNarratorSprite: {fileID: -7000415822911720784, guid: 9a0552e0bdc1b7b4c986dd56369b0ac0, type: 3}
   DBarMaidSprite: {fileID: 1061677180422773551, guid: c005e2ddcd8418648affb20bb19bc3e0, type: 3}
   DialogBox: {fileID: 464844455}
 --- !u!225 &633502448
@@ -1708,7 +1708,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2350622556131271679, guid: ec8a02b27467d5b419e7735bbc4bec4a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
