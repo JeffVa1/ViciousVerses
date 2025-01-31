@@ -1,0 +1,49 @@
+{
+    "Dialogue": [
+        {
+            "Speaker": "narator",
+            "Text": "Congratulations on your first victory!",
+            "Flag": "0"
+        }, 
+        {
+            "Speaker": "narator",
+            "Text": "That one might have been easy, but your next opponent looks like he knows his stuff...",
+            "Flag": "0"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "Now that you are back at your desk, take some time to plan out the words you want to memorize for tomorrows battle!",
+            "Flag": "0"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "Your dictionary of all words you know is on the right.",
+            "Flag": "0"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "Use the buttons to the right to change pages.",
+            "Flag": "0"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "The words you would like to memorize for battle are on the left side.",
+            "Flag": "0"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "You can remember up to 20 words at once.",
+            "Flag": "0"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "Take some time to make sure you memorize a good balance of nouns and verbs.",
+            "Flag": "0"
+        },
+        {
+            "Speaker": "narator",
+            "Text": "When you are ready, click the 'Start Battle!' button to head to the tavern.",
+            "Flag": "0"
+        }
+    ]
+}

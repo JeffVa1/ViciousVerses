@@ -1,0 +1,632 @@
+{
+    "Dance": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "dancing",
+                "IA": "dances",
+                "SX": "dance",
+                "PX": "have danced",
+                "SP": "danced",
+                "PP": "had danced",
+                "SF": "will dance",
+                "PF": "will have danced"
+            }
+        }
+    ],
+    "Flounder": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "floundering",
+                "IA": "flounders",
+                "SX": "flounder",
+                "PX": "have floundered",
+                "SP": "floundered",
+                "PP": "had floundered",
+                "SF": "will flounder",
+                "PF": "will have floundered"
+            }
+        }
+    ],
+    "Trip": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "tripping",
+                "IA": "trips",
+                "SX": "trip",
+                "PX": "have tripped",
+                "SP": "tripped",
+                "PP": "had tripped",
+                "SF": "will trip",
+                "PF": "will have tripped"
+            }
+        }
+    ],
+    "Mumble": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "mumbling",
+                "IA": "mumbles",
+                "SX": "mumble",
+                "PX": "have mumbled",
+                "SP": "mumbled",
+                "PP": "had mumbled",
+                "SF": "will mumble",
+                "PF": "will have mumbled"
+            }
+        }
+    ],
+    "Waddle": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "waddling",
+                "IA": "waddles",
+                "SX": "waddle",
+                "PX": "have waddled",
+                "SP": "waddled",
+                "PP": "had waddled",
+                "SF": "will waddle",
+                "PF": "will have waddled"
+            }
+        }
+    ],
+    "Blunder": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "blundering",
+                "IA": "blunders",
+                "SX": "blunder",
+                "PX": "have blundered",
+                "SP": "blundered",
+                "PP": "had blundered",
+                "SF": "will blunder",
+                "PF": "will have blundered"
+            }
+        }
+    ],
+    "Snivel": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "sniveling",
+                "IA": "snivels",
+                "SX": "snivel",
+                "PX": "have sniveled",
+                "SP": "sniveled",
+                "PP": "had sniveled",
+                "SF": "will snivel",
+                "PF": "will have sniveled"
+            }
+        }
+    ],
+    "Squawk": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "squawking",
+                "IA": "squawks",
+                "SX": "squawk",
+                "PX": "have squawked",
+                "SP": "squawked",
+                "PP": "had squawked",
+                "SF": "will squawk",
+                "PF": "will have squawked"
+            }
+        }
+    ],
+    "Fumble": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "fumbling",
+                "IA": "fumbles",
+                "SX": "fumble",
+                "PX": "have fumbled",
+                "SP": "fumbled",
+                "PP": "had fumbled",
+                "SF": "will fumble",
+                "PF": "will have fumbled"
+            }
+        }
+    ],
+    "Whine": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "whining",
+                "IA": "whines",
+                "SX": "whine",
+                "PX": "have whined",
+                "SP": "whined",
+                "PP": "had whined",
+                "SF": "will whine",
+                "PF": "will have whined"
+            }
+        }
+    ],
+    "Grovel": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 4,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "groveling",
+                "IA": "grovels",
+                "SX": "grovel",
+                "PX": "have groveled",
+                "SP": "groveled",
+                "PP": "had groveled",
+                "SF": "will grovel",
+                "PF": "will have groveled"
+            }
+        }
+    ],
+    "Drool": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "drooling",
+                "IA": "drools",
+                "SX": "drool",
+                "PX": "have drooled",
+                "SP": "drooled",
+                "PP": "had drooled",
+                "SF": "will drool",
+                "PF": "will have drooled"
+            }
+        }
+    ],
+    "Grumble": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "grumbling",
+                "IA": "grumbles",
+                "SX": "grumble",
+                "PX": "have grumbled",
+                "SP": "grumbled",
+                "PP": "had grumbled",
+                "SF": "will grumble",
+                "PF": "will have grumbled"
+            }
+        }
+    ],
+    "Cower": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "cowering",
+                "IA": "cowers",
+                "SX": "cower",
+                "PX": "have cowered",
+                "SP": "cowered",
+                "PP": "had cowered",
+                "SF": "will cower",
+                "PF": "will have cowered"
+            }
+        }
+    ],
+    "Bumble": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "bumbling",
+                "IA": "bumbles",
+                "SX": "bumble",
+                "PX": "have bumbled",
+                "SP": "bumbled",
+                "PP": "had bumbled",
+                "SF": "will bumble",
+                "PF": "will have bumbled"
+            }
+        }
+    ],
+    "Sprawl": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "sprawling",
+                "IA": "sprawls",
+                "SX": "sprawl",
+                "PX": "have sprawled",
+                "SP": "sprawled",
+                "PP": "had sprawled",
+                "SF": "will sprawl",
+                "PF": "will have sprawled"
+            }
+        }
+    ],
+    "Yelp": [
+        {
+            "ptValue": 1,
+            "ptMultiplier": 1,
+            "egoDmg": 1,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "yelping",
+                "IA": "yelps",
+                "SX": "yelp",
+                "PX": "have yelped",
+                "SP": "yelped",
+                "PP": "had yelped",
+                "SF": "will yelp",
+                "PF": "will have yelped"
+            }
+        }
+    ],
+    "Slur": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "sluring",
+                "IA": "slurs",
+                "SX": "slur",
+                "PX": "have slurred",
+                "SP": "slurred",
+                "PP": "had slurred",
+                "SF": "will slur",
+                "PF": "will have slurred"
+            }
+        }
+    ],
+    "Slouch": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "slouching",
+                "IA": "slouches",
+                "SX": "slouch",
+                "PX": "have slouched",
+                "SP": "slouched",
+                "PP": "had slouched",
+                "SF": "will slouch",
+                "PF": "will have slouched"
+            }
+        }
+    ],
+    "Cackle": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "cackling",
+                "IA": "cackles",
+                "SX": "cackle",
+                "PX": "have cackled",
+                "SP": "cackled",
+                "PP": "had cackled",
+                "SF": "will cackle",
+                "PF": "will have cackled"
+            }
+        }
+    ],
+    "Hiccup": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "hiccuping",
+                "IA": "hiccups",
+                "SX": "hiccup",
+                "PX": "have hiccuped",
+                "SP": "hiccuped",
+                "PP": "had hiccuped",
+                "SF": "will hiccup",
+                "PF": "will have hiccuped"
+            }
+        }
+    ],
+    "Blabber": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "blabbering",
+                "IA": "blabbers",
+                "SX": "blabber",
+                "PX": "have blabbered",
+                "SP": "blabbered",
+                "PP": "had blabbered",
+                "SF": "will blabber",
+                "PF": "will have blabbered"
+            }
+        }
+    ],
+    "Cringe": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "cringing",
+                "IA": "cringes",
+                "SX": "cringe",
+                "PX": "have cringed",
+                "SP": "cringed",
+                "PP": "had cringed",
+                "SF": "will cringe",
+                "PF": "will have cringed"
+            }
+        }
+    ],
+    "Flail": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "flailing",
+                "IA": "flails",
+                "SX": "flail",
+                "PX": "have flailed",
+                "SP": "flailed",
+                "PP": "had flailed",
+                "SF": "will flail",
+                "PF": "will have flailed"
+            }
+        }
+    ],
+    "Snort": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "snorting",
+                "IA": "snorts",
+                "SX": "snort",
+                "PX": "have snorted",
+                "SP": "snorted",
+                "PP": "had snorted",
+                "SF": "will snort",
+                "PF": "will have snorted"
+            }
+        }
+    ],
+    "Shuffle": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "shuffling",
+                "IA": "shuffles",
+                "SX": "shuffle",
+                "PX": "have shuffled",
+                "SP": "shuffled",
+                "PP": "had shuffled",
+                "SF": "will shuffle",
+                "PF": "will have shuffled"
+            }
+        }
+    ],
+    "Stammer": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "stammering",
+                "IA": "stammers",
+                "SX": "stammer",
+                "PX": "have stammered",
+                "SP": "stammered",
+                "PP": "had stammered",
+                "SF": "will stammer",
+                "PF": "will have stammered"
+            }
+        }
+    ],
+    "Fidget": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "fidgeting",
+                "IA": "fidgets",
+                "SX": "fidget",
+                "PX": "have fidgeted",
+                "SP": "fidgeted",
+                "PP": "had fidgeted",
+                "SF": "will fidget",
+                "PF": "will have fidgeted"
+            }
+        }
+    ],
+    "Hobble": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "hobbling",
+                "IA": "hobbles",
+                "SX": "hobble",
+                "PX": "have hobbled",
+                "SP": "hobbled",
+                "PP": "had hobbled",
+                "SF": "will hobble",
+                "PF": "will have hobbled"
+            }
+        }
+    ],
+    "Stumble": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "stumbling",
+                "IA": "stumbles",
+                "SX": "stumble",
+                "PX": "have stumbled",
+                "SP": "stumbled",
+                "PP": "had stumbled",
+                "SF": "will stumble",
+                "PF": "will have stumbled"
+            }
+        }
+    ],
+    "Pace": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "pacing",
+                "IA": "paces",
+                "SX": "pace",
+                "PX": "have paced",
+                "SP": "paced",
+                "PP": "had paced",
+                "SF": "will pace",
+                "PF": "will have paced"
+            }
+        }
+    ],
+    "Grimace": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.3,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "grimacing",
+                "IA": "grimaces",
+                "SX": "grimace",
+                "PX": "have grimaced",
+                "SP": "grimaced",
+                "PP": "had grimaced",
+                "SF": "will grimace",
+                "PF": "will have grimaced"
+            }
+        }
+    ],
+    "Lurk": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.2,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "lurking",
+                "IA": "lurks",
+                "SX": "lurk",
+                "PX": "have lurked",
+                "SP": "lurked",
+                "PP": "had lurked",
+                "SF": "will lurk",
+                "PF": "will have lurked"
+            }
+        }
+    ],
+    "Wail": [
+        {
+            "ptValue": 3,
+            "ptMultiplier": 1.4,
+            "egoDmg": 3,
+            "audienceValue": 2,
+            "tenses": {
+                "AA": "wailing",
+                "IA": "wails",
+                "SX": "wail",
+                "PX": "have wailed",
+                "SP": "wailed",
+                "PP": "had wailed",
+                "SF": "will wail",
+                "PF": "will have wailed"
+            }
+        }
+    ],
+    "Scoff": [
+        {
+            "ptValue": 2,
+            "ptMultiplier": 1.1,
+            "egoDmg": 2,
+            "audienceValue": 1,
+            "tenses": {
+                "AA": "scoffing",
+                "IA": "scoffs",
+                "SX": "scoff",
+                "PX": "have scoffed",
+                "SP": "scoffed",
+                "PP": "had scoffed",
+                "SF": "will scoff",
+                "PF": "will have scoffed"
+            }
+        }
+    ]
+}

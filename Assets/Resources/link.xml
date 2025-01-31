@@ -1,0 +1,7 @@
+<linker>
+    <assembly fullname="Assembly-CSharp">
+        <type fullname="JournalPhraseData" preserve="all"/>
+        <type fullname="BlankData" preserve="all"/>
+        <type fullname="BlankAttributes" preserve="all"/>
+    </assembly>
+</linker>

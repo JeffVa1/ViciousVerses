@@ -1,0 +1,44 @@
+{
+    "Dialogue": [
+        {
+            "Speaker": "enemy2",
+            "Text": "Ahh! I can't believe I have been beaten by a wandering vagrant such as yourself...",
+            "Flag": "0"
+        }, 
+        {
+            "Speaker": "barmaid",
+            "Text": "That will teach you!",
+            "Flag": "1"
+        },
+        {
+            "Speaker": "player",
+            "Text": "Get wrekd",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "My apprentice has shamed me...",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "Someone must teach you a lesson!",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "Tomorrow you are going down!",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "player",
+            "Text": "This next battle will be the toughest yet...",
+            "Flag": "4"
+        },
+        {
+            "Speaker": "player",
+            "Text": "I better take some time to prepare this evening...",
+            "Flag": "5"
+        }
+    ]
+}
