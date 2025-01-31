@@ -17,7 +17,7 @@ public class DeckBuilder : MonoBehaviour
     [SerializeField] private TextMeshProUGUI togglePhraseDisplayButtonText;
     [SerializeField] private GameObject journalPhrasePrefab;
     [SerializeField] private GameObject cardPrefab;
-    [SerializeField] private int maxDeckSize = 30;
+    [SerializeField] private int maxDeckSize = 20;
     [SerializeField] private int currentDeckCount = 0;
 
     [SerializeField] private TextMeshProUGUI pageNumberText;
@@ -265,6 +265,6 @@ public class DeckBuilder : MonoBehaviour
     public void ConfirmDeck()
     {
         playerBard.SetDeck(deck);
-        GameManager.Instance.ChangeState(GameManager.GameState.Battle);
+        GameManager.Instance.GoToNextScene();
     }
 }

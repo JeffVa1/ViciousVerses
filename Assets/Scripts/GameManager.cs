@@ -32,8 +32,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BattleManager battleManager;
     public int currentBattle = 1;
 
-    public int round_number = 1;
-
     public GameState nextScene = GameState.Opening;
 
     public int prev_audience_score = 0;
@@ -128,9 +126,11 @@ public class GameManager : MonoBehaviour
         {
             case GameState.Opening:
                 LoadScene("OpeningScene");
+                nextScene = GameState.Battle;
                 break;
             case GameState.DeckBuilder:
                 LoadScene("DeckBuilder");
+                nextScene = GameState.Battle;
                 break;
             case GameState.Battle:
                 LoadScene("Battle");
@@ -138,10 +138,17 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Results:
                 LoadScene("Results");
+                PlayerBard.ResetDeck();
+                OpponentBard1.ResetDeck();
+                OpponentBard2.ResetDeck();
+                OpponentBard3.ResetDeck();
                 if (WonLastMatch)
                 {
                     IncrementCurrentBattle();
                     nextScene = GameState.Shop;
+                } else {
+                    nextScene = GameState.Opening;
+                    currentBattle = 1;
                 }
                 break;
             case GameState.Shop:
@@ -189,16 +196,14 @@ public class GameManager : MonoBehaviour
         ChangeState(GameState.Opening);
     }
 
-    public void GoToNextScene(string current_scene)
+    public void GoToNextScene()
     {
-        if (current_scene == "Shop") {
-            nextScene = GameState.DeckBuilder;
-        }
         ChangeState(nextScene);
     }
 
     public void StartNextBattle()
     {
+        Debug.Log("CURRENT BATTLE: " + currentBattle);
         if (currentBattle == 1)
         {
             InitializeBattle(PlayerBard, OpponentBard1);

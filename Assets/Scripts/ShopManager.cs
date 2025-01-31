@@ -289,6 +289,6 @@ public class ShopManager : MonoBehaviour
 
     public void ExitShop()
     {
-        GameManager.Instance.GoToNextScene("Shop");
+        GameManager.Instance.GoToNextScene();
     }
 }
