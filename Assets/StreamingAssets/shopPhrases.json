@@ -1,0 +1,283 @@
+{
+    "1": [
+        {
+            "phrase": "You are a BLANK who is sillier than a BLANK riding a BLANK",
+            "blanks": 3,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 3,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
+        }
+    ],
+    "2": [
+        {
+            "phrase": "Even a BLANK could BLANK better than you",
+            "blanks": 2,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": false,
+                        "Tense": "SX"
+                    }
+                }
+            ]
+        }
+    ],
+    "3": [
+        {
+            "phrase": "You look like a BLANK and act like a BLANK",
+            "blanks": 2,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
+        }
+    ],
+    "4": [
+        {
+            "phrase": "Your mother could BLANK a BLANK into hiding",
+            "blanks": 2,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
+        }
+    ],
+    "5": [
+        {
+            "phrase": "You couldn't BLANK your way out of a BLANK",
+            "blanks": 2,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": false,
+                        "Tense": "SX"
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
+        }
+    ],
+    "6": [
+        {
+            "phrase": "A BLANK with BLANK hands would do better than you",
+            "blanks": 2,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
+        }
+    ],
+    "7": [
+        {
+            "phrase": "Your father is the reason BLANKs avoid you",
+            "blanks": 1,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
+        }
+    ],
+    "8": [
+        {
+            "phrase": "You BLANK so bad that even a BLANK would pity you",
+            "blanks": 2,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "verb",
+                        "PreferredCAT": null,
+                        "Insult": false,
+                        "Tense": "SX"
+                    }
+                },
+
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
+        }
+    ],
+    "9": [
+        {
+            "phrase": "Your BLANK couldn't even scare a BLANK on its worst day",
+            "blanks": 2,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
+        }
+    ],
+    "10": [
+        {
+            "phrase": "A BLANK with half your BLANK would still be better",
+            "blanks": 2,
+            "blank_info": [
+                {
+                    "blank_id": 1,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                },
+                {
+                    "blank_id": 2,
+                    "blank_attributes": {
+                        "word": null,
+                        "PreferredPOS": "noun",
+                        "PreferredCAT": null,
+                        "Insult": true,
+                        "Tense": null
+                    }
+                }
+            ]
+        }
+    ]
+}

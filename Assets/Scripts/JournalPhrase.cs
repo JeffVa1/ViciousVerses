@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
+using UnityEngine.Scripting; // Required for [Preserve]
 
 
 public class JournalPhrase
@@ -155,22 +156,52 @@ public class JournalPhrase
 
 
 
+
+
+[System.Serializable]
+[Preserve] // Prevent IL2CPP stripping
+[JsonObject(MemberSerialization.OptIn)] // Ensure correct JSON mapping
 public class Blank
 {
+    [Preserve] [JsonProperty("blank_id")]
     public int BlankID { get; private set; }
+
+    [Preserve] [JsonProperty("word")]
     public string Word { get; private set; }
+
+    [Preserve] [JsonProperty("PreferredPOS")]
     public string PreferredPOS { get; private set; }
+
+    [Preserve] [JsonProperty("PreferredCAT")]
     public string PreferredCAT { get; private set; }
+
+    [Preserve] [JsonProperty("Insult")]
     public bool Insult { get; private set; }
+
+    [Preserve] [JsonProperty("Tense")]
     public string Tense { get; private set; }
 
+    [Preserve]
+    public Blank()
+    {
+        BlankID = 0;
+        Word = "";
+        PreferredPOS = "";
+        PreferredCAT = "";
+        Insult = false;
+        Tense = "";
+    }
+
+    [Preserve]
+    [JsonConstructor]
     public Blank(int blankID, string word, string preferredPOS, string preferredCAT, bool insult, string tense)
     {
         BlankID = blankID;
-        Word = word;
-        PreferredPOS = preferredPOS;
-        PreferredCAT = preferredCAT;
+        Word = word ?? "";
+        PreferredPOS = preferredPOS ?? "";
+        PreferredCAT = preferredCAT ?? "";
         Insult = insult;
-        Tense = tense;
+        Tense = tense ?? "";
     }
 }
+

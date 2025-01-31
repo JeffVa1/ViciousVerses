@@ -65,11 +65,21 @@ public class DialogueManager : MonoBehaviour
 
     }
 
+
     public void StartDialogue()
     {
         Index = 0;
         DialogBox.SetActive(true);
         ParseDialogue();
+        UpdateSpeakerSprite();
+        StartCoroutine(TypeLine());
+    }
+
+        public void StartDialogueWithJson(string Json)
+    {
+        Index = 0;
+        DialogBox.SetActive(true);
+        ParseDialogueFromJson(Json);
         UpdateSpeakerSprite();
         StartCoroutine(TypeLine());
     }
@@ -86,6 +96,11 @@ public class DialogueManager : MonoBehaviour
         DialogueLines = DialogueRoot.Dialogue;
     }
 
+    private void ParseDialogueFromJson(string JsonContent)
+    {
+        DialogueRoot = JsonUtility.FromJson<DialogueRoot>(JsonContent);
+        DialogueLines = DialogueRoot.Dialogue;
+    }
 
 
     private IEnumerator TypeLine()
