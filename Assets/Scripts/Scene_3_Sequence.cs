@@ -1,15 +1,9 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
-public class Scene_2_Sequence : MonoBehaviour
+public class Scene_3_Sequence : MonoBehaviour
 {
- 
-    public SpriteRenderer BarRenderer;     
-    // public SpriteRenderer PlayerRenderer;  
-    // public SpriteRenderer BarmaidRenderer;     
-    // public SpriteRenderer Enemy2Renderer;
     public float FadeDuration = 1f; // Duration for fade effects
-
     public DialogueManager DialogueManager;
     private CanvasGroup DialogueCanvasGroup;
     private SpriteManager TheSpriteManager;
@@ -24,14 +18,8 @@ public class Scene_2_Sequence : MonoBehaviour
 
     private IEnumerator EventSequence(){
         
-        Debug.Log("Scene 2 loaded sucessfully");
+        Debug.Log("Scene 3 loaded sucessfully");
         yield return new WaitForSeconds(1);
-        StartCoroutine(TheSpriteManager.SpriteFadeIn(BarRenderer));
-
-        // Debug.Log("Calling StartNextBattle");
-        // GameManager.Instance.StartNextBattle();
+        
     }
-
-
-    
 }

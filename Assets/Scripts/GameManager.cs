@@ -14,7 +14,7 @@ using static DeckObj;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public enum GameState { Menu, Opening, DeckBuilder, Battle, Results, Shop, CutScene }
+    public enum GameState { Menu, Opening, DeckBuilder, Battle, Results, Shop, Scene_2, Scene_3}
     public GameState CurrentState { get; private set; }
 
     public Bard PlayerBard { get; private set; }
@@ -130,7 +130,11 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.DeckBuilder:
                 LoadScene("DeckBuilder");
-                nextScene = GameState.Battle;
+                if (currentBattle == 2) {
+                    nextScene = GameState.Scene_2;
+                } else if (currentBattle == 3) {
+                    nextScene = GameState.Scene_3;
+                }
                 break;
             case GameState.Battle:
                 LoadScene("Battle");
@@ -155,8 +159,11 @@ public class GameManager : MonoBehaviour
                 LoadScene("Shop");
                 nextScene = GameState.DeckBuilder;
                 break;
-            case GameState.CutScene:
-                LoadScene("CutScene");
+            case GameState.Scene_2:
+                LoadScene("Scene_2");
+                break;
+            case GameState.Scene_3:
+                LoadScene("Scene_3");
                 break;
         }
     }
