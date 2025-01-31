@@ -32,9 +32,6 @@ public class SceneOneSequence : MonoBehaviour
 
         // Logo in
         yield return StartCoroutine(TheSpriteManager.SpriteFadeIn(LogoRenderer));
-        // Fade in HillView
-        StartCoroutine(TheSpriteManager.SpriteFadeIn(HillViewRenderer));
-
         // wait and fade logo
         yield return new WaitForSeconds(2);
         yield return StartCoroutine(TheSpriteManager.SpriteFadeOut(LogoRenderer));
