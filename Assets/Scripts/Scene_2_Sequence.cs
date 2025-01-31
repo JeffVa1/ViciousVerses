@@ -40,7 +40,7 @@ public class Scene_2_Sequence : MonoBehaviour
             else
             {
                 Debug.LogError("DialogueManager initialization failed due to missing or empty JSON Using UWR");
-                DialogueManager.Initialize("Assets/Data/openingScene.json");
+                DialogueManager.Initialize("Assets/Data/scene2.json");
                 StartCoroutine(TheSpriteManager.DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
                 DialogueManager.StartDialogue();
             }
