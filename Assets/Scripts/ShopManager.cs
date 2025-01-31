@@ -53,7 +53,7 @@ public class ShopManager : MonoBehaviour
     // Updates the player's currency text
     void UpdateCurrencyUI()
     {
-        playerCurrencyText.text = "Currency: " + bard.GetMoneyBalance();
+        playerCurrencyText.text = bard.GetMoneyBalance().ToString();
     }
 
     // Display available cards and phrases in the shop

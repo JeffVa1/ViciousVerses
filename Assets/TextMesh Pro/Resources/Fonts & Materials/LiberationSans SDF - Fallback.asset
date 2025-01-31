@@ -230,7 +230,7 @@ MonoBehaviour:
       m_Height: 0
     m_Scale: 1
     m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
+    m_ClassDefinitionType: 
   - m_Index: 41
     m_Metrics:
       m_Width: 43

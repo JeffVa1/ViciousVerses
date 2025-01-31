@@ -11,7 +11,7 @@ public class Bard
     private Dictionary dict;
     private Journal journal;
     private int ego;
-    private int money = 500;
+    private int money = 0;
 
 
 

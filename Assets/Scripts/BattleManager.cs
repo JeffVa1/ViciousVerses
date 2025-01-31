@@ -6,6 +6,7 @@ using TMPro;
 using System.Linq;
 using UnityEngine.EventSystems;
 using System;
+//using BattleImageManager;
 
 public class BattleManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class BattleManager : MonoBehaviour
     public Button endTurnButton; // Button to end the player's turn
     public GameObject cardPrefab; // Prefab for card UI elements
     public TMP_Text enemyPhraseText;
+
+    public GameObject ImageManager;
 
     private Bard playerBard;
     private Bard enemyBard;
@@ -47,6 +50,8 @@ public class BattleManager : MonoBehaviour
 
     public void Initialize(Bard player, Bard enemy)
     {
+        
+
         playerBard = player;
         playerBard.SetEgo(100);
         if (playerBard.GetJournal().GetCurrentPhrase() == null) {
@@ -69,6 +74,7 @@ public class BattleManager : MonoBehaviour
         PlayerCanvasGroup = PlayerBattleDialogue.GetPlayerCanvasGroup();
         PlayersMeters = FindAnyObjectByType<PlayerMeters>();
         PlayersMeters.Initialize(AudienceScore);
+        ImageManager.GetComponent<BattleImageManager>().SetAudienceColor(AudienceScore);
         currentPhraseText.gameObject.SetActive(true);
         PlayerCanvasGroup.alpha = 1;
         
@@ -265,7 +271,15 @@ public class BattleManager : MonoBehaviour
             {
                 audienceReaction = CalculateAudienceScore(blank, card);
 
+                Debug.Log($"AudienceScore before: {AudienceScore}");
+                Debug.Log($"Audience Reaction: {audienceReaction}");
                 AudienceScore += audienceReaction;
+                Debug.Log($"AudienceScore after: {AudienceScore}");
+                if (AudienceScore < 0)
+                {
+                    AudienceScore = 0;
+                };
+                ImageManager.GetComponent<BattleImageManager>().SetAudienceColor(AudienceScore);
                 
                 if (audienceReaction > 0 ) {
                     PlayersMeters.Meters.AddToBar("audience", audienceReaction);
