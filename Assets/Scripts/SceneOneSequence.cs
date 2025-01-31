@@ -42,24 +42,24 @@ public class SceneOneSequence : MonoBehaviour
         // Fade in Dialogue
         JsonLoader.LoadJson("openingScene.json", (jsonData) =>
         {
-          if (jsonData != null)
-          {
-              StartCoroutine(TheSpriteManager.DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
-              DialogueManager.StartDialogueWithJson(jsonData);
-          }
-          else
-          {
-              Debug.LogError("DialogueManager initialization failed due to missing or empty JSON Using UWR");
-              DialogueManager.Initialize("Assets/Data/openingScene.json");
-              StartCoroutine(TheSpriteManager.DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
-              DialogueManager.StartDialogue();
-          }
+            if (jsonData != null)
+            {
+                StartCoroutine(TheSpriteManager.DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
+                DialogueManager.StartDialogueWithJson(jsonData);
+            }
+            else
+            {
+                Debug.LogError("DialogueManager initialization failed due to missing or empty JSON Using UWR");
+                DialogueManager.Initialize("Assets/Data/openingScene.json");
+                StartCoroutine(TheSpriteManager.DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
+                DialogueManager.StartDialogue();
+            }
         });
 
         // On Flag = 1: render player
         yield return StartCoroutine(TheSpriteManager.WaitForFlag(1));
         StartCoroutine(TheSpriteManager.SpriteFadeIn(PlayerRenderer));
-       
+
         // On Flag = 2:
         // Fade out HillView and player and fade in Bar
         yield return StartCoroutine(TheSpriteManager.WaitForFlag(2));
@@ -84,5 +84,5 @@ public class SceneOneSequence : MonoBehaviour
         GameManager.Instance.StartNextBattle();
     }
 
-    
+
 }
