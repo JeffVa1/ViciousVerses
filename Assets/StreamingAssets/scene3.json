@@ -1,44 +1,159 @@
 {
     "Dialogue": [
         {
-            "Speaker": "enemy2",
-            "Text": "Ahh! I can't believe I have been beaten by a wandering vagrant such as yourself...",
-            "Flag": "0"
+            "Speaker": "player",
+            "Text": "You can join your brother and wallow in self pity!",
+            "Flag": "1"
         }, 
         {
-            "Speaker": "barmaid",
-            "Text": "That will teach you!",
+            "Speaker": "enemy2",
+            "Text": "Gah!!",
             "Flag": "1"
         },
         {
-            "Speaker": "player",
-            "Text": "Get wrekd",
+            "Speaker": "enemy2",
+            "Text": "Boss!! Help!!!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "",
+            "Text": "... Clap! ... Clap! ...Clap! ...",
             "Flag": "2"
         },
         {
             "Speaker": "enemy3",
-            "Text": "My apprentice has shamed me...",
-            "Flag": "3"
+            "Text": "It seems you have bested my men tonight...",
+            "Flag": "2"
         },
         {
             "Speaker": "enemy3",
-            "Text": "Someone must teach you a lesson!",
-            "Flag": "3"
+            "Text": "And I do hope you have enjoyed your drinks!",
+            "Flag": "2"
         },
         {
             "Speaker": "enemy3",
-            "Text": "Tomorrow you are going down!",
+            "Text": "I would like to buy you another!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "player",
+            "Text": "..........",
+            "Flag": "2"
+        }, 
+        {
+            "Speaker": "player",
+            "Text": "Such kindness...",
+            "Flag": "2"
+        }, 
+        {
+            "Speaker": "player",
+            "Text": "Not like your men at all!",
+            "Flag": "2"
+        }, 
+        {
+            "Speaker": "enemy3",
+            "Text": "Oh, do forgive their rudeness.",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "The hired help can only hope to go so far in life...",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "Please...",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "Allow me the priviledge to fight for the honor of my Troupe!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "Should you best me, you have my word, we will never antagonize these fine people again!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "player",
+            "Text": "...........",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "player",
+            "Text": "On your honor then?",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "My word is my bond.",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "Oh....",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "And should you lose?",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "My court could use a fresh jester to please the family!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "player",
+            "Text": "...........",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "player",
+            "Text": "Name your terms then!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "player",
+            "Text": "What time? What place?",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "Oh, I have just the place in mind!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "The grand stage awaits!",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "Do join us in a timely manner, wont you?",
+            "Flag": "2"
+        },
+        {
+            "Speaker": "",
+            "Text": "................",
             "Flag": "3"
         },
         {
             "Speaker": "player",
-            "Text": "This next battle will be the toughest yet...",
+            "Text": "I have come as agreed!",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "player",
+            "Text": "Let us have our battle of wit!",
+            "Flag": "3"
+        },
+        {
+            "Speaker": "enemy3",
+            "Text": "I could not be more happy to oblige!!",
             "Flag": "4"
-        },
-        {
-            "Speaker": "player",
-            "Text": "I better take some time to prepare this evening...",
-            "Flag": "5"
         }
     ]
 }
