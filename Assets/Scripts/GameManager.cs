@@ -17,7 +17,7 @@ using static DeckObj;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public enum GameState { Menu, Opening, DeckBuilder, Battle, Results, Shop, CutScene }
+    public enum GameState { Menu, Opening, DeckBuilder, Battle, Results, Shop, CutScene, GameOver }
     public GameState CurrentState { get; private set; }
 
     public Bard PlayerBard { get; private set; }
@@ -158,8 +158,12 @@ public class GameManager : MonoBehaviour
                     IncrementCurrentBattle();
                     nextScene = GameState.Shop;
                 } else {
-                    nextScene = GameState.Opening;
+                    nextScene = GameState.GameOver;
                     currentBattle = 1;
+                }
+                if (currentBattle == 4)
+                {
+                    nextScene = GameState.GameOver;
                 }
                 break;
             case GameState.Shop:
@@ -168,6 +172,14 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.CutScene:
                 LoadScene("CutScene");
+                break;
+            case GameState.GameOver:
+                LoadScene("GameOver");
+                nextScene = GameState.Opening;
+                currentBattle = 1;
+                prev_audience_score = 0;
+                prev_gold_earned = 0;
+                WonLastMatch = false;
                 break;
         }
     }
@@ -210,8 +222,6 @@ public class GameManager : MonoBehaviour
 
     public void GoToNextScene()
     {
- 
-
         ChangeState(nextScene);
     }
 
