@@ -82,5 +82,6 @@ public class ResultsManager : MonoBehaviour
     {
         Debug.Log("Continue button pressed. Implement scene transition or logic here.");
         // Example: SceneManager.LoadScene("NextSceneName");
+        GameManager.Instance.GoToNextScene();
     }
 }

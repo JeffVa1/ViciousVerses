@@ -47,41 +47,37 @@ public class BattleManager : MonoBehaviour
 
     public void Initialize(Bard player, Bard enemy)
     {
-        PlayerCanvasGroup = PlayerBattleDialogue.GetPlayerCanvasGroup();
-        PlayersMeters = FindAnyObjectByType<PlayerMeters>();
-        PlayersMeters.Initialize(AudienceScore);
-        
-
-        EnemyCanvasGroup = EnemyBattleDialogue.GetEnemyCanvasGroup();
-        EnemyMeters = FindAnyObjectByType<EnemyMeters>();
-        EnemyMeters.Initialize(E_AudienceScore);
-
-        
-        
-
-        enemyPhraseText.gameObject.SetActive(false);
-        EnemyCanvasGroup.alpha = 0;
-
-        currentPhraseText.gameObject.SetActive(true);
-        PlayerCanvasGroup.alpha = 1;
-        
         playerBard = player;
+        playerBard.SetEgo(100);
         if (playerBard.GetJournal().GetCurrentPhrase() == null) {
             playerBard.GetJournal().SelectNewPhrase();
         }
+        playerBard.GetDeck().DrawMaxPlayerHandFromLibrary();
 
         enemyBard = enemy;
+        enemyBard.SetEgo(100);
         if (enemyBard.GetJournal().GetCurrentPhrase() == null) {
             enemyBard.GetJournal().SelectNewPhrase();
         }
+        enemyBard.GetDeck().DrawMaxPlayerHandFromLibrary();
 
         isPlayerTurn = true;
         roundNumber = 1;
 
-        //Debug.Log("Battle Initialized!");
         endTurnButton.onClick.AddListener(EndPlayerTurn);
-        playerBard.GetDeck().DrawMaxPlayerHandFromLibrary();
-        enemyBard.GetDeck().DrawMaxPlayerHandFromLibrary();
+
+        PlayerCanvasGroup = PlayerBattleDialogue.GetPlayerCanvasGroup();
+        PlayersMeters = FindAnyObjectByType<PlayerMeters>();
+        PlayersMeters.Initialize(AudienceScore);
+        currentPhraseText.gameObject.SetActive(true);
+        PlayerCanvasGroup.alpha = 1;
+        
+        EnemyCanvasGroup = EnemyBattleDialogue.GetEnemyCanvasGroup();
+        EnemyMeters = FindAnyObjectByType<EnemyMeters>();
+        EnemyMeters.Initialize(E_AudienceScore);
+        enemyPhraseText.gameObject.SetActive(false);
+        EnemyCanvasGroup.alpha = 0;
+
         StartBattle();
     }
 

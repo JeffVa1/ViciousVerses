@@ -677,7 +677,7 @@ MonoBehaviour:
   levelLoader: {fileID: 0}
   battleManager: {fileID: 0}
   currentBattle: 1
-  round_number: 1
+  nextScene: 1
   prev_audience_score: 115
   prev_gold_earned: 69
   WonLastMatch: 0
