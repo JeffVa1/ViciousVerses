@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Audio;
 public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private TMP_Text cardText;
@@ -15,6 +15,9 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private TMP_Text categoriesText;
     [SerializeField] private TMP_Text categoriesLabel;
     [SerializeField] private Button actionButton;
+
+    public AudioMixer audioMixer;
+
 
     private Card card;
     private System.Action<Card> onCardAction;
