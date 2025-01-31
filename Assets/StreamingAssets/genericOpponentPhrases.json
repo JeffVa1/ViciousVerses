@@ -1,5 +1,5 @@
 {
-    "1": [
+    "Silly": [
         {
             "phrase": "You are a BLANK who is sillier than a BLANK riding a BLANK",
             "blanks": 3,
@@ -7,37 +7,37 @@
                 {
                     "blank_id": 1,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 },
                 {
                     "blank_id": 2,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 },
                 {
                     "blank_id": 3,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 }
             ]
         }
     ],
-    "2": [
+    "Better": [
         {
             "phrase": "Even a BLANK could BLANK better than you",
             "blanks": 2,
@@ -45,19 +45,19 @@
                 {
                     "blank_id": 1,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 },
                 {
                     "blank_id": 2,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "verb",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": false,
                         "Tense": "SX"
                     }
@@ -65,7 +65,7 @@
             ]
         }
     ],
-    "3": [
+    "Impress": [
         {
             "phrase": "You BLANK like a BLANK trying to impress a BLANK",
             "blanks": 3,
@@ -73,9 +73,9 @@
                 {
                     "blank_id": 1,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "verb",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": false,
                         "Tense": "SX"
                     }
@@ -83,27 +83,27 @@
                 {
                     "blank_id": 2,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 },
                 {
                     "blank_id": 3,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 }
             ]
         }
     ],
-    "4": [
+    "Status": [
         {
             "phrase": "Your Mother could make a BLANK lose its status as a BLANK",
             "blanks": 2,
@@ -111,27 +111,27 @@
                 {
                     "blank_id": 1,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 },
                 {
                     "blank_id": 2,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 }
             ]
         }
     ],
-    "5": [
+    "Grace": [
         {
             "phrase": "You have the grace of a BLANK falling off a BLANK",
             "blanks": 2,
@@ -139,38 +139,37 @@
                 {
                     "blank_id": 1,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 },
                 {
                     "blank_id": 2,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 }
             ]
         }
     ],
-    "6": [
+    "Looking": [
         {
             "phrase": "Your Father tried to BLANK a BLANK but ended up looking like a BLANK.",
             "blanks": 3,
             "blank_info": [
-
                 {
                     "blank_id": 1,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "verb",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
                         "Tense": "SX"
                     }
@@ -178,27 +177,27 @@
                 {
                     "blank_id": 2,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 },
                 {
                     "blank_id": 3,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 }
             ]
         }
     ],
-    "7": [
+    "Forgot": [
         {
             "phrase": "You BLANK like a BLANK that forgot how to BLANK",
             "blanks": 3,
@@ -206,9 +205,9 @@
                 {
                     "blank_id": 1,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "verb",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": false,
                         "Tense": "SX"
                     }
@@ -216,19 +215,19 @@
                 {
                     "blank_id": 2,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 },
                 {
                     "blank_id": 3,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "verb",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": false,
                         "Tense": "SX"
                     }
@@ -236,7 +235,7 @@
             ]
         }
     ],
-    "8": [
+    "Ashamed": [
         {
             "phrase": "A BLANK would be ashamed to BLANK like you",
             "blanks": 2,
@@ -244,19 +243,19 @@
                 {
                     "blank_id": 1,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 },
                 {
                     "blank_id": 2,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "verb",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": false,
                         "Tense": "SX"
                     }
@@ -264,7 +263,7 @@
             ]
         }
     ],
-    "9": [
+    "Sister": [
         {
             "phrase": "Your sister is the reason BLANKs BLANK",
             "blanks": 2,
@@ -272,19 +271,19 @@
                 {
                     "blank_id": 2,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 },
                 {
                     "blank_id": 3,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "verb",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": false,
                         "Tense": "SX"
                     }
@@ -292,7 +291,7 @@
             ]
         }
     ],
-    "10": [
+    "Poor": [
         {
             "phrase": "You BLANK so poorly that a BLANK would BLANK you",
             "blanks": 3,
@@ -300,9 +299,9 @@
                 {
                     "blank_id": 1,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "verb",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": false,
                         "Tense": "SX"
                     }
@@ -310,19 +309,19 @@
                 {
                     "blank_id": 2,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "noun",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": true,
-                        "Tense": null
+                        "Tense": ""
                     }
                 },
                 {
                     "blank_id": 3,
                     "blank_attributes": {
-                        "word": null,
+                        "word": "",
                         "PreferredPOS": "verb",
-                        "PreferredCAT": null,
+                        "PreferredCAT": "",
                         "Insult": false,
                         "Tense": "SX"
                     }

@@ -37,22 +37,21 @@ public class SceneOneSequence : MonoBehaviour
         yield return StartCoroutine(SpriteFadeOut(LogoRenderer));
 
         // Fade in Dialogue
- JsonLoader.LoadJson("openingScene.json", (jsonData) =>
-{
-    if (jsonData != null)
+    JsonLoader.LoadJson("openingScene.json", (jsonData) =>
     {
-        Debug.Log("Passing JSON to DialogueManager:\n" + jsonData);
-        StartCoroutine(DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
-        DialogueManager.StartDialogueWithJson(jsonData);
-    }
-    else
-    {
-        Debug.LogError("DialogueManager initialization failed due to missing or empty JSON Using UWR");
-        DialogueManager.Initialize("Assets/Data/openingScene.json");
-        StartCoroutine(DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
-        DialogueManager.StartDialogue();
-    }
-});
+        if (jsonData != null)
+        {
+            StartCoroutine(DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
+            DialogueManager.StartDialogueWithJson(jsonData);
+        }
+        else
+        {
+            Debug.LogError("DialogueManager initialization failed due to missing or empty JSON Using UWR");
+            DialogueManager.Initialize("Assets/Data/openingScene.json");
+            StartCoroutine(DialogueFade(DialogueCanvasGroup, 0f, 1f, FadeDuration));
+            DialogueManager.StartDialogue();
+        }
+    });
 
 
 

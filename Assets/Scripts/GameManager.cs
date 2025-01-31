@@ -3,8 +3,11 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Utilities;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using UnityEngine.Scripting;
 
 using static Bard;
 using static Dictionary;
@@ -40,9 +43,16 @@ public class GameManager : MonoBehaviour
     public int prev_gold_earned = 0;
     public bool WonLastMatch = false;
 
-   
-    private void Awake()
+
+
+    private async void Awake()
     {
+        AotHelper.EnsureType<JournalPhraseData>();
+        AotHelper.EnsureType<BlankData>();
+        AotHelper.EnsureType<BlankAttributes>();
+        var tempPhrase = new JournalPhraseData();
+        var tempBlank = new BlankData();
+        var tempAttributes = new BlankAttributes();
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -52,30 +62,30 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);  // This prevents destruction on scene changes
         SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to sceneLoaded event
 
-        LoadPlayerData();
-        LoadOpponentData();
-        LoadShopData();
+        await LoadPlayerData();
+        await LoadOpponentData();
+        await LoadShopData();
 
         // Initialize game state
         CurrentState = GameState.Menu;
     }
 
-    private void LoadPlayerData()
+    private async Task LoadPlayerData()
     {
-        List<Card> nouns = ParseCardsFromJson("defaultNouns.json", "noun");
-        List<Card> verbs = ParseCardsFromJson("defaultVerbs.json", "verb");
+        List<Card> nouns = await ParseCardsFromJson("defaultNouns.json", "noun");
+        List<Card> verbs = await ParseCardsFromJson("defaultVerbs.json", "verb");
         Dictionary playerDictionary = new Dictionary(new List<Card>(nouns).Concat(verbs).ToList());
-        List<JournalPhrase> playerPhrases = ParsePhrasesFromJson("playerPhrases.json");
+        List<JournalPhrase> playerPhrases = await ParsePhrasesFromJson("playerPhrases.json");
         PlayerBard = new Bard(playerDictionary, new Journal(playerPhrases));
         PlayerBard.SetRandomDeck();
     }
 
-    private void LoadOpponentData()
+    private async Task LoadOpponentData()
     {
-        List<Card> nouns = ParseCardsFromJson("opponentNouns.json", "noun");
-        List<Card> verbs = ParseCardsFromJson("opponentVerbs.json", "verb");
+        List<Card> nouns = await ParseCardsFromJson("opponentNouns.json", "noun");
+        List<Card> verbs = await ParseCardsFromJson("opponentVerbs.json", "verb");
         Dictionary opponentDictionary = new Dictionary(new List<Card>(nouns).Concat(verbs).ToList());
-        List<JournalPhrase> opponentPhrases = ParsePhrasesFromJson("genericOpponentPhrases.json");
+        List<JournalPhrase> opponentPhrases = await ParsePhrasesFromJson("genericOpponentPhrases.json");
         OpponentBard1 = new Bard(opponentDictionary, new Journal(opponentPhrases));
         OpponentBard2 = new Bard(opponentDictionary, new Journal(opponentPhrases));
         OpponentBard3 = new Bard(opponentDictionary, new Journal(opponentPhrases));
@@ -84,12 +94,13 @@ public class GameManager : MonoBehaviour
         OpponentBard3.SetRandomDeck();
     }
 
-    private void LoadShopData()
+    private async Task LoadShopData()
     {
-        shop_cards = new List<Card>(
-            ParseCardsFromJson("shopNouns.json", "noun").Concat(ParseCardsFromJson("shopVerbs.json", "verb"))
-        );
-        shop_phrases = ParsePhrasesFromJson("shopPhrases.json");
+        shop_cards = new List<Card>();
+        List<Card> nouns = await ParseCardsFromJson("shopVerbs.json", "noun");
+        List<Card> verbs = await ParseCardsFromJson("shopNouns.json", "verb");
+        shop_cards = nouns.Concat(verbs).ToList();
+        shop_phrases = await ParsePhrasesFromJson("shopPhrases.json");
     }
 
     private void OnDisable()
@@ -185,13 +196,15 @@ public class GameManager : MonoBehaviour
         ChangeState(GameState.Results);
     }
 
-    public void GoToOpening() {
+    public void GoToOpening()
+    {
         ChangeState(GameState.Opening);
     }
 
     public void GoToNextScene(string current_scene)
     {
-        if (current_scene == "Shop") {
+        if (current_scene == "Shop")
+        {
             nextScene = GameState.DeckBuilder;
         }
         ChangeState(nextScene);
@@ -221,66 +234,128 @@ public class GameManager : MonoBehaviour
         //StartCoroutine(WaitForBattleSceneLoad());
     }
 
-    private IEnumerator WaitForBattleSceneLoad()
+private async Task<List<JournalPhrase>> ParsePhrasesFromJson(string filename)
+{
+    var journalPhrases = new List<JournalPhrase>();
+    var tcs = new TaskCompletionSource<List<JournalPhrase>>();
+
+    JsonLoader.LoadJson(filename, (jsonData) =>
     {
-        yield return new WaitUntil(() => FindObjectOfType<BattleManager>() != null);
-        battleManager = FindObjectOfType<BattleManager>();
-        Debug.Log("******Initializing battle!******");
-        battleManager.Initialize(PlayerBard, CurrentOpponent);
-    }
-
-    private List<JournalPhrase> ParsePhrasesFromJson(string filename)
-    {
-        List<JournalPhrase> journalPhrases = new List<JournalPhrase>();
-        // string jsonFilePath = Path.Combine(Application.dataPath, "Data", filename);
-        string jsonFilePath = "Assets/Data/" + filename;
-        string json = File.ReadAllText(jsonFilePath);
-
-        Dictionary<string, List<JournalPhraseData>> data = JsonConvert.DeserializeObject<Dictionary<string, List<JournalPhraseData>>>(json);
-
-        foreach (var entry in data)
+        if (!string.IsNullOrEmpty(jsonData))
         {
-            foreach (var phraseData in entry.Value)
+            Debug.Log($"[WebGL Debug] Raw JSON from {filename}: {jsonData}"); // 🔥 Logs JSON
+
+            try
             {
-                // Pass the phrase, number of blanks, and blank_info JSON directly to the JournalPhrase constructor
-                string blankInfoJson = JsonConvert.SerializeObject(phraseData.blank_info);
-                JournalPhrase journalPhrase = new JournalPhrase(phraseData.phrase, phraseData.blanks, blankInfoJson);
-                journalPhrases.Add(journalPhrase);
+                // 🔹 Try deserializing JSON as a dictionary
+                Dictionary<string, List<JournalPhraseData>> phraseDict = 
+                    JsonConvert.DeserializeObject<Dictionary<string, List<JournalPhraseData>>>(jsonData);
+
+                if (phraseDict != null)
+                {
+                    foreach (var entry in phraseDict)
+                    {
+                        foreach (var phraseData in entry.Value)
+                        {
+                            string blankInfoJson = JsonConvert.SerializeObject(phraseData.blank_info ?? new List<BlankData>());
+                            Debug.LogError(phraseData.phrase);
+                            Debug.LogError(phraseData.blanks);
+                            Debug.LogError(blankInfoJson);
+                            JournalPhrase journalPhrase = new JournalPhrase(phraseData.phrase, phraseData.blanks, blankInfoJson);
+                            Debug.LogError(journalPhrase);
+                            journalPhrases.Add(journalPhrase);
+                        }
+                    }
+                }
+
+                Debug.Log($"[WebGL Debug] Successfully loaded {journalPhrases.Count} phrases from {filename}");
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"[WebGL ERROR] Failed to deserialize JSON from {filename}: {ex.Message}");
             }
         }
-
-        return journalPhrases;
-    }
-
-
-    private List<Card> ParseCardsFromJson(string filename, string partOfSpeech)
-    {
-        string jsonFilePath = "Assets/Data/" + filename;
-        string json = File.ReadAllText(jsonFilePath);
-        var cardDict = JsonConvert.DeserializeObject<Dictionary<string, List<CardData>>>(json);
-        List<Card> cards = new List<Card>();
-
-        foreach (var entry in cardDict)
+        else
         {
-            foreach (var cardData in entry.Value)
-            {
-                Card card = new Card(
-                    text: entry.Key,
-                    multiplier: (int)cardData.ptMultiplier,
-                    addition: cardData.ptValue,
-                    pos: partOfSpeech,
-                    e: cardData.egoDmg,
-                    audience: cardData.audienceValue,
-                    inslt: cardData.insult,
-                    category: cardData.categories,
-                    tenseDict: cardData.tenses
-                );
-                cards.Add(card);
-            }
+            Debug.LogError($"[WebGL ERROR] JSON file {filename} is empty or null.");
         }
 
-        return cards;
-    }
+        tcs.SetResult(journalPhrases);
+    });
+
+    return await tcs.Task;
+}
+
+
+
+
+
+private async Task<List<Card>> ParseCardsFromJson(string filename, string partOfSpeech)
+{
+    var cards = new List<Card>();
+    var tcs = new TaskCompletionSource<List<Card>>();
+
+    var settings = new JsonSerializerSettings
+    {
+        TypeNameHandling = TypeNameHandling.None,
+        MissingMemberHandling = MissingMemberHandling.Ignore,
+        NullValueHandling = NullValueHandling.Ignore
+    };
+
+    JsonLoader.LoadJson(filename, (jsonData) =>
+    {
+        if (!string.IsNullOrEmpty(jsonData))
+        {
+            try
+            {
+                Debug.Log($"Attempting to deserialize JSON from {filename}");
+                
+                var cardDict = JsonConvert.DeserializeObject<Dictionary<string, List<CardData>>>(jsonData, settings);
+
+                if (cardDict == null)
+                {
+                    Debug.LogError($"Deserialization returned NULL for {filename}");
+                    return;
+                }
+
+                foreach (var entry in cardDict)
+                {
+                    foreach (var cardData in entry.Value)
+                    {
+                        Card card = new Card(
+                            text: entry.Key,
+                            multiplier: (int)cardData.ptMultiplier,
+                            addition: cardData.ptValue,
+                            pos: partOfSpeech,
+                            e: cardData.egoDmg,
+                            audience: cardData.audienceValue,
+                            inslt: cardData.insult ?? false,
+                            category: cardData.categories ?? new List<string>(),
+                            tenseDict: cardData.tenses ?? new Dictionary<string, string>()
+                        );
+                        cards.Add(card);
+                    }
+                }
+
+                Debug.Log($"Successfully loaded {cards.Count} cards from {filename}");
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"Failed to deserialize JSON from {filename}: {ex.Message}");
+            }
+        }
+        else
+        {
+            Debug.LogError($"JSON file {filename} is empty or null.");
+        }
+
+        tcs.SetResult(cards);
+    });
+
+    return await tcs.Task;
+}
+
+
 
 
     void LogCardArray(List<Card> cards)
@@ -326,41 +401,163 @@ public class GameManager : MonoBehaviour
 
 }
 
-// Helper class for Card data deserialization
+[Preserve] // Prevents IL2CPP stripping
 public class CardData
 {
+    [Preserve] // Prevents stripping
+    public CardData() {} // Parameterless constructor
+
+    [Preserve] // Ensures constructor isn't removed
+    [JsonConstructor]
+    public CardData(
+        int ptValue,
+        float ptMultiplier,
+        int egoDmg,
+        int audienceValue,
+        bool? insult,  // Nullable since not always present
+        List<string> categories,  // Nullable since not always present
+        Dictionary<string, string> tenses  // Nullable since not always present
+    )
+    {
+        this.ptValue = ptValue;
+        this.ptMultiplier = ptMultiplier;
+        this.egoDmg = egoDmg;
+        this.audienceValue = audienceValue;
+        this.insult = insult ?? false;
+        this.categories = categories ?? new List<string>();
+        this.tenses = tenses ?? new Dictionary<string, string>();
+    }
+
+    [Preserve] [JsonProperty("ptValue")]
     public int ptValue { get; set; }
+
+    [Preserve] [JsonProperty("ptMultiplier")]
     public float ptMultiplier { get; set; }
+
+    [Preserve] [JsonProperty("egoDmg")]
     public int egoDmg { get; set; }
+
+    [Preserve] [JsonProperty("audienceValue")]
     public int audienceValue { get; set; }
-    public bool insult { get; set; }
+
+    [Preserve] [JsonProperty("insult", NullValueHandling = NullValueHandling.Ignore)]
+    public bool? insult { get; set; }
+
+    [Preserve] [JsonProperty("categories", NullValueHandling = NullValueHandling.Ignore)]
     public List<string> categories { get; set; }
+
+    [Preserve] [JsonProperty("tenses", NullValueHandling = NullValueHandling.Ignore)]
     public Dictionary<string, string> tenses { get; set; }
 }
 
-
-// Helper class for Phrase data deserialization
 [System.Serializable]
+[Preserve] // Prevent IL2CPP stripping
 public class JournalPhraseData
 {
-    public string phrase;
-    public int blanks;
-    public List<BlankData> blank_info;
+    [Preserve]
+
+    public JournalPhraseData() 
+    {
+        this.phrase = "";
+        this.blanks = 0;
+        this.blank_info = new List<BlankData>(); // Prevent null references
+    }
+
+    [Preserve]
+    [JsonConstructor]
+    public JournalPhraseData(string phrase, int blanks, List<BlankData> blank_info)
+    {
+        this.phrase = phrase ?? ""; // Default to empty string
+        this.blanks = blanks;
+        this.blank_info = blank_info ?? new List<BlankData>(); // Ensure no null reference
+    }
+
+    [Preserve] [JsonProperty("phrase", NullValueHandling = NullValueHandling.Include)]
+    public string phrase { get; set; }
+
+    [Preserve] [JsonProperty("blanks", NullValueHandling = NullValueHandling.Include)]
+    public int blanks { get; set; }
+
+    [Preserve] [JsonProperty("blank_info", NullValueHandling = NullValueHandling.Include)]
+    public List<BlankData> blank_info { get; set; }
 }
 
+
+
 [System.Serializable]
+[Preserve] // Prevent IL2CPP stripping
+[JsonObject(MemberSerialization.OptIn)]
 public class BlankData
 {
-    public int blank_id;
-    public BlankAttributes blank_attributes;
+    [Preserve]
+
+    public BlankData()
+    {
+        this.blank_id = 0;
+        this.blank_attributes = new BlankAttributes();
+    }
+
+    [Preserve]
+    [JsonConstructor]
+    public BlankData(int blank_id, BlankAttributes blank_attributes)
+    {
+        this.blank_id = blank_id;
+        this.blank_attributes = blank_attributes ?? new BlankAttributes();
+    }
+
+    [Preserve] [JsonProperty("blank_id", NullValueHandling = NullValueHandling.Include)]
+    public int blank_id { get; set; }
+
+    [Preserve] [JsonProperty("blank_attributes", NullValueHandling = NullValueHandling.Include)]
+    public BlankAttributes blank_attributes { get; set; }
 }
 
+
+
+
 [System.Serializable]
+[Preserve] // Prevent IL2CPP stripping
 public class BlankAttributes
 {
-    public string word;
-    public string PreferredPOS;
-    public string PreferredCAT;
-    public bool Insult;
-    public string Tense;
+    [Preserve]
+
+    public BlankAttributes()
+    {
+        this.word = "";
+        this.PreferredPOS = "";
+        this.PreferredCAT = "";
+        this.Insult = false;
+        this.Tense = "";
+    }
+
+    [Preserve]
+    [JsonConstructor]
+    public BlankAttributes(string word, string PreferredPOS, string PreferredCAT, bool? Insult, string Tense)
+    {
+        this.word = word ?? "";
+        this.PreferredPOS = PreferredPOS ?? "";
+        this.PreferredCAT = PreferredCAT ?? "";
+        this.Insult = Insult ?? false;
+        this.Tense = Tense ?? "";
+    }
+
+    [Preserve] [JsonProperty("word", NullValueHandling = NullValueHandling.Include)]
+    public string word { get; set; }
+
+    [Preserve] [JsonProperty("PreferredPOS", NullValueHandling = NullValueHandling.Include)]
+    public string PreferredPOS { get; set; }
+
+    [Preserve] [JsonProperty("PreferredCAT", NullValueHandling = NullValueHandling.Include)]
+    public string PreferredCAT { get; set; }
+
+    [Preserve] [JsonProperty("Insult", NullValueHandling = NullValueHandling.Include)]
+    public bool Insult { get; set; }
+
+    [Preserve] [JsonProperty("Tense", NullValueHandling = NullValueHandling.Include)]
+    public string Tense { get; set; }
 }
+
+
+
+
+
