@@ -326,11 +326,11 @@ public class BattleManager : MonoBehaviour
         bool categoryMatch = blank.PreferredCAT == null || card.GetCategories().Contains(blank.PreferredCAT);
         bool insultMatch = blank.Insult == null || blank.Insult == card.IsInsult();
 
-        audienceReaction += posMatch ? 2 : -2; // Example reaction score for POS match
-        audienceReaction += categoryMatch ? 4 : -4; // Example reaction score for category match
-        audienceReaction += insultMatch ? 8 : -8; // Example reaction score for insult match
+        audienceReaction += posMatch ? 8 : -8; // Example reaction score for POS match
+        audienceReaction += categoryMatch ? 2 : -2; // Example reaction score for category match
+        audienceReaction += insultMatch ? 4 : -4; // Example reaction score for insult match
 
-        return audienceReaction;
+        return 12;
     }
 
     private void EndPlayerTurn()
@@ -349,6 +349,9 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
+            AudienceScore -= 30;
+            ImageManager.GetComponent<BattleImageManager>().SetAudienceColor(AudienceScore);
+            EnemyMeters.Meters.TakeFromBar("audience", 30);
             //Debug.Log("Phrase incomplete. Skipping effect calculation.");
         }
 
