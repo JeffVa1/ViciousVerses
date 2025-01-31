@@ -127,4 +127,9 @@ public class Bard
         money = m;
     }
 
+    public void ResetDeck()
+    {
+        deck.ResetCards();
+    }
+
 }

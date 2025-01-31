@@ -11,7 +11,7 @@ public class DeckObj
 
     private int maxCardsInHand = 10;
     private int maxDrawNewHand = 5;
-    private int maxCardsInDeck = 30;
+    private int maxCardsInDeck = 20;
 
     // Constructor
     public DeckObj(List<Card> cards)
@@ -212,7 +212,20 @@ public class DeckObj
         Debug.Log("Library set with 30 random cards.");
     }
 
+    public void ResetCards()
+    {
+        // Move all cards from hand to library
+        library.AddRange(playerHand);
+        playerHand.Clear();
 
+        // Move all cards from graveyard to library
+        library.AddRange(graveyard);
+        graveyard.Clear();
 
+        // Shuffle the deck after resetting
+        ShuffleDeck();
+
+        Debug.Log("All cards have been reset to the library and shuffled.");
+    }
 }
 

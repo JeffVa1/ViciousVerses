@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dafa8d67607f5bf49859a1563322b4aa
+guid: 7315ef8a0df0aa84ca0d04162f2b032c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7374194972789952094
-    second: tmp_logo_0
+      213: -6104398793297367984
+    second: circle-portrate-E3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tmp_logo_0
+      name: circle-portrate-E3_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 11
         y: 0
-        width: 880
-        height: 717
+        width: 273
+        height: 273
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a1326e0eb899a990800000000000000
-      internalID: -7374194972789952094
+      spriteID: 05cef26d3a1d84ba0800000000000000
+      internalID: -6104398793297367984
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      tmp_logo_0: -7374194972789952094
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

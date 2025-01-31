@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d884f9f6a8f9ac443b109a355998c0df
+guid: a9addb53b066c6d48a89cea9b86bb1f3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7445797208308072302
-    second: tmp_hill_view_0
+      213: 4924686775935956084
+    second: meters-transparent_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tmp_hill_view_0
+      name: meters-transparent_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 12
+        y: 17
+        width: 721
+        height: 335
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6f3cc68c19c45760800000000000000
-      internalID: 7445797208308072302
+      spriteID: 474f9b5d780085440800000000000000
+      internalID: 4924686775935956084
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tmp_hill_view_0: 7445797208308072302
+      meters-transparent_0: 4924686775935956084
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
