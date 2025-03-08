@@ -24,7 +24,7 @@ public class DebugConsoleManager : MonoBehaviour
         logView = root.Q<ScrollView>("ConsoleLog");
         
 
-        inputField.RegisterCallback<KeyDownEvent>(OnEnterPressed);
+        inputField.RegisterCallback<KeyDownEvent>(OnEnterPressed, TrickleDown.TrickleDown);
         
         RegisterCommands();
         
@@ -41,7 +41,9 @@ public class DebugConsoleManager : MonoBehaviour
                 Debug.Log("DeBuGdS: String Not Null");
                 AddCommandToLog(input);
                 inputField.value = "";
+                
             }
+
         }
     }
 
@@ -49,9 +51,11 @@ public class DebugConsoleManager : MonoBehaviour
         VisualElement logEntry = new VisualElement();
         logEntry.style.flexDirection = FlexDirection.ColumnReverse;
 
-        Label inputLog = new Label(">>> " + input);
-        logEntry.Add(inputLog);
-
+        if (input != "clear") {
+                Label inputLog = new Label(">>> " + input);
+                logEntry.Add(inputLog);
+            }     
+        
         string responseMessage;
         string[] splitInput = input.Split(' ');
         string command = splitInput[0];
@@ -60,7 +64,11 @@ public class DebugConsoleManager : MonoBehaviour
         if (commands.ContainsKey(command))
         {
             commands[command].Invoke(args);
-            responseMessage = "Executing " + command;
+            if (command != "clear") {
+                responseMessage = "Executing " + command;
+            } else {
+                responseMessage = "";
+            }   
         }
         else
         {
@@ -85,7 +93,9 @@ public class DebugConsoleManager : MonoBehaviour
     private void RegisterCommands()
     {
         Debug.Log("DeBuGdS: RegisterCommands called");
+        commands.Add("clear", args => ClearLogs());
         commands.Add("load_scene", args => LoadScene(args));
+        
     }
 
     private void LoadScene(string[] args)
@@ -106,6 +116,10 @@ public class DebugConsoleManager : MonoBehaviour
         {
             AddCommandToLog($"Erorr loading scene: {e.Message}");
         }
+    }
+
+    private void ClearLogs(){
+        logView.Clear();
     }
 
 

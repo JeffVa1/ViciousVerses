@@ -13,7 +13,6 @@ public class ToggleManager : MonoBehaviour
     
     private void Update()
     {
-        
         if (Input.GetKeyDown(KeyCode.BackQuote)) {
             Debug.Log("DeBuGdS: Toggle");
             ToggleConsole(!isDebugVisible);
@@ -25,10 +24,28 @@ public class ToggleManager : MonoBehaviour
         isDebugVisible = show;
         foreach (Transform child in transform) {
             var uiDocument = child.GetComponent<UIDocument>();
+            
 
             if (uiDocument != null)
             {
-                uiDocument.rootVisualElement.style.display = show ? DisplayStyle.Flex : DisplayStyle.None;
+                if (show) {
+
+                    uiDocument.rootVisualElement.style.display = DisplayStyle.Flex;
+
+                    uiDocument.rootVisualElement.schedule.Execute(() => {
+                        TextField inputField = uiDocument.rootVisualElement.Q<TextField>("ConsoleInput");
+                        
+                        if (inputField != null) {
+                            Debug.Log("DeBuGdS: Focusing");
+                            inputField.Focus();
+                            inputField.textSelection.selectAllOnFocus = true;
+                        }
+
+                    }).ExecuteLater(10);
+
+                } else {
+                    uiDocument.rootVisualElement.style.display = DisplayStyle.None;
+                }
             }
         }
         
