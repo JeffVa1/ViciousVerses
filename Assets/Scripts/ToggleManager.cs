@@ -8,6 +8,7 @@ public class ToggleManager : MonoBehaviour
     private void Start()
     {
         ToggleConsole(isDebugVisible);
+        DontDestroyOnLoad(gameObject);
     }
 
     
@@ -38,7 +39,7 @@ public class ToggleManager : MonoBehaviour
                         if (inputField != null) {
                             Debug.Log("DeBuGdS: Focusing");
                             inputField.Focus();
-                            inputField.textSelection.selectAllOnFocus = true;
+                            
                         }
 
                     }).ExecuteLater(10);

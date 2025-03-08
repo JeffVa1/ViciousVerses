@@ -3,6 +3,7 @@ using UnityEngine.UIElements;
 using System;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class DebugConsoleManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class DebugConsoleManager : MonoBehaviour
     private Label logTemplate;
 
     private Dictionary<string, Action<string[]>> commands = new Dictionary<string, Action<string[]>>();
+    private String[] AliasForClear = {"clear", "cls", "c"};
 
     private void Awake()
     {
@@ -22,10 +24,8 @@ public class DebugConsoleManager : MonoBehaviour
 
         inputField = root.Q<TextField>("ConsoleInput");
         logView = root.Q<ScrollView>("ConsoleLog");
-        
 
-        inputField.RegisterCallback<KeyDownEvent>(OnEnterPressed, TrickleDown.TrickleDown);
-        
+        inputField.RegisterCallback<KeyDownEvent>(OnEnterPressed, TrickleDown.TrickleDown);       
         RegisterCommands();
         
     }
@@ -41,6 +41,8 @@ public class DebugConsoleManager : MonoBehaviour
                 Debug.Log("DeBuGdS: String Not Null");
                 AddCommandToLog(input);
                 inputField.value = "";
+                e.StopImmediatePropagation();
+                inputField.schedule.Execute(() => inputField.Focus()).ExecuteLater(1);
                 
             }
 
@@ -48,26 +50,27 @@ public class DebugConsoleManager : MonoBehaviour
     }
 
     private void AddCommandToLog(string input){
+        String inputToLower = input.ToLower();
         VisualElement logEntry = new VisualElement();
-        logEntry.style.flexDirection = FlexDirection.ColumnReverse;
+        logEntry.style.flexDirection = FlexDirection.Column;
 
-        if (input != "clear") {
+        if (!AliasForClear.Contains(inputToLower)) {
                 Label inputLog = new Label(">>> " + input);
                 logEntry.Add(inputLog);
             }     
         
         string responseMessage;
-        string[] splitInput = input.Split(' ');
+        string[] splitInput = inputToLower.Split(' ');
         string command = splitInput[0];
         string[] args = splitInput.Length > 1 ? splitInput[1..] : new string[0];
         
         if (commands.ContainsKey(command))
         {
             commands[command].Invoke(args);
-            if (command != "clear") {
-                responseMessage = "Executing " + command;
-            } else {
+            if (AliasForClear.Contains(inputToLower)) {
                 responseMessage = "";
+            } else {
+                responseMessage = "Executing " + command;
             }   
         }
         else
@@ -94,6 +97,8 @@ public class DebugConsoleManager : MonoBehaviour
     {
         Debug.Log("DeBuGdS: RegisterCommands called");
         commands.Add("clear", args => ClearLogs());
+        commands.Add("cls", args => ClearLogs());
+        commands.Add("c", args => ClearLogs());
         commands.Add("load_scene", args => LoadScene(args));
         
     }
