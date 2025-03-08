@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Pirate-Jam-16.sln"
+    "dotnet.defaultSolution": "ViciousVerses.sln"
 }
