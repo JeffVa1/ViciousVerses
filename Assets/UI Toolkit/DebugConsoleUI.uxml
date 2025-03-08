@@ -1,4 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:ScrollView name="ConsoleLog" />
-    <engine:TextField label="Enter Command..." placeholder-text="filler text" name="ConsoleInput" />
+    <engine:VisualElement data-source="project://database/Assets/Resources/DebugConsoleStyles.uss?fileID=7433441132597879392&amp;guid=d3379ec7eb6f40848bb569bcd97470c9&amp;type=3#DebugConsoleStyles" style="flex-grow: 1; flex-direction: column-reverse; background-color: rgba(0, 0, 0, 0); max-height: none; justify-content: flex-start;">
+        <engine:TextField label="Enter Command:" name="ConsoleInput" style="flex-direction: row; align-items: flex-start; justify-content: space-around; align-self: stretch; background-color: rgba(115, 115, 115, 0.58); color: rgb(0, 0, 0); -unity-text-outline-width: 0; -unity-background-scale-mode: stretch-to-fill; background-position-x: center 0; background-position-y: center 0; opacity: 1; visibility: visible; overflow: hidden; font-size: 24px; -unity-font-style: bold; -unity-text-outline-color: rgba(0, 0, 0, 0);" />
+        <engine:ScrollView name="ConsoleLog" style="flex-direction: column-reverse; height: 25%; width: 100%; flex-grow: 1; color: rgb(255, 255, 255); flex-shrink: 0; max-width: 100%; max-height: 25%; min-width: 100%; min-height: auto; -unity-background-image-tint-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.56); -unity-text-align: lower-left; align-items: flex-start; align-content: auto; justify-content: flex-start; font-size: 24px;" />
+    </engine:VisualElement>
 </engine:UXML>

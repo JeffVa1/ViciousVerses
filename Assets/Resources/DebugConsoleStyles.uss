@@ -1,0 +1,17 @@
+#ConsoleLog {
+    flex-direction: column-reverse;  
+    align-items: flex-end;           
+    height: auto;                    
+    max-height: 25vh;                
+    overflow: scroll;                
+    background-color: rgba(0, 0, 0, 0.75); 
+    border: 2px solid white;
+    padding: 5px;
+}
+
+#ConsoleInput {
+    height: 40px;             /* Fixed height for text input */
+    align-self: stretch;      /* Ensures it spans full width */
+    background-color: black;
+    color: green;
+}

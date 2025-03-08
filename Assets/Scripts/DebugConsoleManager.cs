@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class DebugConsoleManager : MonoBehaviour
 {
-    private TextField inputField;
+    
+    public TextField inputField;
     private ScrollView logView;
     private Label logTemplate;
 
@@ -15,69 +16,95 @@ public class DebugConsoleManager : MonoBehaviour
     private void Awake()
     {
         Debug.Log("DeBuGdS: Console is Awake");
+        
         var uiDocument = GetComponent<UIDocument>();
         var root = uiDocument.rootVisualElement;
 
         inputField = root.Q<TextField>("ConsoleInput");
         logView = root.Q<ScrollView>("ConsoleLog");
+        
 
         inputField.RegisterCallback<KeyDownEvent>(OnEnterPressed);
+        
         RegisterCommands();
+        
     }
 
-    private void OnEnterPressed(KeyDownEvent e) {
+    private void OnEnterPressed(KeyDownEvent e)
+    {
         Debug.Log("DeBuGdS: OnEnterPressed called");
-        if (e.keyCode == KeyCode.Return) 
+        if (e.keyCode == KeyCode.Return)
         {
             string input = inputField.value.Trim();
-            if (!string.IsNullOrEmpty(input))  {
-                LogMessage("> " + input);
-                ParseCommand(input);
+            if (!string.IsNullOrEmpty(input))
+            {
+                Debug.Log("DeBuGdS: String Not Null");
+                AddCommandToLog(input);
                 inputField.value = "";
             }
         }
     }
 
-    private void LogMessage(string message){
-        Debug.Log("DeBuGdS: LogMessage Called");
-        Label newLog = new Label(message);
-        logView.Add(newLog);
-    }
+    private void AddCommandToLog(string input){
+        VisualElement logEntry = new VisualElement();
+        logEntry.style.flexDirection = FlexDirection.ColumnReverse;
 
-    private void ParseCommand(string input){
-        Debug.Log("DeBuGdS: ParseCommand called");
+        Label inputLog = new Label(">>> " + input);
+        logEntry.Add(inputLog);
+
+        string responseMessage;
         string[] splitInput = input.Split(' ');
-        if (splitInput.Length == 0) return;
-        
         string command = splitInput[0];
         string[] args = splitInput.Length > 1 ? splitInput[1..] : new string[0];
-
-        if (commands.ContainsKey(command)) {
+        
+        if (commands.ContainsKey(command))
+        {
             commands[command].Invoke(args);
+            responseMessage = "Executing " + command;
         }
-        else {
-            LogMessage("Unknown command: {command} ");
+        else
+        {
+            responseMessage = $"Unknown command: {input}";
         }
+
+        Label responseLog = new Label(responseMessage);
+        logEntry.Add(responseLog);
+
+        logView.contentContainer.Add(logEntry);
+
+        AutoScrollToBottom();
+    }
+    
+
+    private void AutoScrollToBottom() {
+        logView.schedule.Execute(() => {
+            logView.scrollOffset = new Vector2(0, float.MaxValue);
+        }).ExecuteLater(10);
     }
 
-    private void RegisterCommands() {
+    private void RegisterCommands()
+    {
         Debug.Log("DeBuGdS: RegisterCommands called");
         commands.Add("load_scene", args => LoadScene(args));
     }
 
-    private void LoadScene(string[] args) {
+    private void LoadScene(string[] args)
+    {
         Debug.Log("DeBuGdS: Load Scene Called ");
-        if (args.Length < 1) {
-            LogMessage("Usage: load_scene <scene_name>");
+        if (args.Length < 1)
+        {
+            AddCommandToLog("Usage: load_scene <scene_name>");
             return;
         }
         string sceneName = args[0];
-        try {
+        try
+        {
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
-            LogMessage($"Loaded scene: {sceneName}");
+            AddCommandToLog($"Loaded scene: {sceneName}");
         }
-        catch (Exception e) {
-            LogMessage($"Erorr loading scene: {e.Message}");
+        catch (Exception e)
+        {
+            AddCommandToLog($"Erorr loading scene: {e.Message}");
         }
     }
 
