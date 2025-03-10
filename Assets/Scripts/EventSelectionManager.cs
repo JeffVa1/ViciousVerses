@@ -7,6 +7,9 @@ public class EventSelectionManager : MonoBehaviour
     public TMP_Dropdown BookStoreDropdown;
     public TMP_Dropdown TravelDropdown;
 
+    public int max_events = 3;
+    public int used_events = 0;
+
     void Start()
     {
         InnDropdown.onValueChanged.AddListener(delegate { OnDropdownItemSelected(InnDropdown); });
