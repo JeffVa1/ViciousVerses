@@ -6,6 +6,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Utilities;
+using UnityEngine.Scripting;
+
 
 using static Bard;
 using static Dictionary;
@@ -263,4 +265,160 @@ public class DataLoader : MonoBehaviour
 
         return await tcs.Task;
     }
+}
+
+[Preserve] // Prevents IL2CPP stripping
+public class CardData
+{
+    [Preserve] // Prevents stripping
+    public CardData() {} // Parameterless constructor
+
+    [Preserve] // Ensures constructor isn't removed
+    [JsonConstructor]
+    public CardData(
+        int ptValue,
+        float ptMultiplier,
+        int egoDmg,
+        int audienceValue,
+        bool? insult,  // Nullable since not always present
+        List<string> categories,  // Nullable since not always present
+        Dictionary<string, string> tenses  // Nullable since not always present
+    )
+    {
+        this.ptValue = ptValue;
+        this.ptMultiplier = ptMultiplier;
+        this.egoDmg = egoDmg;
+        this.audienceValue = audienceValue;
+        this.insult = insult ?? false;
+        this.categories = categories ?? new List<string>();
+        this.tenses = tenses ?? new Dictionary<string, string>();
+    }
+
+    [Preserve] [JsonProperty("ptValue")]
+    public int ptValue { get; set; }
+
+    [Preserve] [JsonProperty("ptMultiplier")]
+    public float ptMultiplier { get; set; }
+
+    [Preserve] [JsonProperty("egoDmg")]
+    public int egoDmg { get; set; }
+
+    [Preserve] [JsonProperty("audienceValue")]
+    public int audienceValue { get; set; }
+
+    [Preserve] [JsonProperty("insult", NullValueHandling = NullValueHandling.Ignore)]
+    public bool? insult { get; set; }
+
+    [Preserve] [JsonProperty("categories", NullValueHandling = NullValueHandling.Ignore)]
+    public List<string> categories { get; set; }
+
+    [Preserve] [JsonProperty("tenses", NullValueHandling = NullValueHandling.Ignore)]
+    public Dictionary<string, string> tenses { get; set; }
+}
+
+[System.Serializable]
+[Preserve] // Prevent IL2CPP stripping
+public class JournalPhraseData
+{
+    [Preserve]
+
+    public JournalPhraseData() 
+    {
+        this.phrase = "";
+        this.blanks = 0;
+        this.blank_info = new List<BlankData>(); // Prevent null references
+    }
+
+    [Preserve]
+    [JsonConstructor]
+    public JournalPhraseData(string phrase, int blanks, List<BlankData> blank_info)
+    {
+        this.phrase = phrase ?? ""; // Default to empty string
+        this.blanks = blanks;
+        this.blank_info = blank_info ?? new List<BlankData>(); // Ensure no null reference
+    }
+
+    [Preserve] [JsonProperty("phrase", NullValueHandling = NullValueHandling.Include)]
+    public string phrase { get; set; }
+
+    [Preserve] [JsonProperty("blanks", NullValueHandling = NullValueHandling.Include)]
+    public int blanks { get; set; }
+
+    [Preserve] [JsonProperty("blank_info", NullValueHandling = NullValueHandling.Include)]
+    public List<BlankData> blank_info { get; set; }
+}
+
+
+
+[System.Serializable]
+[Preserve] // Prevent IL2CPP stripping
+[JsonObject(MemberSerialization.OptIn)]
+public class BlankData
+{
+    [Preserve]
+
+    public BlankData()
+    {
+        this.blank_id = 0;
+        this.blank_attributes = new BlankAttributes();
+    }
+
+    [Preserve]
+    [JsonConstructor]
+    public BlankData(int blank_id, BlankAttributes blank_attributes)
+    {
+        this.blank_id = blank_id;
+        this.blank_attributes = blank_attributes ?? new BlankAttributes();
+    }
+
+    [Preserve] [JsonProperty("blank_id", NullValueHandling = NullValueHandling.Include)]
+    public int blank_id { get; set; }
+
+    [Preserve] [JsonProperty("blank_attributes", NullValueHandling = NullValueHandling.Include)]
+    public BlankAttributes blank_attributes { get; set; }
+}
+
+
+
+
+[System.Serializable]
+[Preserve] // Prevent IL2CPP stripping
+public class BlankAttributes
+{
+    [Preserve]
+
+    public BlankAttributes()
+    {
+        this.word = "";
+        this.PreferredPOS = "";
+        this.PreferredCAT = "";
+        this.Insult = false;
+        this.Tense = "";
+    }
+
+    [Preserve]
+    [JsonConstructor]
+    public BlankAttributes(string word, string PreferredPOS, string PreferredCAT, bool? Insult, string Tense)
+    {
+        this.word = word ?? "";
+        this.PreferredPOS = PreferredPOS ?? "";
+        this.PreferredCAT = PreferredCAT ?? "";
+        this.Insult = Insult ?? false;
+        this.Tense = Tense ?? "";
+    }
+
+    [Preserve] [JsonProperty("word", NullValueHandling = NullValueHandling.Include)]
+    public string word { get; set; }
+
+    [Preserve] [JsonProperty("PreferredPOS", NullValueHandling = NullValueHandling.Include)]
+    public string PreferredPOS { get; set; }
+
+    [Preserve] [JsonProperty("PreferredCAT", NullValueHandling = NullValueHandling.Include)]
+    public string PreferredCAT { get; set; }
+
+    [Preserve] [JsonProperty("Insult", NullValueHandling = NullValueHandling.Include)]
+    public bool Insult { get; set; }
+
+    [Preserve] [JsonProperty("Tense", NullValueHandling = NullValueHandling.Include)]
+    public string Tense { get; set; }
 }
