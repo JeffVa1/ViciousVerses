@@ -60,31 +60,39 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);  // This prevents destruction on scene changes
         SceneManager.sceneLoaded += OnSceneLoaded; // Subscribe to sceneLoaded event
-
-        await LoadPlayerData();
-        await LoadOpponentData();
-        await LoadShopData();
+        
+        StartCoroutine(WaitForDataLoader());
 
         // Initialize game state
         CurrentState = GameState.Menu;
     }
 
-    private async Task LoadPlayerData()
+    private IEnumerator WaitForDataLoader()
     {
-        List<Card> nouns = await ParseCardsFromJson("defaultNouns.json", "noun");
-        List<Card> verbs = await ParseCardsFromJson("defaultVerbs.json", "verb");
-        Dictionary playerDictionary = new Dictionary(new List<Card>(nouns).Concat(verbs).ToList());
-        List<JournalPhrase> playerPhrases = await ParsePhrasesFromJson("playerPhrases.json");
+        while (DataLoader.Instance == null || DataLoader.Instance.IsLoading)
+        {
+            yield return null;
+        }
+
+        LoadPlayerData();
+        LoadOpponentData();
+        LoadShopData();
+    }
+
+    private void LoadPlayerData()
+    {
+        List<Card> playerCards = DataLoader.Instance.PlayerCards;
+        Dictionary playerDictionary = new Dictionary(playerCards);
+        List<JournalPhrase> playerPhrases = DataLoader.Instance.PlayerPhrases;
         PlayerBard = new Bard(playerDictionary, new Journal(playerPhrases));
         PlayerBard.SetRandomDeck();
     }
 
-    private async Task LoadOpponentData()
+    private void LoadOpponentData()
     {
-        List<Card> nouns = await ParseCardsFromJson("opponentNouns.json", "noun");
-        List<Card> verbs = await ParseCardsFromJson("opponentVerbs.json", "verb");
-        Dictionary opponentDictionary = new Dictionary(new List<Card>(nouns).Concat(verbs).ToList());
-        List<JournalPhrase> opponentPhrases = await ParsePhrasesFromJson("genericOpponentPhrases.json");
+        List<Card> opponentCards = DataLoader.Instance.OpponentCards;
+        Dictionary opponentDictionary = new Dictionary(opponentCards);
+        List<JournalPhrase> opponentPhrases = DataLoader.Instance.OpponentPhrases;
         OpponentBard1 = new Bard(opponentDictionary, new Journal(opponentPhrases));
         OpponentBard2 = new Bard(opponentDictionary, new Journal(opponentPhrases));
         OpponentBard3 = new Bard(opponentDictionary, new Journal(opponentPhrases));
@@ -93,13 +101,10 @@ public class GameManager : MonoBehaviour
         OpponentBard3.SetRandomDeck();
     }
 
-    private async Task LoadShopData()
+    private void LoadShopData()
     {
-        shop_cards = new List<Card>();
-        List<Card> nouns = await ParseCardsFromJson("shopVerbs.json", "noun");
-        List<Card> verbs = await ParseCardsFromJson("shopNouns.json", "verb");
-        shop_cards = nouns.Concat(verbs).ToList();
-        shop_phrases = await ParsePhrasesFromJson("shopPhrases.json");
+        shop_cards = DataLoader.Instance.ShopCards;
+        shop_phrases = DataLoader.Instance.ShopPhrases;
     }
 
     private void OnDisable()
